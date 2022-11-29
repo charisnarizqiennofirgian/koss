@@ -1,0 +1,511 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,700&display=swap");
+
+:root {
+  --custom-button-color : #11296B;
+  --custom-button-hover : rgb(250, 90, 3);
+}
+
+html,
+body {
+  background-color: white;
+  overflow-x: hidden; /* Prevent scroll on narrow devices */
+  font-size: .875rem;
+}
+
+body {
+  padding-top: 68px;
+  margin: 0px;
+  font-family: 'Poppins','Courier New', Courier, monospace !important;
+}
+
+/* CUSTOM */
+a.btn.btn-custom{
+  background-color: var(--custom-button-color);
+  color: #ffff;
+  padding: 0.5rem 1.5rem;
+}
+
+.btn.btn-custom-daftar{
+  background-color: var(--custom-button-color);
+  color: #ffff;
+  padding: 0.8rem 5rem;
+  border-radius: 28px;
+  width: 50%;
+}
+
+img.avatar {
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+}
+
+.img-brand{
+  margin-bottom: 20%;
+  width: 12%;
+  height: 45px;
+}
+
+.form-control.w-50{
+border-radius: 12px;
+border: 1px solid #BABABA;
+box-sizing: border-box;
+padding: 1% 3%;
+margin-bottom: 2%;
+color: black;
+}
+
+a.btn.btn-outline-dark.shadow.mt-1.custom {
+  border-radius: 0px;
+  width: 50%;
+}
+
+.footer-text.pull-left div.d-flex img {
+  margin-bottom: 60px;
+}
+
+.footer-card{
+  border-top: 1px solid rgb(234, 233, 233);
+  width: 100%;
+}
+
+/* END CUSTOM */
+
+/* NAVBAR */
+@media (max-width: 991.98px) {
+  .offcanvas-collapse {
+    position: fixed;
+    top: 56px; /* Height of navbar */
+    bottom: 0;
+    left: 100%;
+    width: 100%;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    overflow-y: auto;
+    visibility: hidden;
+    background-color: #f8f9fa;
+    transition: visibility .3s ease-in-out, -webkit-transform .3s ease-in-out;
+    transition: transform .3s ease-in-out, visibility .3s ease-in-out;
+    transition: transform .3s ease-in-out, visibility .3s ease-in-out, -webkit-transform .3s ease-in-out;
+  }
+  .offcanvas-collapse.open {
+    visibility: visible;
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+}
+
+.nav-link.reg{
+  color: rgb(0, 0, 0);
+  font-size: 1rem !important;
+}
+
+.nav-link.reg:hover{
+  color: rgb(250, 90, 3);
+}
+
+ul.navbar-nav.ml-2 {
+  font-size: 1rem;
+}
+
+.bg-light{
+  background-color: #ffff !important;
+}
+
+.nav-scroller {
+  position: relative;
+  z-index: 2;
+  height: 2.75rem;
+  overflow-y: hidden;
+}
+
+.nav-scroller .nav {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  padding-bottom: 1rem;
+  margin-top: -1px;
+  overflow-x: auto;
+  color: rgba(255, 255, 255, .75);
+  text-align: center;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+.nav-underline .nav-link {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  font-size: .875rem;
+  color: #6c757d;
+}
+
+.nav-underline .nav-link:hover {
+  color: #007bff;
+}
+
+.nav-underline .active {
+  font-weight: 500;
+  color: #343a40;
+}
+
+.navbar.navbar-expand-lg.fixed-top.navbar-static-top.navbar-light.bg-light{
+  padding: 0.5rem 4rem;
+  border-bottom: 1px solid rgb(203, 203, 203);
+}
+
+.bg-purple { background-color: #6f42c1; }
+
+.lh-100 { line-height: 1; }
+.lh-125 { line-height: 1.25; }
+.lh-150 { line-height: 1.5; }
+
+.container.navbar-wrapper{
+  padding: 0.1rem 0rem;
+  width: 80%;
+}
+
+.navbar-light .navbar-nav .nav-link{
+  color: black !important;
+  /* padding-left: 2rem; */
+  padding: 0rem 2rem;
+}
+
+.navbar-light .navbar-nav .nav-link:hover{
+  color: rgb(250, 90, 3) !important;
+}
+
+@media only screen and (max-width: 990px) {
+  .ml-auto.button-navbar{
+    padding: 0rem 2rem;
+  }
+  ul.navbar-nav.ml-2{
+    padding-top: 1rem 0rem;
+
+  }
+
+  .navbar-light .navbar-nav .nav-link{
+    padding: 0.5rem 2rem;
+  }
+
+  .navbar-light .navbar-nav li:last-child{
+    margin-bottom: 1rem;
+  }
+
+  .navbar-light .navbar-nav li:first-child{
+    margin-top: 1rem;
+  }
+
+  .pt-5.pb-5.testimoni{
+    display: none;
+  }
+
+  .h5.pl-2{
+    font-size: 0.8rem;
+  }
+
+  h6.stats-pembayaran{
+    font-size: 0.8rem;
+  }
+  
+}
+
+/* END NAVBAR */
+
+/* SIDEBAR */
+.nav.flex-column.flex-nowrap.vh-100.overflow-auto.p-2 a.nav-link{
+  padding: 10px 0px;
+  color: rgb(0, 0, 0);
+  font-size: 1.2rem;
+  /* background-color: var(--custom-button-color); */
+}
+
+.nav.flex-column.flex-nowrap.vh-100.overflow-auto.p-2 a.nav-link i{
+  padding: 0px 10px;
+  /* background-color: var(--custom-button-color); */
+}
+/*END SIDEBAR */
+
+
+/* Banner Image */
+.banner-header{
+  padding: 2%;
+}
+/* END banner Image */
+
+/* Voucher */
+.wrapper-voucher{
+  padding: 1rem 0rem;
+}
+/* End Voucher */
+
+/* Card rekomendasi */
+.rate{
+  color: #acacac;
+  font-size: 0.6rem;
+}
+
+span.font-weight-small {
+  font-size: 0.8rem;
+}
+
+span.star.fas.fa-star.text-warning {
+  font-size: 0.8rem;
+}
+
+span.small.lh-120 {
+  font-size: 0.8rem;
+}
+
+.card-body {
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 0.4rem 1.25rem;
+}
+
+a.btn.btn-outline-dark.shadow.mt-1 {
+  border-color: var(--custom-button-color);
+  color: var(--custom-button-color);
+  border-radius: 28px;
+}
+
+a.btn.btn-outline-dark.shadow.mt-1:hover {
+  background-color: var(--custom-button-color);
+  color: #ffff;
+}
+
+.col-md-6.col-lg-3 {
+  padding-left: 0px;
+}
+/*END Card rekomendasi */
+
+/* Area Terpopuler */
+.col-lg-4.col-md-6 {
+  padding-left: 0px;
+}
+/* END Area Terpopuler */
+
+
+/* TESTIMONAL */
+.testimonial3 {
+  font-family: "Poppins", sans-serif;
+  color: #8d97ad;
+  font-weight: 300;
+}
+
+.testimonial3 h1,
+.testimonial3 h2,
+.testimonial3 h3,
+.testimonial3 h4,
+.testimonial3 h5,
+.testimonial3 h6 {
+  color: #3e4555;
+}
+
+.testimonial3 .font-weight-medium {
+  font-weight: 500;
+}
+
+.testimonial3 .bg-light {
+  background-color: #f4f8fa !important;
+}
+
+.testimonial3 .subtitle {
+  color: #8d97ad;
+  line-height: 24px;
+}
+
+.testimonial3 .testi3 .card-body {
+  padding: 40px;
+}
+
+.testimonial3 .testi3 h6 {
+  line-height: 26px;
+}
+
+.testimonial3 .testi3 .thumb-img img {
+  width: 60px;
+}
+
+.testimonial3 .testi3 .customer {
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.testimonial3 .card.card-shadow {
+    -webkit-box-shadow: 0px 0px 30px rgba(115, 128, 157, 0.1);
+    box-shadow: 0px 0px 30px rgba(115, 128, 157, 0.1);
+}
+
+.testimonial3 .font-10 {
+	font-size: 10px;
+}
+
+.testimonial3 .text-success {
+    color: #2cdd9b !important;
+}
+
+.testimonial3 .text-muted {
+    color: #8d97ad !important;
+}
+
+.testimonial3 .owl-theme .owl-dots .owl-dot.active span,
+.testimonial3 .owl-theme .owl-dots .owl-dot:hover span {
+  background: #316ce8;
+}
+
+.d-inline.owl-carousel__prev,
+.d-inline.owl-carousel__next {
+  background: navy;
+  color: #fff;
+  padding: 5px 10px;
+  margin-left: 5px;
+  cursor: pointer;
+  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+}
+
+.item{
+  margin: 0px 20px;
+}
+
+.testimoni{
+  background-color: #EAF1F8;
+}
+/* END TESTIMONAL */
+
+/* Dashboard */
+.box-check{
+  border: 1px solid #E0E0E0; 
+  height: 50px;
+  width: 100%;
+  padding-left: 20px; 
+}
+
+.box-checks{
+  border: 1px solid #E0E0E0; 
+  height: 50px;
+}
+
+.information{
+  height: 50px;
+  width: 90%;
+  padding: 15px 10px 10px;
+}
+
+.count{
+  color: green;
+}
+
+.d-flex.information.align-items-center h5{
+  color: var(--custom-button-color);
+}
+
+.button-next,
+.button-next:hover{
+  font-size: 2rem;
+  color: rgb(201, 201, 201);
+  text-decoration: none;
+  float: right;
+}
+
+
+.main-content {
+	padding-top: 100px;
+	padding-bottom: 100px;
+}
+
+.user-info {
+	display: flex;
+	align-items: center;
+}
+.user-info__img img {
+	margin-right: 15px;
+	height: 55px;
+	width: 55px;
+	border-radius: 45px;
+	border: 3px solid #fff;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h6.stats-pembayaran {
+  background-color: pink;
+  color: #fd2e2e;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+/* SIDEBAR */
+
+.side{
+  margin-bottom: 10px;
+}
+
+.side:hover{
+  background-color: #9ad4bf;
+  border-radius: 5px;
+}
+
+.side.active{
+  background-color: var(--custom-button-color);
+  border-radius: 5px;
+  color: #fff !important;
+}
+/* END SIDEBAR */
+
+/* Kota Card */
+.col-lg-4.col-md-6, 
+.col-lg-4.col-md-6 div.card, 
+.col-lg-4.col-md-6 div.card img.card-img{
+  width: 100%;
+  border-radius: 10px;
+}
+.col-lg-4.col-md-6 {
+margin-bottom: 3rem;
+}
+/* End Kota card */
+
+/* Carousel */
+#myCarousel .list-inline {
+  white-space:nowrap;
+  overflow-x:auto;
+}
+
+#myCarousel .carousel-indicators {
+  position: static;
+  left: initial;
+  width: initial;
+  margin-left: initial;
+}
+
+#myCarousel .carousel-indicators > li {
+  width: initial;
+  height: initial;
+  text-indent: initial;
+}
+
+#myCarousel .carousel-indicators > li.active img {
+  opacity: 0.7;
+}
+/* END CAROUSEL */
+
+.form-login {
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+}
+
+.form-register {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
