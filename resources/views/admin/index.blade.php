@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Kost Ku</title>
+    <title>kostku.</title>
     <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
     <link rel="icon" href="{{url('admin/img/icon.ico')}}" type="image/x-icon" />
 
@@ -40,10 +40,10 @@
     <div class="wrapper">
         <div class="main-header">
             <!-- Logo Header -->
-            <div class="logo-header" data-background-color="blue">
+            <div class="logo-header" data-background-color="white">
 
                 <a href="index.html" class="logo">
-                    <img src="{{url('admin/img/logo.svg')}}" alt="navbar brand" class="navbar-brand">
+                    <img src="{{url('assets/image/logo-brand.png')}}" alt="navbar brand" class="navbar-brand">
                 </a>
                 <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse"
                     data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">

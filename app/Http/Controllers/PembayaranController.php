@@ -6,10 +6,11 @@ use Illuminate\Http\Request;
 
 // import model pembayaran
 use App\Models\Pembayaran;
-// use DB;
+use DB;
 use PDF;
 use App\Exports\ExportPembayaran;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Models\User;
 
 class PembayaranController extends Controller
 {
@@ -57,7 +58,16 @@ class PembayaranController extends Controller
      */
     public function show($id)
     {
-        //
+        $pembayaran_id = DB::table('pembayaran')
+            ->join('users', 'pembayaran.id_user', '=', 'users.id')
+            ->select('pembayaran.id', 'pembayaran.kode_bayar', 'pembayaran.tanggal_masuk', 'pembayaran.total_bayar', 'users.name', 'users.email')
+            ->get();
+        
+        $data = collect($pembayaran_id)->first();
+    
+        // $user = User::all();
+        // $pembayaran_id = Pembayaran::find($id);
+        return view('admin.pembayaran.detailPembayaran',compact('data'));
     }
 
     /**
