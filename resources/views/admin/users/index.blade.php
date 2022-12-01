@@ -83,8 +83,7 @@
                                                     <form method="POST">
                                                         @csrf
                                                         <a href="{{route('users.show', $us->id)}}"
-                                                            class="btn btn-link btn-primary btn-lg" data-toggle="modal"
-                                                            data-target="#addRowModal">
+                                                            class="btn btn-link btn-primary btn-lg">
                                                             <i class="fa fa-eye"></i>
                                                         </a>
                                                     </form>
@@ -110,8 +109,6 @@
                                                                 </div>
                                                                 <div class="modal-body">
                                                                     <!-- isi -->
-
-
                                                                     <div class="row g-0">
                                                                         <div class="col-md-4 gradient-custom text-center text-white"
                                                                             style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">

@@ -25,7 +25,7 @@ class InfoKostController extends Controller
         // return view('landingpage.info_kamar', compact('kost', 'd_fasilitas'));
 
         $kost = Kost::all();
-        return view('landingpage.info_kamar', compact('kost'));
+        return view('landingpage.home', compact('kost'));
     }
 
     /**

@@ -1,333 +1,143 @@
 @extends('landingpage.app')
 @section('content')
-<div class="banner-header">
-    <img src="assets/image/banner.png" class="banner-img img-fluid">
-  </div>
 
-  <div class="container">
-    
+<div class="container-fluid p-0">
+    <img src="{{url('assets/image/banner.png')}}" class="banner-img img-fluid">
+</div>
+<div class="container">
     <!-- Voucher -->
     <div class="owl-carousel wrapper-voucher">
-      <div>
-        <img class="img-fluid" src="assets/image/voucher/pengguna_baru.png" alt="">
-      </div>
-      <div>
-        <img class="img-fluid" src="assets/image/voucher/akhir_tahun.png" alt="">
-      </div>
-      <div>
-        <img class="img-fluid" src="assets/image/voucher/voucher_30.png" alt="" srcset="">
-      </div>
-      <div>
-        <img class="img-fluid" src="assets/image/voucher/voucher_50.png" alt="" srcset="">
-      </div>
+        <div>
+            <img class="img-fluid" src="assets/image/voucher/pengguna_baru.png" alt="">
+        </div>
+        <div>
+            <img class="img-fluid" src="assets/image/voucher/akhir_tahun.png" alt="">
+        </div>
+        <div>
+            <img class="img-fluid" src="assets/image/voucher/voucher_30.png" alt="" srcset="">
+        </div>
+        <div>
+            <img class="img-fluid" src="assets/image/voucher/voucher_50.png" alt="" srcset="">
+        </div>
     </div>
 
     <!-- Rekomendasi -->
     <section class="pt-5 pb-5">
-      <div class="header-tittle mb-4">
-        <h4>Rekomendasi Kost</h4>
-      </div>
-      <div class="container">
-        <div class="row mb-md-2 d-flex">
-            
-            <div class="col-md-6 col-lg-3">
-                <div class="card shadow-sm border-light mb-4">
-                    <a href="#" class="position-relative">
-                        <img src="assets/image/example_card/image.png" class="card-img-top" alt="image"> </a>
-                    <div class="card-body">
-                      <div class="d-flex align-content-center align-items-center justify-content-between">
-                        <span class="font-weight-small">Kostan Annas</span>
-                        <div class="d-flex align-items-center align-content-center">
-                        <span class="star fas fa-star text-warning"></span>
-                        <span class="star fas fa-star text-warning"></span>
-                        <span class="star fas fa-star text-warning"></span>
-                        <span class="star fas fa-star text-warning"></span>
-                        <span class="star fas fa-star text-warning"></span>
-                        <span class="rate">(5.0)</span>
-                        </div>
-                      </div>      
-                        <div class="post-meta">
-                          <span class="small lh-120">
-                            <i class="fas fa-map-marker-alt mr-2">
-                            </i>Jakarta
-                          </span>
-                          </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-3">
-                <div class="card shadow-sm border-light mb-4">
-                    <a href="#" class="position-relative">
-                        <img src="assets/image/example_card/image.png" class="card-img-top" alt="image"> </a>
-                    <div class="card-body">
-                      <div class="d-flex align-content-center align-items-center justify-content-between">
-                        <span class="font-weight-small">Kostan Annas</span>
-                        
-                        <div class="d-flex align-items-center align-content-center">
-                        <span class="star fas fa-star text-warning"></span>
-                        <span class="star fas fa-star text-warning"></span>
-                        <span class="star fas fa-star text-warning"></span>
-                        <span class="star fas fa-star text-warning"></span>
-                        <span class="star fas fa-star text-warning"></span>
-                        <span class="rate">(5.0)</span>
-                        </div>
-                      </div>      
-                        <div class="post-meta">
-                          <span class="small lh-120">
-                            <i class="fas fa-map-marker-alt mr-2">
-                            </i>Jakarta
-                          </span>
-                          </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-3">
-                <div class="card shadow-sm border-light mb-4">
-                    <a href="#" class="position-relative">
-                        <img src="assets/image/example_card/image.png" class="card-img-top" alt="image"> </a>
-                    <div class="card-body">
-                      <div class="d-flex align-content-center align-items-center justify-content-between">
-                        <span class="font-weight-small">Kostan Annas</span>
-                        
-                        <div class="d-flex align-items-center align-content-center">
-                        <span class="star fas fa-star text-warning"></span>
-                        <span class="star fas fa-star text-warning"></span>
-                        <span class="star fas fa-star text-warning"></span>
-                        <span class="star fas fa-star text-warning"></span>
-                        <span class="star fas fa-star text-warning"></span>
-                        <span class="rate">(5.0)</span>
-                        </div>
-                      </div>      
-                        <div class="post-meta">
-                          <span class="small lh-120">
-                            <i class="fas fa-map-marker-alt mr-2">
-                            </i>Jakarta
-                          </span>
-                          </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-3">
-                <div class="card shadow-sm border-light mb-4">
-                    <a href="#" class="position-relative">
-                        <img src="assets/image/example_card/image.png" class="card-img-top" alt="image"> </a>
-                    <div class="card-body">
-                      <div class="d-flex align-content-center align-items-center justify-content-between">
-                        <span class="font-weight-small">Kostan Annas</span>
-                        
-                        <div class="d-flex align-items-center align-content-center">
-                        <span class="star fas fa-star text-warning"></span>
-                        <span class="star fas fa-star text-warning"></span>
-                        <span class="star fas fa-star text-warning"></span>
-                        <span class="star fas fa-star text-warning"></span>
-                        <span class="star fas fa-star text-warning"></span>
-                        <span class="rate">(5.0)</span>
-                        </div>
-                      </div>      
-                        <div class="post-meta">
-                          <span class="small lh-120">
-                            <i class="fas fa-map-marker-alt mr-2">
-                            </i>Jakarta
-                          </span>
-                          </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-3">
-                <div class="card shadow-sm border-light mb-4">
-                    <a href="#" class="position-relative">
-                        <img src="assets/image/example_card/image.png" class="card-img-top" alt="image"> </a>
-                    <div class="card-body">
-                      <div class="d-flex align-content-center align-items-center justify-content-between">
-                        <span class="font-weight-small">Kostan Annas</span>
-                        
-                        <div class="d-flex align-items-center align-content-center">
-                        <span class="star fas fa-star text-warning"></span>
-                        <span class="star fas fa-star text-warning"></span>
-                        <span class="star fas fa-star text-warning"></span>
-                        <span class="star fas fa-star text-warning"></span>
-                        <span class="star fas fa-star text-warning"></span>
-                        <span class="rate">(5.0)</span>
-                        </div>
-                      </div>      
-                        <div class="post-meta">
-                          <span class="small lh-120">
-                            <i class="fas fa-map-marker-alt mr-2">
-                            </i>Jakarta
-                          </span>
-                          </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-3">
-                <div class="card shadow-sm border-light mb-4">
-                    <a href="#" class="position-relative">
-                        <img src="assets/image/example_card/image.png" class="card-img-top" alt="image"> </a>
-                    <div class="card-body">
-                      <div class="d-flex align-content-center align-items-center justify-content-between">
-                        <span class="font-weight-small">Kostan Annas</span>
-                        
-                        <div class="d-flex align-items-center align-content-center">
-                        <span class="star fas fa-star text-warning"></span>
-                        <span class="star fas fa-star text-warning"></span>
-                        <span class="star fas fa-star text-warning"></span>
-                        <span class="star fas fa-star text-warning"></span>
-                        <span class="star fas fa-star text-warning"></span>
-                        <span class="rate">(5.0)</span>
-                        </div>
-                      </div>      
-                        <div class="post-meta">
-                          <span class="small lh-120">
-                            <i class="fas fa-map-marker-alt mr-2">
-                            </i>Jakarta
-                          </span>
-                          </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-3">
-                <div class="card shadow-sm border-light mb-4">
-                    <a href="#" class="position-relative">
-                        <img src="assets/image/example_card/image.png" class="card-img-top" alt="image"> </a>
-                    <div class="card-body">
-                      <div class="d-flex align-content-center align-items-center justify-content-between">
-                        <span class="font-weight-small">Kostan Annas</span>
-                        
-                        <div class="d-flex align-items-center align-content-center">
-                        <span class="star fas fa-star text-warning"></span>
-                        <span class="star fas fa-star text-warning"></span>
-                        <span class="star fas fa-star text-warning"></span>
-                        <span class="star fas fa-star text-warning"></span>
-                        <span class="star fas fa-star text-warning"></span>
-                        <span class="rate">(5.0)</span>
-                        </div>
-                      </div>      
-                        <div class="post-meta">
-                          <span class="small lh-120">
-                            <i class="fas fa-map-marker-alt mr-2">
-                            </i>Jakarta
-                          </span>
-                          </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-3">
-                <div class="card shadow-sm border-light mb-4">
-                    <a href="#" class="position-relative">
-                        <img src="assets/image/example_card/image.png" class="card-img-top" alt="image"> </a>
-                    <div class="card-body">
-                      <div class="d-flex align-content-center align-items-center justify-content-between">
-                        <span class="font-weight-small">Kostan Annas</span>
-                        
-                        <div class="d-flex align-items-center align-content-center">
-                        <span class="star fas fa-star text-warning"></span>
-                        <span class="star fas fa-star text-warning"></span>
-                        <span class="star fas fa-star text-warning"></span>
-                        <span class="star fas fa-star text-warning"></span>
-                        <span class="star fas fa-star text-warning"></span>
-                        <span class="rate">(5.0)</span>
-                        </div>
-                      </div>      
-                        <div class="post-meta">
-                          <span class="small lh-120">
-                            <i class="fas fa-map-marker-alt mr-2">
-                            </i>Jakarta
-                          </span>
-                          </div>
-                    </div>
-                </div>
-            </div>
-
+        <div class="header-tittle mb-4">
+            <h4>Rekomendasi Kost</h4>
         </div>
-        <!-- Button Open  -->
-        <div class="row py-2">
-            <div class="col text-center">
-                <a href="#" class="btn btn-outline-dark shadow mt-1">Lihat Semua</a>
+        <div class="container">
+            <div class="row mb-md-2 d-flex">
+                @foreach($kost as $k)
+                <div class="col-md-6 col-lg-3">
+                    <div class="card shadow-sm border-light mb-4">
+                        <a href="#" class="position-relative">
+                            <img src="{{url('admin/img/'.$k->foto_kamar)}}" class="card-img-top" alt="image"> </a>
+                        <div class="card-body">
+                            <div class="d-flex align-content-center align-items-center justify-content-between">
+                                <span class="font-weight-small">{{$k->nama_kost}}</span>
+                                <div class="d-flex align-items-center align-content-center">
+                                    <span class="star fas fa-star text-warning"></span>
+                                    <span class="star fas fa-star text-warning"></span>
+                                    <span class="star fas fa-star text-warning"></span>
+                                    <span class="star fas fa-star text-warning"></span>
+                                    <span class="star fas fa-star text-warning"></span>
+                                    <span class="rate">(5.0)</span>
+                                </div>
+                            </div>
+                            <div class="post-meta">
+                                <span class="small lh-120">
+                                    <i class="fas fa-map-marker-alt mr-2">
+                                    </i>{{$k->alamat_kost}}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+            <!-- Button Open  -->
+            <div class="row py-2">
+                <div class="col text-center">
+                    <a href="#" class="btn btn-outline-dark shadow mt-1">Lihat Semua</a>
+                </div>
             </div>
         </div>
-    </div>
     </section>
 
     <!-- Kota -->
-   <section class="pt-5 pb-5">
-    <div class="header-tittle mb-4">
-      <h4>Area Kost Terpopuler</h4>
+    <section class="pt-5 pb-5">
+        <div class="header-tittle mb-4">
+            <h4>Area Kost Terpopuler</h4>
+        </div>
+
+        <div class="container">
+            <div class="row ">
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <img class="card-img" src="assets/image/kota/bandung.png" alt="">
+                        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+                            <h5 class="card-title text-light">Bandung</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <img class="card-img" src="assets/image/kota/jakarta.png" alt="">
+                        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+                            <h5 class="card-title text-light">Jakarta</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <img class="card-img" src="assets/image/kota/jogja.png" alt="">
+                        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+                            <h5 class="card-title text-light">Yogyakarta</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <img class="card-img" src="assets/image/kota/malang.png" alt="">
+                        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+                            <h5 class="card-title text-light">Malang</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <img class="card-img" src="assets/image/kota/medan.png" alt="">
+                        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+                            <h5 class="card-title text-light">Medan</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <img class="card-img" src="assets/image/kota/semarang.png" alt="">
+                        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+                            <h5 class="card-title text-light">Semarang</h5>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <div class="row py-2 mb-5">
+        <div class="col text-center">
+            <a href="#" class="btn btn-outline-dark shadow mt-1">Lihat Semua</a>
+        </div>
     </div>
 
-    <div class="container">
-      <div class="row ">
-    
-        <div class="col-lg-4 col-md-6">
-            <div class="card">
-              <img class="card-img" src="assets/image/kota/bandung.png" alt="">
-              <div class="card-img-overlay d-flex justify-content-center align-items-center">
-                <h5 class="card-title text-light">Bandung</h5>
-              </div>
-            </div>
-        </div>
-    
-        <div class="col-lg-4 col-md-6">
-          <div class="card">
-            <img class="card-img" src="assets/image/kota/jakarta.png" alt="">
-            <div class="card-img-overlay d-flex justify-content-center align-items-center">
-              <h5 class="card-title text-light">Jakarta</h5>
-            </div>
-          </div>
-        </div>
-    
-        <div class="col-lg-4 col-md-6">
-          <div class="card">
-            <img class="card-img" src="assets/image/kota/jogja.png" alt="">
-            <div class="card-img-overlay d-flex justify-content-center align-items-center">
-              <h5 class="card-title text-light">Yogyakarta</h5>
-            </div>
-          </div>
-        </div>
-    
-        <div class="col-lg-4 col-md-6">
-          <div class="card">
-            <img class="card-img" src="assets/image/kota/malang.png" alt="">
-            <div class="card-img-overlay d-flex justify-content-center align-items-center">
-              <h5 class="card-title text-light">Malang</h5>
-            </div>
-          </div>
-        </div>
-    
-        <div class="col-lg-4 col-md-6">
-          <div class="card">
-            <img class="card-img" src="assets/image/kota/medan.png" alt="">
-            <div class="card-img-overlay d-flex justify-content-center align-items-center">
-              <h5 class="card-title text-light">Medan</h5>
-            </div>
-          </div>
-        </div>
-    
-        <div class="col-lg-4 col-md-6">
-          <div class="card">
-            <img class="card-img" src="assets/image/kota/semarang.png" alt="">
-            <div class="card-img-overlay d-flex justify-content-center align-items-center">
-              <h5 class="card-title text-light">Semarang</h5>
-            </div>
-          </div>
-        </div>
-    
-      </div>
-    </div>
-   </section>
-   <div class="row py-2 mb-5">
-    <div class="col text-center">
-        <a href="#" class="btn btn-outline-dark shadow mt-1">Lihat Semua</a>
-    </div>
-</div>
-
-<!--  -->
+    <!--  -->
 </div>
 <!--  -->
 

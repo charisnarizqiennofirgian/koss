@@ -35,9 +35,9 @@ Auth::routes();
 // });
 
 // Routing Landing Page
-Route::get('/', function () {
-    return view('landingpage.index');
-}); //well
+Route::get('/coba/{id}', [UsersController::class], 'show');
+
+Route::resource('/', InfoKostController::class ); //well
 
 Route::get('/beranda', function () {
     return view('landingpage.home');
