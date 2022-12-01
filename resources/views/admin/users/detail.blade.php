@@ -18,12 +18,11 @@
                                         <p class="text-muted mb-1">{{$user_id->role}}</p>
                                         <p class="text-muted mb-4">{{$user_id->pekerjaan}}</p>
                                         <div class="d-flex justify-content-center mb-2">
-                                            <a href="{{url('users')}}" class="btn btn-primary hover-overlay ms-1"><i
+                                            <a href="{{url('users')}}" class="btn bt ms-1 "><i
                                                     class="fas fa-arrow-left"></i>&nbsp;&nbsp;Back</a>
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                             <div class="col-lg-8">
                                 <div class="card mb-4">
