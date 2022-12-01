@@ -1,0 +1,9 @@
+.bt {
+    background-color: #1269db;
+    border-color: #1269db;
+    color: #ffff;
+    border-radius: 10px;
+}
+.bt:hover {
+    background-color: #ffff;
+}

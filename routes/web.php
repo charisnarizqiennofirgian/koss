@@ -39,10 +39,6 @@ Route::get('/coba/{id}', [UsersController::class], 'show');
 
 Route::resource('/', InfoKostController::class ); //well
 
-Route::get('/beranda', function () {
-    return view('landingpage.home');
-})->name('beranda'); //well /**NOTE DI TAMBAH NAME */
-
 Route::get('/daftar', function () {
     return view('landingpage.daftar');
 }); //well
