@@ -97,6 +97,7 @@ Route::middleware(['auth', 'isadmin'])->group(function () {
     Route::get('pembayaran-pdf', [PembayaranController::class, 'pembayaranPDF']);
     Route::get('pembayaran-excel', [PembayaranController::class, 'pembayaranExcel']);
     Route::get('users-pdf', [UsersController::class, 'usersPDF'] );
+    Route::get('users-excel', [UsersController::class, 'usersExcel'] );
     Route::resource('/users', UsersController::class);
 });
 

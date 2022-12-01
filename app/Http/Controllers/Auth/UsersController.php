@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 // import models users
 use App\Models\User;
 use PDF;
+// buat export excel
+use App\Exports\UserExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class UsersController extends Controller
 {
@@ -91,9 +94,14 @@ class UsersController extends Controller
     }
 
     public function usersPDF(){
-        $title = ['NO', 'NAMA', 'EMAIL', 'ROLE','PEKERJAAN', 'AKUN DIBUAT', 'DI UPDATE'];
+        $title = ['NO', 'NAMA', 'EMAIL', 'ROLE','PEKERJAAN', 'AKUN DIBUAT'];
         $users = User::all();
         $pdf = PDF::loadView('admin.users.usersPDF', compact('users', 'title'));
         return $pdf->download('data_users.pdf');
+    }
+
+
+    public function usersExcel(Request $request){
+        return Excel::download(new UserExport, 'data_users.xlsx');
     }
 }
