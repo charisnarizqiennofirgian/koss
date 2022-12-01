@@ -60,7 +60,6 @@ $title = ['No', 'Nama Kost', "Luas Kamar", "Harga Kamar", "Alamat Kost", "Ketera
                                 </div>
                             </div>
                             <div class="card-body">
-                                <!-- Modal -->
                                 <div class="table-responsive">
                                     <table id="add-row" class="display table table-striped table-hover">
                                         <thead>
