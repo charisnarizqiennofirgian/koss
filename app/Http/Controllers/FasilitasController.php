@@ -113,11 +113,11 @@ class FasilitasController extends Controller
     public function fasilitasPDF(){
         $fass = Fasilitas::orderBy('id', 'DESC')->get();
         // dd($kost);
-        $pdf = PDF::loadView('admin.fasilitas.fasilitasPDF', ['fass' => $fass]);
+        $pdf = PDF::loadView('admin.fasilitas.fasilitasPDF', compact('fass'));
         return $pdf->download('data_fasilitas.pdf');
     }
 
-    public function exportExcel(Request $request){
+    public function fasilitasExcel(Request $request){
         return Excel::download(new ExportFasilitas, 'fasilitas.xlsx');
     }
 }

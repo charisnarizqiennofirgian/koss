@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 // import models users
 use App\Models\User;
+use PDF;
 
 class UsersController extends Controller
 {
@@ -87,5 +88,12 @@ class UsersController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function usersPDF(){
+        $title = ['NO', 'NAMA', 'EMAIL', 'ROLE','PEKERJAAN', 'AKUN DIBUAT', 'DI UPDATE'];
+        $users = User::all();
+        $pdf = PDF::loadView('admin.users.usersPDF', compact('users', 'title'));
+        return $pdf->download('data_users.pdf');
     }
 }
