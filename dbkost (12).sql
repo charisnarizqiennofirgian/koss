@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 28, 2022 at 01:39 PM
+-- Generation Time: Dec 01, 2022 at 05:01 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `kelompok4_kostan`
+-- Database: `dbmykost`
 --
 
 -- --------------------------------------------------------
@@ -55,9 +55,8 @@ CREATE TABLE `fasilitas` (
 --
 
 INSERT INTO `fasilitas` (`id`, `fasilitas`, `created_at`, `updated_at`) VALUES
-(1, 'Kursi + TV + Meja', '2022-11-22 06:28:23', '2022-11-26 21:51:10'),
 (3, 'AC + TV + Meja Belajar + Wifi', '2022-11-23 08:18:12', '2022-11-26 21:57:25'),
-(4, 'Kipas Angin + TV + AC', '2022-11-26 21:57:00', '2022-11-26 21:57:00');
+(4, 'Kipas Angin + TV + AC + Kompor', '2022-11-26 21:57:00', '2022-11-29 22:25:50');
 
 -- --------------------------------------------------------
 
@@ -84,10 +83,10 @@ CREATE TABLE `kost` (
 --
 
 INSERT INTO `kost` (`id`, `nama_kost`, `luas_kamar`, `harga_kamar`, `alamat_kost`, `keterangan`, `id_fasilitas`, `foto_kamar`, `created_at`, `updated_at`, `id_user`) VALUES
-(1, 'Kamar Cendana', '10 x 10', 70000000, 'Persahabatan Jakarta Timur', 'Tersedia', 1, 'foto_kamar-10 x 10.jpg', '2022-11-23 08:17:34', '2022-11-26 22:08:01', 1),
 (3, 'Kost Warna Warni', '10 x 8', 1200000, 'Kebayoran Lama', 'Tersedia', 3, 'foto_kamar-10 x 8.jpg', '2022-11-24 08:30:23', '2022-11-26 22:05:43', 1),
 (4, 'Kamar Black Pink', '5 x 8', 700000, 'Pisangan Lama Jakarta Timur', 'Kosong', 3, 'foto_kamar-5 x 8.jpg', '2022-11-24 23:42:27', '2022-11-26 22:05:08', 2),
-(5, 'Kamar Cendana', '10 x 8', 1000000, 'Jakarta Barat', 'Tersedia', 3, 'foto_kamar-10 x 8.jpg', '2022-11-24 23:47:44', '2022-11-26 22:02:56', 2);
+(5, 'Kamar Cendana', '10 x 8', 1000000, 'Jakarta Barat', 'Tersedia', 3, 'foto_kamar-10 x 8.jpg', '2022-11-24 23:47:44', '2022-11-26 22:02:56', 2),
+(6, 'Kamar Black', '10 x 10', 70000000, 'Jalan cijantung', 'Kosong', 4, 'foto_kamar-10 x 10.png', '2022-11-30 00:35:20', NULL, 4);
 
 -- --------------------------------------------------------
 
@@ -123,6 +122,13 @@ CREATE TABLE `password_resets` (
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `password_resets`
+--
+
+INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
+('asepsahrudin0399@gmail.com', '$2y$10$J2tpIDJqFMmgxoLiZk4i8uVk90GU9bLK/sHGiHwjU0cJAIetTK2iq', '2022-11-30 01:49:10');
+
 -- --------------------------------------------------------
 
 --
@@ -144,7 +150,6 @@ CREATE TABLE `pembayaran` (
 --
 
 INSERT INTO `pembayaran` (`id`, `kode_bayar`, `tanggal_masuk`, `tanggal_keluar`, `total_bayar`, `id_kamar`, `id_user`) VALUES
-(2, 'A1114', '2022-02-22 17:00:00', '2022-03-23', 1200000, 1, 1),
 (3, 'A1115', '2022-03-11 17:00:00', '2022-04-12', 700000, 4, 1);
 
 -- --------------------------------------------------------
@@ -165,6 +170,17 @@ CREATE TABLE `personal_access_tokens` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rekomendasi_kamar`
+--
+
+CREATE TABLE `rekomendasi_kamar` (
+  `id` bigint(20) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -208,6 +224,7 @@ CREATE TABLE `users` (
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `role` enum('admin','customer','pemilik') COLLATE utf8mb4_unicode_ci NOT NULL,
   `pekerjaan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `telp` bigint(20) NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -219,11 +236,11 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `role`, `pekerjaan`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'budi', 'budi@gmail.com', 'customer', 'Programmer', NULL, '$2y$10$xvTHcuZOpO9VvsAv.U.PKOWc68jE1cVy/XzRZveZNFxlsNbId3QX.', NULL, '2022-11-22 10:11:57', '2022-11-22 10:11:57'),
-(2, 'Asep Sahrudin', 'asepsahrudin0399@gmail.com', 'admin', 'ReactJs Developer', NULL, '$2y$10$34cvo3vS5OmKsPM17Yok7.4JfevVFo5PJ476GpVdPJQcImB8PHLli', NULL, '2022-11-23 08:59:40', '2022-11-23 08:59:40'),
-(3, 'Wahyu Rohmanto', 'wahyu@gmail.com', 'admin', 'Programmer', NULL, '$2y$10$cRSS0tL1rdl9neSYIZw/vulUxz432cGxKNMYZ6XT6Rv66oB6XvEQG', NULL, '2022-11-27 02:20:29', '2022-11-27 02:20:29'),
-(4, 'Farhan', 'farhan@gmail.com', 'pemilik', 'Web Developer', NULL, '$2y$10$Lr89euXq4GaGWdawGCz3henkl.41ZepWE6BGG7oc/Y59mYRR/v4.2', NULL, '2022-11-27 02:24:29', '2022-11-27 02:24:29');
+INSERT INTO `users` (`id`, `name`, `email`, `role`, `pekerjaan`, `telp`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'budi', 'budi@gmail.com', 'customer', 'Programmer', 0, NULL, '$2y$10$xvTHcuZOpO9VvsAv.U.PKOWc68jE1cVy/XzRZveZNFxlsNbId3QX.', NULL, '2022-11-22 10:11:57', '2022-11-22 10:11:57'),
+(2, 'Asep Sahrudin', 'asepsahrudin0399@gmail.com', 'admin', 'ReactJs Developer', 0, NULL, '$2y$10$34cvo3vS5OmKsPM17Yok7.4JfevVFo5PJ476GpVdPJQcImB8PHLli', NULL, '2022-11-23 08:59:40', '2022-11-23 08:59:40'),
+(3, 'Wahyu Rohmanto', 'wahyu@gmail.com', 'admin', 'Programmer', 0, NULL, '$2y$10$cRSS0tL1rdl9neSYIZw/vulUxz432cGxKNMYZ6XT6Rv66oB6XvEQG', NULL, '2022-11-27 02:20:29', '2022-11-27 02:20:29'),
+(4, 'Farhan', 'farhan@gmail.com', 'pemilik', 'Web Developer', 0, NULL, '$2y$10$Lr89euXq4GaGWdawGCz3henkl.41ZepWE6BGG7oc/Y59mYRR/v4.2', NULL, '2022-11-27 02:24:29', '2022-11-27 02:24:29');
 
 --
 -- Indexes for dumped tables
@@ -279,6 +296,12 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
+-- Indexes for table `rekomendasi_kamar`
+--
+ALTER TABLE `rekomendasi_kamar`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -311,7 +334,7 @@ ALTER TABLE `fasilitas`
 -- AUTO_INCREMENT for table `kost`
 --
 ALTER TABLE `kost`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -330,6 +353,12 @@ ALTER TABLE `pembayaran`
 --
 ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `rekomendasi_kamar`
+--
+ALTER TABLE `rekomendasi_kamar`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `user`

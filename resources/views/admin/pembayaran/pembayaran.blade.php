@@ -134,11 +134,12 @@ $title = ['No', 'Kode Bayar','Id Kamar', 'Id User', 'Tanggal Masuk', 'Tanggal Ke
                                                 <td>Rp. {{number_format($fs['total_bayar'], 2, ',', '. ')}}</td>
                                                 <td>
                                                     <div class="form-button-action">
-                                                        <button type="button" data-toggle="tooltip" title=""
+                                                        <a href="{{ route('pembayaran.show',$fs->id) }}"
+                                                            data-toggle="tooltip" title=""
                                                             class="btn btn-link btn-primary btn-lg"
                                                             data-original-title="View Detail">
                                                             <i class="fa fa-eye"></i>
-                                                        </button>
+                                                        </a>
                                                         <button type="button" data-toggle="tooltip" title=""
                                                             class="btn btn-link btn-danger"
                                                             data-original-title="Remove">

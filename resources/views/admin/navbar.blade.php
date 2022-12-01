@@ -1,4 +1,4 @@
-<nav class="navbar navbar-header navbar-expand-lg" data-background-color="blue2">
+<nav class="navbar navbar-header navbar-expand-lg" data-background-color="white">
 
     <div class="container-fluid">
         <div class="collapse" id="search-nav">
@@ -217,8 +217,8 @@
                     <div class="dropdown-user-scroll scrollbar-outer">
                         <li>
                             <div class="user-box">
-                                <div class="avatar-lg"><img src="{{url('admin/img/profile.jpg')}}"
-                                        alt="image profile" class="avatar-img rounded"></div>
+                                <div class="avatar-lg"><img src="{{url('admin/img/profile.jpg')}}" alt="image profile"
+                                        class="avatar-img rounded"></div>
                                 <div class="u-text">
                                     <h4>Hizrian</h4>
                                     <p class="text-muted">hello@example.com</p><a href="profile.html"
@@ -234,7 +234,8 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Account Setting</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" onclick="document.getElementById('form-logout').submit()">Logout</a>
+                            <a class="dropdown-item" href="#"
+                                onclick="document.getElementById('form-logout').submit()">Logout</a>
                             <form action="{{ route('logout') }}" method="post" id="form-logout">
                                 @csrf
                             </form>
