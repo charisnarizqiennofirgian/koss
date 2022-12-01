@@ -31,7 +31,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <div class="d-flex align-items-center">
-                                    <h4 class="card-title">Table Fasilitas</h4>
+                                    <h4 class="card-title">Table Management Users</h4>
                                     <a title="Tambah Fasilitas" href=""
                                         class="btn btn-secondary btn-round ml-auto text-decoration-none text-light">
                                         <i class="fa fa-plus"></i>
@@ -46,7 +46,7 @@
                                         Export File
                                     </a>
 
-                                    <a title="Export to Excel" href=""
+                                    <a title="Export to Excel" href="{{url('users-excel')}}"
                                         class="btn btn-success btn-round ml-2 text-light">
                                         <span class="btn-label">
                                             <i class="fas fa-file-excel"></i>

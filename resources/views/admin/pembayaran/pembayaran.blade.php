@@ -35,14 +35,8 @@ $title = ['No', 'Kode Bayar','Id Kamar', 'Id User', 'Tanggal Masuk', 'Tanggal Ke
                             <div class="card-header">
                                 <div class="d-flex align-items-center">
                                     <h4 class="card-title">Table Pembayaran</h4>
-                                    <button class="btn btn-primary btn-round ml-auto" data-toggle="modal"
-                                        data-target="#addRowModal">
-                                        <i class="fa fa-plus"></i>
-                                        Add Row
-                                    </button>
-
                                     <a title="Export to PDF" href="{{url('pembayaran-pdf')}}"
-                                        class="btn btn-danger btn-round ml-2 text-light">
+                                        class="btn btn-danger btn-round ml-auto text-light">
                                         <span class="btn-label">
                                             <i class="fas fa-file-pdf"></i>
                                         </span>
