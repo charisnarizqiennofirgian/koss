@@ -93,8 +93,10 @@ Route::middleware(['auth', 'isadmin'])->group(function () {
     Route::get('kost-pdf', [KostController::class, 'kostPDF']);
     Route::get('kost-excel', [KostController::class, 'exportExcel']);
     Route::get('fasilitas-pdf', [FasilitasController::class, 'fasilitasPDF']);
+    Route::get('fasilitas-excel', [FasilitasController::class, 'fasilitasExcel']);
     Route::get('pembayaran-pdf', [PembayaranController::class, 'pembayaranPDF']);
     Route::get('pembayaran-excel', [PembayaranController::class, 'pembayaranExcel']);
+    Route::get('users-pdf', [UsersController::class, 'usersPDF'] );
     Route::resource('/users', UsersController::class);
 });
 

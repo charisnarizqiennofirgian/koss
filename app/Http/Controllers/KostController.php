@@ -219,7 +219,8 @@ class KostController extends Controller
         $kost = Kost::orderBy('id', 'DESC')->get();
         $d_fasilitas = Fasilitas::all();
         // dd($kost);
-        $pdf = PDF::loadView('admin.kost.kostPDF', ['kost' => $kost, 'd_fasilitas' => $d_fasilitas, 'title' => $title]);
+        // $pdf = PDF::loadView('admin.kost.kostPDF', ['kost' => $kost, 'd_fasilitas' => $d_fasilitas, 'title' => $title]);
+        $pdf = PDF::loadView('admin.kost.kostPDF', compact('kost', 'd_fasilitas', 'title'));
         return $pdf->download('info_kost.pdf');
     }
 

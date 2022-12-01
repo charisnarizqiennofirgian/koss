@@ -38,7 +38,8 @@
                                         Add
                                     </a>
 
-                                    <a title="Export to PDF" href="" class="btn btn-danger btn-round ml-2 text-light">
+                                    <a title="Export to PDF" href="{{url('users-pdf')}}"
+                                        class="btn btn-danger btn-round ml-2 text-light">
                                         <span class="btn-label">
                                             <i class="fas fa-file-pdf"></i>
                                         </span>
