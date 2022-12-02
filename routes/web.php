@@ -72,9 +72,11 @@ Route::get('/payment', function () {
     return view('landingpage.payment');
 }); //non-use
 
+Route::get('dk-pemilik', function(){
+    return view('landingpage.detail_kamar_pemilik');
+});
+
 // ROUTE ADMIN
-
-
 Route::middleware(['auth', 'isadmin'])->group(function () {
     Route::get('/administrator', function () {
         return view('admin.home');
