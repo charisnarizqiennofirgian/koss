@@ -13,6 +13,6 @@ class Kost extends Model
      * - Mapping kolom
      */
     protected $table = 'kost';
-    protected $fillable = ['nama_kost', 'luas_kamar', 'harga_kamar', 'alamat_kost', 'keterangan', 'id_fasilitas', 'id_user'];
+    protected $fillable = ['nama_kost', 'luas_kamar', 'harga_kamar', 'alamat_kost', 'keterangan', 'id_fasilitas', 'id_user', 'kota_id'];
     
 }

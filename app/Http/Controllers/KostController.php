@@ -84,6 +84,7 @@ class KostController extends Controller
                 'foto_kamar' => $fileName,
                 'id_fasilitas' => $request->id_fasilitas,
                 'id_user' => $request->id_user,
+                'kota_id' => $request->kota_id,
                 'created_at'=>now()
             ]);
        

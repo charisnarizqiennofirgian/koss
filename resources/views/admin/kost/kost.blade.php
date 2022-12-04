@@ -1,8 +1,11 @@
 @extends('admin.index')
 @section('content')
 @php
-$title = ['No', 'Nama Kost', "Luas Kamar", "Harga Kamar", "Alamat Kost", "Keterangan", "Fasilitas", "Foto", "Aksi"];
+$title = ['No', 'Nama Kost', "Luas Kamar", "Harga Kamar", "Alamat Kost", "Kota Pilihan", "Keterangan", "Fasilitas",
+"Foto", "Aksi"];
+$kota = App\Models\Kota::all();
 @endphp
+
 
 
 <div class="wrapper">
@@ -80,6 +83,11 @@ $title = ['No', 'Nama Kost', "Luas Kamar", "Harga Kamar", "Alamat Kost", "Ketera
                                                 <td>{{$fs['luas_kamar']}}</td>
                                                 <td>Rp. {{number_format($fs['harga_kamar'], 2, ',', '. ')}}</td>
                                                 <td>{{$fs['alamat_kost']}}</td>
+                                                @foreach($kota as $kt)
+                                                @if($fs->kota_id === $kt->id)
+                                                <td>{{$kt->nama_kota}}</td>
+                                                @endif
+                                                @endforeach
                                                 <td>{{$fs['keterangan']}}</td>
 
                                                 @foreach($d_fasilitas as $fas)

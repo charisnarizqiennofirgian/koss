@@ -4,6 +4,7 @@
 {{-- cara import model di blade --}}
 @php
 $d_fasilitas = App\Models\Fasilitas::all();
+$kota = App\Models\Kota::all();
 @endphp
 
 <div class="main-panel">
@@ -77,6 +78,15 @@ $d_fasilitas = App\Models\Fasilitas::all();
                                                 class="form-control" placeholder="keterangan">
                                         </div>
 
+                                        <div class="form-group">
+                                            <label>Kota</label>
+                                            <select name="kota_id" class="form-control">
+                                                @foreach($kota as $kt)
+                                                @php $sel = $kost_edit->kota_id == $kt->id ? 'selected' : ''; @endphp
+                                                <option value="{{$kt->id}}" {{$sel}}>{{$kt->nama_kota}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
 
                                         <div class="form-group">
                                             <label for="exampleFormControlSelect1">Fasilitas</label>
