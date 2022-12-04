@@ -1,6 +1,8 @@
 @extends('admin.index')
 @section('content')
-
+@php
+$kota = App\Models\Kota::all();
+@endphp
 <div class="wrapper">
     {{-- Sidebar --}}
     <div class="main-panel">
@@ -76,6 +78,15 @@
                                                             <li>
                                                                 <p>Alamat Kost: {{$kost_id['alamat_kost']}}
                                                                 </p>
+                                                            </li>
+                                                            <li>
+                                                                @foreach($kota as $kt)
+                                                                @if($kost_id->kota_id === $kt->id)
+                                                                <p>Daerah Pilihan: {{$kt->nama_kota}}</p>
+                                                                @endif
+                                                                @endforeach
+
+
                                                             </li>
                                                             <li>
                                                                 <p>Keterangan: {{$kost_id['keterangan']}}
