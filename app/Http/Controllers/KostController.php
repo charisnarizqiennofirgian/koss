@@ -22,6 +22,75 @@ class KostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    /**
+     * Controller untuk APIs kost
+     */
+    // ======================================
+
+    public function kostIndex(){
+        $kost = Kost::all();
+
+        if($kost){
+            $data = [
+                "message" => "Get All Resource - Kost",
+                "data" => $kost 
+            ];
+            return response()->json($data, 200);
+        }else{
+            $data = [
+                "message" => "Data Not Found",
+                 
+            ];
+            return response()->json($data, 404);
+        }
+        
+    }
+
+    public function kostShow($id){
+        $kost = Kost::find($id);
+
+        if($kost){
+            $data = [
+                "message" => "Get All Resource - kost",
+                "data" => $kost 
+            ];
+            return response()->json($data, 200);
+        }else{
+            $data = [
+                "message" => "Data Not Found",
+                 
+            ];
+            return response()->json($data, 404);
+        }
+        
+    }
+
+    // public function kostStore(Request $request){
+    //     $input = [
+    //         'nama_kost' => $request->nama_kost,
+    //         'luas_kamar' =>  $request->luas_kamar,
+    //         'harga_kamar' =>  $request->harga_kamar,
+    //         'alamat_kost' =>  $request->alamat_kost,
+    //         'keterangan' =>  $request->keterangan,
+    //         'id_fasilitas' =>  $request->id_fasilitas,
+    //         'id_user' =>  $request->id_user,
+    //         'kota_id' =>  $request->kota_id,
+    //         'foto_kamar' =>  $request->foto_kamar,
+    //     ];
+
+            
+        
+    //     $kost = Kost::create($input);
+    //         $data = [
+    //             "message"=>"Kost is Created!",
+    //             "data" => $kost,
+    //         ];
+    //         return response()->json($data, 201);
+    // }
+
+    // ============================================
+
+
     public function index(Request $request)
     {
         // $kost = Kost::all();
