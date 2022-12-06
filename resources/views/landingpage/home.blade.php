@@ -22,7 +22,7 @@
     </div>
 
     <!-- Rekomendasi -->
-    <div class="header-tittle mt-4 pl-5">
+    <div id="rek" class="header-tittle mt-4 pl-5">
         <h4>Rekomendasi Kost</h4>
     </div>
     <section class="container-fluid rekomendasi">
@@ -55,7 +55,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="col-md-6 col-lg-3">
                         <div class="card shadow-sm border-light mb-4">
                             <a href="#" class="position-relative">
@@ -255,9 +254,9 @@
     </section>
 
     <!-- Available Kost -->
-    <section class="pt-5 pb-5">
+    <section class="pt-5 pb-5" id="kost">
         <div class="header-tittle mb-4">
-            <h4>Rekomendasi Kost</h4>
+            <h4>Kost Yang Tersedia</h4>
         </div>
         <div class="container">
             <div class="row mb-md-2 d-flex">
