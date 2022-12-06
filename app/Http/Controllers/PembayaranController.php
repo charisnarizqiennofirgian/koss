@@ -20,6 +20,50 @@ class PembayaranController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+     /**
+     * Controller untuk APIs pembayaran
+     */
+    // ======================================
+
+    public function pembayaranIndex(){
+        $pembayaran = Pembayaran::all();
+
+        if($pembayaran){
+            $data = [
+                "message" => "Get All Resource - Pembayaran",
+                "data" => $pembayaran 
+            ];
+            return response()->json($data, 200);
+        }else{
+            $data = [
+                "message" => "Data Not Found",
+                 
+            ];
+            return response()->json($data, 404);
+        }
+        
+    }
+
+    public function pembayaranShow($id){
+        $pembayaran = Pembayaran::find($id);
+
+        if($pembayaran){
+            $data = [
+                "message" => "Get All Resource - Pembayaran",
+                "data" => $pembayaran 
+            ];
+            return response()->json($data, 200);
+        }else{
+            $data = [
+                "message" => "Data Not Found",
+                 
+            ];
+            return response()->json($data, 404);
+        }
+        
+    }
+
+    // ============================================
 
      
     public function index()

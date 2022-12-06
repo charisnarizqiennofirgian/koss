@@ -18,6 +18,110 @@ class FasilitasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     /**
+      * Controller untuk APIs data fasilitas
+      */
+    //   ===================================
+    public function fasilitasIndex(){
+        $fasilitas = Fasilitas::all();
+
+        if($fasilitas){
+            $data = [
+                "message" => "Get All Resource - Fasilitas",
+                "data" => $fasilitas 
+            ];
+            return response()->json($data, 200);
+        }else{
+            $data = [
+                "message" => "Data Not Found",
+                 
+            ];
+            return response()->json($data, 404);
+        }
+        
+    }
+
+    public function fasilitasShow($id){
+        $fasilitas = Fasilitas::find($id);
+
+        if($fasilitas){
+            $data = [
+                "message" => "Get All Resource - Fasilitas",
+                "data" => $fasilitas 
+            ];
+            return response()->json($data, 200);
+        }else{
+            $data = [
+                "message" => "Data Not Found",
+                 
+            ];
+            return response()->json($data, 404);
+        }
+        
+    }
+
+    public function fasilitasStore(Request $request){
+        $input = [
+            'fasilitas' => $request->fasilitas,
+        ];
+
+        $fasilitas = Fasilitas::create($input);
+            $data = [
+                "message"=>"Fasilitas is Created!",
+                "data" => $fasilitas,
+            ];
+            return response()->json($data, 201);
+    }
+
+    public function fasilitasUpdate(Request $request, $id){
+        $fasilitas = Fasilitas::find($id);
+
+        if($fasilitas){
+            $input = [
+                'fasilitas' => $request->fasilitas ?? $fasilitas->fasilitas,
+                'created_at' => $request->created_at ?? $fasilitas->created_at,
+                'updated_at' => $request->updated_at ?? $fasilitas->updated_at,
+            ];
+            $fasilitas->update($input);
+
+            $data = [
+                'message' => 'Resource is update successfully',
+                'data' => $fasilitas
+            ];
+
+            return response($data, 200);
+        }else{
+            $data = [
+                'message' => 'Resource not found',
+            ];
+            return response()->json($data, 404);
+        }
+    }
+
+    public function fasilitasDestroy($id){
+        $fasilitas = Fasilitas::find($id);
+
+        if($fasilitas){
+        $fasilitas->delete();
+
+            $data = [
+                "message" => "Resource is delete successfully",
+            ];
+        } else{
+            $data = [
+                'message' => 'Resource not found',
+            ];
+        
+            return response()->json($data, 404);
+        }
+            return response()->json($data, 200);
+    }
+    
+
+    // ======================================
+
+    
     public function index()
     {
         $fass = Fasilitas::all();
