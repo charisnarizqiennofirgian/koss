@@ -15,12 +15,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="dashboards">Dashboard</a>
                 </li>
-                <!-- Added -->
-                @guest
-                <li class="nav-item">
-                    <a class="nav-link" href="daftar">daftar</a>
-                </li>
-                @endguest
             </ul>
             <div class="ml-auto button-navbar">
                 <!-- Added -->
@@ -32,6 +26,7 @@
                 @endauth
                 @guest
                 <a class="btn btn-custom" href="login" type="button">Login</a>
+                <a class="btn daftar" href="daftar" type="button">Daftar</a>
                 @endguest
             </div>
         </div>

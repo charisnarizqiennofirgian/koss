@@ -38,10 +38,17 @@ Auth::routes();
 Route::get('/coba/{id}', [UsersController::class], 'show');
 
 Route::resource('/', InfoKostController::class ); //well
+Route::resource('/beranda', InfoKostController::class ); //well
 
 Route::get('/daftar', function () {
     return view('landingpage.daftar');
 }); //well
+
+// daftar sebagai pemilik
+Route::get('/register-pemilik', function () {
+    return view('auth.register-pemilik');
+}); //well
+
 
 route::get('/dashboards', function () {
     return view('landingpage.dashboard');

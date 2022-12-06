@@ -42,6 +42,7 @@ return array(
     'App\\Http\\Middleware\\admin' => $baseDir . '/app/Http/Middleware/admin.php',
     'App\\Models\\Fasilitas' => $baseDir . '/app/Models/Fasilitas.php',
     'App\\Models\\Kost' => $baseDir . '/app/Models/Kost.php',
+    'App\\Models\\Kota' => $baseDir . '/app/Models/Kota.php',
     'App\\Models\\Pembayaran' => $baseDir . '/app/Models/Pembayaran.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
