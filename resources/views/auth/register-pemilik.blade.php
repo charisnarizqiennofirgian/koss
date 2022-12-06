@@ -1,5 +1,6 @@
 @extends('landingpage.navLog')
 @section('content')
+
 <div class="container pt5 py-5">
     <div class="tittle-header d-flex flex-column justify-content-center align-items-center">
         <h3 class="text-center">Daftar</h3>
@@ -31,7 +32,7 @@
             </span>
             @enderror
 
-            <input name="role" type="text" id="role" value="customer" hidden>
+            <input name="role" type="text" id="role" value="pemilik" hidden>
 
             <input class="form-control w-50 @error('pekerjaan') is-invalid @enderror" type="text" name="pekerjaan"
                 value="{{ old('pekerjaan') }}" required autocomplete="pekerjaan" placeholder="Pekerjaan">
@@ -40,7 +41,6 @@
                 <strong>{{ $message }}</strong>
             </span>
             @enderror
-
             <input class="form-control w-50 @error('password') is-invalid @enderror" type="password" name="password"
                 required autocomplete="new-password" placeholder="Password">
             @error('password')
@@ -56,9 +56,6 @@
         </form>
         <a class="have" href="login">Sudah Punya Akun ?</a>
     </div>
-
-
-
     <!-- <div class="logo-brand d-flex justify-content-center">
     </div> -->
 </div>

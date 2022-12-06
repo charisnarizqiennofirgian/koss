@@ -628,6 +628,7 @@ class ComposerStaticInitb360b32ac79e34b4cdfb9d3d9821c784
         'App\\Http\\Middleware\\admin' => __DIR__ . '/../..' . '/app/Http/Middleware/admin.php',
         'App\\Models\\Fasilitas' => __DIR__ . '/../..' . '/app/Models/Fasilitas.php',
         'App\\Models\\Kost' => __DIR__ . '/../..' . '/app/Models/Kost.php',
+        'App\\Models\\Kota' => __DIR__ . '/../..' . '/app/Models/Kota.php',
         'App\\Models\\Pembayaran' => __DIR__ . '/../..' . '/app/Models/Pembayaran.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
