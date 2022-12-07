@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FasilitasController;
 use App\Http\Controllers\KostController;
 use App\Http\Controllers\PembayaranController;
+use App\Http\Controllers\KotaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,11 +26,34 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 /**
  * ROUTES APIs aplikasi kost
  */
+/**
+ * endpoint fasilitas
+ * - get
+ * - get detail
+ * - create data
+ * - update data
+ * - delete data
+ */
 Route::get('fasilitas-api', [FasilitasController::class, 'fasilitasIndex']);
 Route::get('fasilitas-api/{id}', [FasilitasController::class, 'fasilitasShow']);
 Route::post('fasilitas-api', [FasilitasController::class, 'fasilitasStore']);
 Route::put('fasilitas-api/{id}', [FasilitasController::class, 'fasilitasUpdate']);
 Route::delete('fasilitas-api/{id}', [FasilitasController::class, 'fasilitasDestroy']);
+/**
+ * endpoint kota
+ * - get
+ * - get detail
+ * - create data
+ * - update data
+ * - delete data
+ */
+Route::get('kota-api', [KotaController::class, 'kotaIndex']);
+Route::get('kota-api/{id}', [KotaController::class, 'kotaShow']);
+Route::post('kota-api', [KotaController::class, 'kotaStore']);
+Route::put('kota-api/{id}', [KotaController::class, 'kotaUpdate']);
+Route::delete('kota-api/{id}', [KotaController::class, 'kotaDestroy']);
+
+
 
 Route::get('kost-api', [KostController::class, 'kostIndex']);
 Route::get('kost-api/{id}', [KostController::class, 'kostShow']);
