@@ -60,7 +60,6 @@ class PembayaranController extends Controller
             ];
             return response()->json($data, 404);
         }
-        
     }
 
     // ============================================

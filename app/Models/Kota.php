@@ -9,5 +9,5 @@ class Kota extends Model
 {
     use HasFactory;
     protected $table = 'kota';
-    protected $fillable = ['nama_kota'];
+    protected $fillable = ['nama_kota', 'created_at', 'updated_at'];
 }
