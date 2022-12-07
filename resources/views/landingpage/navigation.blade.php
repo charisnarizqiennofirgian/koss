@@ -27,6 +27,10 @@
             </ul>
             <div class="ml-auto button-navbar d-flex">
                 <!-- Added -->
+                @guest
+                <a class="btn btn-custom" href="login" type="button">Login</a>
+                <a class="btn daftar" href="daftar" type="button">Daftar</a>
+                @endguest
                 @auth
                 <div class="dropdown">
                     <button class="btn btn-secondary name dropdown-toggle" type="button" data-toggle="dropdown"
@@ -48,10 +52,6 @@
                         @endauth
                     </div>
                 </div>
-                @guest
-                <a class="btn btn-custom" href="login" type="button">Login</a>
-                <a class="btn daftar" href="daftar" type="button">Daftar</a>
-                @endguest
             </div>
         </div>
     </div>

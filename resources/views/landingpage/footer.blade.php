@@ -1,5 +1,5 @@
       <!-- footer start -->
-      <div class="w-100 mt-5" id="tentang">
+      <div class="w-100" id="tentang">
 
           <!-- <div class="card mx-5"> -->
           <div class="footer-card">
@@ -25,9 +25,9 @@
                       <h5 class="heading pl-4 ml-3">Halaman</h5>
                       <ul style="list-style-type: none;">
                           <li>Beranda</li>
+                          <li>Tentang Kami</li>
                           <li>Acara</li>
                           <li>Catalog</li>
-                          <li>Tentang Kami</li>
                           <li>Blog</li>
                       </ul>
 
@@ -36,7 +36,7 @@
 
                   <div class="col-md-2 col-sm-4 col-xs-4">
 
-                      <h5 class="heading text-center">Sosial Media</h5>
+                      <h5 class="heading heading pl-4 ml-3">Sosial Media</h5>
                       <ul class="card-text" style="list-style-type: none;">
                           <li>Instagram</li>
                           <li>Facebook</li>

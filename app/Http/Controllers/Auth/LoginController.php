@@ -46,7 +46,7 @@ class LoginController extends Controller
         else if(auth()->user()->role === 'owner'){
             return redirect()->route('owner.beranda');
         }else{
-            return redirect()->route('beranda'); //<- noted di ubah gunakan name dalam route
+            return redirect()->route('beranda.index'); //<- noted di ubah gunakan name dalam route atau tembak langsung ke controller
         }
     }
 
