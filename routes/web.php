@@ -9,6 +9,7 @@ use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\Customer\InfoKostController;
 use App\Http\Controllers\Auth\UsersController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\RekomendasiKostController;
 use App\Http\Middleware\Role;
 
 
@@ -107,7 +108,7 @@ Route::middleware(['auth', 'isadmin'])->group(function () {
 });
 
 Route::get('pemilik', function () {
-    return 'Pemilik';
+    return 'pemilik';
 })->middleware(['auth', 'owner']);
 
 
@@ -128,3 +129,5 @@ Route::resource('kamar', InfoKostController::class)->middleware('auth');
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Route::resource('rekomendasi', RekomendasiKostController::class);

@@ -43,8 +43,8 @@ class LoginController extends Controller
         if(auth()->user()->role === 'admin'){
             return redirect()->route('admin.dashboard');
         }
-        if(auth()->user()->role === 'pemilik'){
-            return redirect()->route('admin.dashboard');
+        else if(auth()->user()->role === 'owner'){
+            return redirect()->route('owner.beranda');
         }else{
             return redirect()->route('beranda'); //<- noted di ubah gunakan name dalam route
         }
