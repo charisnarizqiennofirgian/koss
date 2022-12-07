@@ -12,6 +12,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\RekomendasiKostController;
 use App\Http\Middleware\Role;
 
+use App\Http\Controllers\Pemilik\PemilikController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -25,15 +27,6 @@ use App\Http\Middleware\Role;
 */
 
 Auth::routes();
-
-// Routing Landing Page
-// Route::get('/', function () {
-//     return view('landingpage.home');
-// });
-
-// Route::get('/home1', function () {
-//     return view('landingpage.home');
-// });
 
 // Routing Landing Page
 Route::get('/coba/{id}', [UsersController::class], 'show');
@@ -53,42 +46,17 @@ Route::get('/register-pemilik', function () {
 
 route::get('/dashboards', function () {
     return view('landingpage.dashboard');
-}); //well
+})->middleware(['auth', 'owner']); //well
 
-route::get('/dashboard-kos', function () {
-    return view('landingpage.dashboard-kos');
-}); //well
-
-
-Route::get('/testimonial', function () {
-    return view('landingpage.testimonial');
-}); //non-use
-
-Route::get('/info_kamar', function () {
-    return view('landingpage.info_kamar');
-}); //non-use
-
-Route::get('/checkout', function () {
-    return view('landingpage.checkout');
-}); //non-use
-
-Route::get('/detail_product', function () {
-    return view('landingpage.detail_product');
-}); //non-use
-
-Route::get('/payment', function () {
-    return view('landingpage.payment');
-}); //non-use
+route::resource('/dashboard-kos', PemilikController::class)->middleware(['auth', 'owner']); //well
 
 Route::get('dk-pemilik', function(){
     return view('landingpage.detail_kamar_pemilik');
-});
+})->middleware(['auth', 'owner']);
 
 // ROUTE ADMIN
 Route::middleware(['auth', 'isadmin'])->group(function () {
-    Route::get('/administrator', function () {
-        return view('admin.home');
-    })->name('admin.dashboard');
+    Route::get('/administrator', [DashboardController::class, 'index'])->name('admin.dashboard');
     Route::resource('/fasilitas', FasilitasController::class);
     Route::resource('/kost', KostController::class);
     Route::resource('/pembayaran', PembayaranController::class);
@@ -105,11 +73,12 @@ Route::middleware(['auth', 'isadmin'])->group(function () {
     Route::get('users-pdf', [UsersController::class, 'usersPDF'] );
     Route::get('users-excel', [UsersController::class, 'usersExcel'] );
     Route::resource('/users', UsersController::class);
+    Route::get('dashboard', [DashboardController::class, 'index']);
 });
 
-Route::get('pemilik', function () {
-    return 'pemilik';
-})->middleware(['auth', 'owner']);
+// Route::get('pemilik', function () {
+//     return 'pemilik';
+// })->middleware(['auth', 'owner']);
 
 
 // Route Access Denied
@@ -117,17 +86,10 @@ Route::get('/access-denied', function () {
     return view('admin.access_denied');
 })->middleware('auth')->name('access-denied');
 
-// Route Dashboard
-Route::get('dashboard', [DashboardController::class, 'index']);
-
 /**
  * ROUTE CUSTOMER
- * - info koss
+ * - info kos
  * - detail kamar
  */
 Route::resource('kamar', InfoKostController::class)->middleware('auth');
-
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-// Route::resource('rekomendasi', RekomendasiKostController::class);
