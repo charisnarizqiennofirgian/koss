@@ -38,14 +38,19 @@
                         {{ Auth::user()->name }}
                     </button>
                     <div class="dropdown-menu">
+                        <a class="dropdown-item"><i class="fas fa-street-view"></i> {{ Auth::user()->role }}</a>
                         @php
                         $role = Auth::user()->role
                         @endphp
                         @if( $role === "pemilik")
-                        <a class="dropdown-item" href="dashboards">Dashboard Pemilik</a>
+                        <a class="dropdown-item" href="dashboards"><i class="fas fa-user-edit"></i> Dashboard
+                            Pemilik</a>
+                        @elseif($role === "admin")
+                        <a class="dropdown-item" href="administrator"><i class="fas fa-user-edit"></i> Dashboard
+                            Admin</a>
                         @endif
-                        <a class="dropdown-item" href="#"
-                            onclick="document.getElementById('form-logout').submit()">Logout</a>
+                        <a class="dropdown-item" href="#" onclick="document.getElementById('form-logout').submit()"><i
+                                class="fas fa-power-off"></i> Logout</a>
                         <form action="{{ route('logout') }}" method="post" id="form-logout">
                             @csrf
                         </form>

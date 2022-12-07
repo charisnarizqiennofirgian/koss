@@ -105,8 +105,8 @@ class PembayaranController extends Controller
             ->join('users', 'pembayaran.id_user', '=', 'users.id')
             ->select('pembayaran.id', 'pembayaran.kode_bayar', 'pembayaran.tanggal_masuk', 'pembayaran.total_bayar', 'users.name', 'users.email')
             ->get();
-        
-        $data = collect($pembayaran_id)->first();
+        dd($pembayaran_id);
+        // $data = collect($pembayaran_id)->first();
     
         // $user = User::all();
         // $pembayaran_id = Pembayaran::find($id);
