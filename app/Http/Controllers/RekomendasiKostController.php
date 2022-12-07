@@ -1,17 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Customer;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-// import model kost
-use App\Models\Kost;
-use App\Models\Fasilitas;
-// import db dan pdf
+// import models
+use App\Models\RekomendasiKost;
 use DB;
-use PDF;
 
-class InfoKostController extends Controller
+class RekomendasiKostController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,13 +16,8 @@ class InfoKostController extends Controller
      */
     public function index()
     {
-        // $kost = Kost::orderBy('id', 'DESC')->get();
-        // $d_fasilitas = Fasilitas::all();
-        // return view('landingpage.info_kamar', compact('kost', 'd_fasilitas'));
         $rekomendasi = DB::table('rekomendasi_kost')->join('kost', 'rekomendasi_kost.id', '=' , 'kost.id')->get();
-
-        $kost = Kost::all();
-        return view('landingpage.home', compact('kost', 'rekomendasi'));
+        return view('landingpage.home', compact('rekomendasi'));
     }
 
     /**
@@ -58,9 +49,7 @@ class InfoKostController extends Controller
      */
     public function show($id)
     {
-        $d_fasilitas = Fasilitas::all();
-        $kost_id = Kost::find($id);
-        return view('landingpage.detail_kamar',compact('kost_id', 'd_fasilitas'));
+        //
     }
 
     /**

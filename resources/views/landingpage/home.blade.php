@@ -30,13 +30,15 @@
 
             <div class="container">
                 <div class="row mb-md-2 d-flex">
+
+                    @foreach($rekomendasi as $rk)
                     <div class="col-md-6 col-lg-3">
                         <div class="card shadow-sm border-light mb-4">
                             <a href="#" class="position-relative">
                                 <img src="assets/image/example_card/image.png" class="card-img-top" alt="image"> </a>
                             <div class="card-body">
                                 <div class="d-flex align-content-center align-items-center justify-content-between">
-                                    <span class="font-weight-small">Kostan Annas</span>
+                                    <span class="font-weight-small">{{$rk->nama_kost}}</span>
                                     <div class="d-flex align-items-center align-content-center">
                                         <span class="star fas fa-star text-warning"></span>
                                         <span class="star fas fa-star text-warning"></span>
@@ -49,203 +51,13 @@
                                 <div class="post-meta">
                                     <span class="small lh-120">
                                         <i class="fas fa-map-marker-alt mr-2">
-                                        </i>Jakarta
+                                        </i>{{$rk->alamat_kost}}
                                     </span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="card shadow-sm border-light mb-4">
-                            <a href="#" class="position-relative">
-                                <img src="assets/image/example_card/image.png" class="card-img-top" alt="image"> </a>
-                            <div class="card-body">
-                                <div class="d-flex align-content-center align-items-center justify-content-between">
-                                    <span class="font-weight-small">Kostan Annas</span>
-
-                                    <div class="d-flex align-items-center align-content-center">
-                                        <span class="star fas fa-star text-warning"></span>
-                                        <span class="star fas fa-star text-warning"></span>
-                                        <span class="star fas fa-star text-warning"></span>
-                                        <span class="star fas fa-star text-warning"></span>
-                                        <span class="star fas fa-star text-warning"></span>
-                                        <span class="rate">(5.0)</span>
-                                    </div>
-                                </div>
-                                <div class="post-meta">
-                                    <span class="small lh-120">
-                                        <i class="fas fa-map-marker-alt mr-2">
-                                        </i>Jakarta
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                    <div class="col-md-6 col-lg-3">
-                        <div class="card shadow-sm border-light mb-4">
-                            <a href="#" class="position-relative">
-                                <img src="assets/image/example_card/image.png" class="card-img-top" alt="image"> </a>
-                            <div class="card-body">
-                                <div class="d-flex align-content-center align-items-center justify-content-between">
-                                    <span class="font-weight-small">Kostan Annas</span>
-
-                                    <div class="d-flex align-items-center align-content-center">
-                                        <span class="star fas fa-star text-warning"></span>
-                                        <span class="star fas fa-star text-warning"></span>
-                                        <span class="star fas fa-star text-warning"></span>
-                                        <span class="star fas fa-star text-warning"></span>
-                                        <span class="star fas fa-star text-warning"></span>
-                                        <span class="rate">(5.0)</span>
-                                    </div>
-                                </div>
-                                <div class="post-meta">
-                                    <span class="small lh-120">
-                                        <i class="fas fa-map-marker-alt mr-2">
-                                        </i>Jakarta
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-lg-3">
-                        <div class="card shadow-sm border-light mb-4">
-                            <a href="#" class="position-relative">
-                                <img src="assets/image/example_card/image.png" class="card-img-top" alt="image"> </a>
-                            <div class="card-body">
-                                <div class="d-flex align-content-center align-items-center justify-content-between">
-                                    <span class="font-weight-small">Kostan Annas</span>
-
-                                    <div class="d-flex align-items-center align-content-center">
-                                        <span class="star fas fa-star text-warning"></span>
-                                        <span class="star fas fa-star text-warning"></span>
-                                        <span class="star fas fa-star text-warning"></span>
-                                        <span class="star fas fa-star text-warning"></span>
-                                        <span class="star fas fa-star text-warning"></span>
-                                        <span class="rate">(5.0)</span>
-                                    </div>
-                                </div>
-                                <div class="post-meta">
-                                    <span class="small lh-120">
-                                        <i class="fas fa-map-marker-alt mr-2">
-                                        </i>Jakarta
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-lg-3">
-                        <div class="card shadow-sm border-light mb-4">
-                            <a href="#" class="position-relative">
-                                <img src="assets/image/example_card/image.png" class="card-img-top" alt="image"> </a>
-                            <div class="card-body">
-                                <div class="d-flex align-content-center align-items-center justify-content-between">
-                                    <span class="font-weight-small">Kostan Annas</span>
-
-                                    <div class="d-flex align-items-center align-content-center">
-                                        <span class="star fas fa-star text-warning"></span>
-                                        <span class="star fas fa-star text-warning"></span>
-                                        <span class="star fas fa-star text-warning"></span>
-                                        <span class="star fas fa-star text-warning"></span>
-                                        <span class="star fas fa-star text-warning"></span>
-                                        <span class="rate">(5.0)</span>
-                                    </div>
-                                </div>
-                                <div class="post-meta">
-                                    <span class="small lh-120">
-                                        <i class="fas fa-map-marker-alt mr-2">
-                                        </i>Jakarta
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-lg-3">
-                        <div class="card shadow-sm border-light mb-4">
-                            <a href="#" class="position-relative">
-                                <img src="assets/image/example_card/image.png" class="card-img-top" alt="image"> </a>
-                            <div class="card-body">
-                                <div class="d-flex align-content-center align-items-center justify-content-between">
-                                    <span class="font-weight-small">Kostan Annas</span>
-
-                                    <div class="d-flex align-items-center align-content-center">
-                                        <span class="star fas fa-star text-warning"></span>
-                                        <span class="star fas fa-star text-warning"></span>
-                                        <span class="star fas fa-star text-warning"></span>
-                                        <span class="star fas fa-star text-warning"></span>
-                                        <span class="star fas fa-star text-warning"></span>
-                                        <span class="rate">(5.0)</span>
-                                    </div>
-                                </div>
-                                <div class="post-meta">
-                                    <span class="small lh-120">
-                                        <i class="fas fa-map-marker-alt mr-2">
-                                        </i>Jakarta
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-lg-3">
-                        <div class="card shadow-sm border-light mb-4">
-                            <a href="#" class="position-relative">
-                                <img src="assets/image/example_card/image.png" class="card-img-top" alt="image"> </a>
-                            <div class="card-body">
-                                <div class="d-flex align-content-center align-items-center justify-content-between">
-                                    <span class="font-weight-small">Kostan Annas</span>
-
-                                    <div class="d-flex align-items-center align-content-center">
-                                        <span class="star fas fa-star text-warning"></span>
-                                        <span class="star fas fa-star text-warning"></span>
-                                        <span class="star fas fa-star text-warning"></span>
-                                        <span class="star fas fa-star text-warning"></span>
-                                        <span class="star fas fa-star text-warning"></span>
-                                        <span class="rate">(5.0)</span>
-                                    </div>
-                                </div>
-                                <div class="post-meta">
-                                    <span class="small lh-120">
-                                        <i class="fas fa-map-marker-alt mr-2">
-                                        </i>Jakarta
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-lg-3">
-                        <div class="card shadow-sm border-light mb-4">
-                            <a href="#" class="position-relative">
-                                <img src="assets/image/example_card/image.png" class="card-img-top" alt="image"> </a>
-                            <div class="card-body">
-                                <div class="d-flex align-content-center align-items-center justify-content-between">
-                                    <span class="font-weight-small">Kostan Annas</span>
-
-                                    <div class="d-flex align-items-center align-content-center">
-                                        <span class="star fas fa-star text-warning"></span>
-                                        <span class="star fas fa-star text-warning"></span>
-                                        <span class="star fas fa-star text-warning"></span>
-                                        <span class="star fas fa-star text-warning"></span>
-                                        <span class="star fas fa-star text-warning"></span>
-                                        <span class="rate">(5.0)</span>
-                                    </div>
-                                </div>
-                                <div class="post-meta">
-                                    <span class="small lh-120">
-                                        <i class="fas fa-map-marker-alt mr-2">
-                                        </i>Jakarta
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+                    @endforeach
                 </div>
                 <!-- Button Open  -->
             </div>
