@@ -29,6 +29,7 @@ class PemilikController extends Controller
     {
         $pemilik_kost = DB::table('users')
         ->join('kost', 'kost.id_user', '=', 'users.id')
+        ->join('fasilitas', 'fasilitas.id', '=', 'kost.id_fasilitas')
         ->select('*')
         ->where('role', 'pemilik')
         ->get();
@@ -73,7 +74,6 @@ class PemilikController extends Controller
         ->get();
 
         $detail = collect($pemilik_kost);
-        // dd($d = $detail->firstWhere('id', '==', $id));
         $d = $detail->firstWhere('id', '==', $id);
         return view('landingpage.detail_kamar_pemilik', compact('d'));
     }
@@ -98,7 +98,7 @@ class PemilikController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return 'tes';
+        
     }
 
     /**

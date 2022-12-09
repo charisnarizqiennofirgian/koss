@@ -13,7 +13,7 @@ use App\Http\Controllers\RekomendasiKostController;
 use App\Http\Middleware\Role;
 
 use App\Http\Controllers\Pemilik\PemilikController;
-
+use Illuminate\Http\Resources\Json\ResourceCollection;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,11 +44,13 @@ Route::get('/register-pemilik', function () {
 }); //well
 
 
-route::get('/dashboards', function () {
+Route::get('/dashboards', function () {
     return view('landingpage.dashboard');
 })->middleware(['auth', 'owner']); //well
 
-route::resource('/dashboard-kos', PemilikController::class)->middleware(['auth', 'owner']); //well
+// ROUTE PEMILIK KOS
+Route::resource('/dashboard-kos', PemilikController::class)->middleware(['auth', 'owner']); //well
+Route::get('/edit-kos', [PemilikController::class , 'update']);
 
 // ROUTE ADMIN
 Route::middleware(['auth', 'isadmin'])->group(function () {
@@ -88,4 +90,5 @@ Route::get('/access-denied', function () {
  * - detail kamar
  */
 Route::resource('kamar', InfoKostController::class)->middleware('auth');
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home'); 
+// Route::resource('/tes',PemilikController::class);
