@@ -65,28 +65,85 @@ class KostController extends Controller
         
     }
 
-    // public function kostStore(Request $request){
-    //     $input = [
-    //         'nama_kost' => $request->nama_kost,
-    //         'luas_kamar' =>  $request->luas_kamar,
-    //         'harga_kamar' =>  $request->harga_kamar,
-    //         'alamat_kost' =>  $request->alamat_kost,
-    //         'keterangan' =>  $request->keterangan,
-    //         'id_fasilitas' =>  $request->id_fasilitas,
-    //         'id_user' =>  $request->id_user,
-    //         'kota_id' =>  $request->kota_id,
-    //         'foto_kamar' =>  $request->foto_kamar,
-    //     ];
+    public function kostStore(Request $request){
+        $input = [
+            'nama_kost' => $request->nama_kost,
+            'luas_kamar' =>  $request->luas_kamar,
+            'harga_kamar' =>  $request->harga_kamar,
+            'alamat_kost' =>  $request->alamat_kost,
+            'keterangan' =>  $request->keterangan,
+            'id_fasilitas' =>  $request->id_fasilitas,
+            'id_user' =>  $request->id_user,
+            'kota_id' =>  $request->kota_id,
+            'foto_kamar' =>  $request->foto_kamar,
+        ];
 
             
         
-    //     $kost = Kost::create($input);
-    //         $data = [
-    //             "message"=>"Kost is Created!",
-    //             "data" => $kost,
-    //         ];
-    //         return response()->json($data, 201);
-    // }
+        $kost = Kost::create($input);
+            $data = [
+                "message"=>"Kost is Created!",
+                "data" => $kost,
+            ];
+            return response()->json($data, 201);
+    }
+
+
+    public function kostUpdate(Request $request, $id){
+        $kost = Kost::find($id);
+
+        if($kost){
+            $input = [
+                'foto_kamar' => $request->foto_kamar ?? $kost->foto_kamar,
+                'nama_kost' => $request->nama_kost ?? $kost->nama_kost,
+                'luas_kamar' => $request->luas_kamar ?? $kost->luas_kamar,
+                'harga_kamar' => $request->harga_kamar ?? $kost->harga_kamar,
+                'alamat_kost' => $request->alamat_kost ?? $kost->alamat_kost,
+                'keterangan' => $request->keterangan ?? $kost->keterangan,
+                'id_fasilitas' => $request->id_fasilitas ?? $kost->id_fasilitas,
+                'kota_id' => $request->kota_id ?? $kost->kota_id,
+                'created_at' => $request->created_at ?? $kost->created_at,
+                'updated_at' => $request->updated_at ?? $kost->updated_at,
+            ];
+            $kost->update($input);
+
+            $data = [
+                'message' => 'Resource is update successfully',
+                'data' => $kost
+            ];
+
+            return response($data, 200);
+        }else{
+            $data = [
+                'message' => 'Resource not found',
+            ];
+            return response()->json($data, 404);
+        }
+    }
+
+    public function kostDestroy($id){
+        $kost = Kost::find($id);
+
+        if($kost){
+        $kost->delete();
+
+        $data = [
+            "message" => "Resource is delete successfully",
+        ];
+
+        } else{
+            $data = [
+                'message' => 'Resource not found',
+            ];
+        
+            return response()->json($data, 404);
+        }
+            return response()->json($data, 200);
+    }
+    
+
+
+
 
     // ============================================
 

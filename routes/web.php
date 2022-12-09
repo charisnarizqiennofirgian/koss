@@ -50,10 +50,6 @@ route::get('/dashboards', function () {
 
 route::resource('/dashboard-kos', PemilikController::class)->middleware(['auth', 'owner']); //well
 
-Route::get('dk-pemilik', function(){
-    return view('landingpage.detail_kamar_pemilik');
-})->middleware(['auth', 'owner']);
-
 // ROUTE ADMIN
 Route::middleware(['auth', 'isadmin'])->group(function () {
     Route::get('/administrator', [DashboardController::class, 'index'])->name('admin.dashboard');

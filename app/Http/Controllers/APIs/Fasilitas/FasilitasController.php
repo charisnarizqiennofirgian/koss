@@ -1,24 +1,19 @@
 <?php
 
-namespace App\Http\Controllers\Pemilik;
+namespace App\Http\Controllers\APIs\Fasilitas;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
 /**
- * import query builder
  * import models
- * - kost
- * - user/role
- * - rekomendasi kost
+ * import validator
+ * import resource
  */
-use DB;
-use App\Models\Kost;
-use App\Models\User;
-use App\Models\RekomendasiKost;
+use App\Models\Fasilitas;
+use App\Http\Resources\FasilitasResource;
+use Illuminate\Support\Facades\Validator;
 
-
-class PemilikController extends Controller
+class FasilitasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,13 +22,8 @@ class PemilikController extends Controller
      */
     public function index()
     {
-        $pemilik_kost = DB::table('users')
-        ->join('kost', 'kost.id_user', '=', 'users.id')
-        ->select('*')
-        ->where('role', 'pemilik')
-        ->get();
-        // dd($pemilik_kost);
-        return view('landingpage.dashboard-kos', compact('pemilik_kost'));
+        $fasilitas = Fasilitas::all();
+        return new FasilitasResource(true, 'Get All Resource - Fasilitas', $fasilitas);
     }
 
     /**
@@ -65,17 +55,7 @@ class PemilikController extends Controller
      */
     public function show($id)
     {
-        $pemilik_kost = DB::table('users')
-        ->join('kost', 'kost.id_user', '=', 'users.id')
-        ->join('fasilitas', 'fasilitas.id', '=', 'kost.id_fasilitas')
-        ->select('*')
-        ->where('role', 'pemilik')
-        ->get();
-
-        $detail = collect($pemilik_kost);
-        // dd($d = $detail->firstWhere('id', '==', $id));
-        $d = $detail->firstWhere('id', '==', $id);
-        return view('landingpage.detail_kamar_pemilik', compact('d'));
+        //
     }
 
     /**
@@ -98,7 +78,7 @@ class PemilikController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return 'tes';
+        //
     }
 
     /**

@@ -101,15 +101,8 @@ class PembayaranController extends Controller
      */
     public function show($id)
     {
-        $pembayaran_id = DB::table('pembayaran')
-            ->join('users', 'pembayaran.id_user', '=', 'users.id')
-            ->select('pembayaran.id', 'pembayaran.kode_bayar', 'pembayaran.tanggal_masuk', 'pembayaran.total_bayar', 'users.name', 'users.email')
-            ->get();
-        dd($pembayaran_id);
-        // $data = collect($pembayaran_id)->first();
-    
-        // $user = User::all();
-        // $pembayaran_id = Pembayaran::find($id);
+        $pembayaran_id = Pembayaran::all();
+        $data = collect($pembayaran_id)->firstWhere('id', '==', $id);
         return view('admin.pembayaran.detailPembayaran',compact('data'));
     }
 

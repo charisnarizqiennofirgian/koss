@@ -12,6 +12,7 @@
         <div class="col-10 p-5" id="main">
             <div class="row">
                 @foreach($pemilik_kost as $pk)
+                @if($pk->name === Auth::user()->name)
                 <div class="col-md-4">
                     <div class="card shadow-sm border-light mb-4">
                         <a href="#" class="position-relative">
@@ -35,11 +36,12 @@
                                 </span>
                             </div>
                             <div class="kelola-button pt-3 pb-3 d-flex justify-content-center">
-                                <a class="btn btn-custom w-100">Kelola</a>
+                                <a href="{{url('dk-pemilik', $pk->id)}}" class="btn btn-custom w-100">Kelola</a>
                             </div>
                         </div>
                     </div>
                 </div>
+                @endif
                 @endforeach
             </div>
         </div>
