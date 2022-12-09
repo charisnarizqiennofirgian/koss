@@ -105,9 +105,10 @@ class FasilitasController extends Controller
         if($fasilitas){
         $fasilitas->delete();
 
-            $data = [
-                "message" => "Resource is delete successfully",
-            ];
+        $data = [
+            "message" => "Resource is delete successfully",
+        ];
+
         } else{
             $data = [
                 'message' => 'Resource not found',

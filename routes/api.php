@@ -7,6 +7,12 @@ use App\Http\Controllers\FasilitasController;
 use App\Http\Controllers\KostController;
 use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\KotaController;
+// mekanisme resource
+/**
+ * import controller
+ * - fasilitas
+ */
+// use App\Http\Controllers\APIs\Fasilitas\FasilitasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +28,12 @@ use App\Http\Controllers\KotaController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+/**
+ * ROUTES APIs aplikasi kost mekanisme resource
+ * - fasilitas
+ */
+// Route::resource('fasilitas', FasilitasController::class);
 
 /**
  * ROUTES APIs aplikasi kost
@@ -53,11 +65,11 @@ Route::post('kota-api', [KotaController::class, 'kotaStore']);
 Route::put('kota-api/{id}', [KotaController::class, 'kotaUpdate']);
 Route::delete('kota-api/{id}', [KotaController::class, 'kotaDestroy']);
 
-
-
 Route::get('kost-api', [KostController::class, 'kostIndex']);
 Route::get('kost-api/{id}', [KostController::class, 'kostShow']);
 Route::post('kost-api', [KostController::class, 'kostStore']);
+Route::put('kost-api/{id}', [KostController::class, 'kostUpdate']);
+Route::delete('kost-api/{id}', [KostController::class, 'kostDestroy']);
 
 Route::get('pembayaran-api', [PembayaranController::class, 'pembayaranIndex']);
 Route::get('pembayaran-api/{id}', [PembayaranController::class, 'pembayaranShow']);

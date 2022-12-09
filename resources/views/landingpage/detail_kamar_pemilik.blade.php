@@ -16,8 +16,13 @@
             </div>
         </div>
         <!-- main content -->
+
         <div class="col-10 p-5" id="main">
             <div class="main-panel">
+                <div class="row p-3">
+                    <h5 style="font-size: 24px;font-weight: 600;">{{$d->nama_kost}}</h5>
+                </div>
+
                 <div class="content-wrapper" style="background: white!important">
                     <div class="row-12" style="width: 100%">
                         <div id="carouselExampleControls" class="carousel slide mb-4" data-ride="carousel">
@@ -58,13 +63,14 @@
                                     <div class="tambah" style="color:#BDBDBD">
                                         <i class="fa fa-plus-square"></i>
                                     </div>
-                                    <div class="tambah" style="color:#BDBDBD">
-                                        Tambah Foto
+                                    <div class="tambah">
+                                        <input style="color:#BDBDBD" type="file" />
                                     </div>
-                                </center>
+
                             </div>
                         </div>
                     </div>
+
                     <div class="row p-3">
                         <h5 style="font-size: 24px;font-weight: 600;">Spesifikasi Tipe Kamar</h5>
                     </div>
@@ -82,115 +88,24 @@
                                 <tbody>
                                     <tr style="height: 48px">
                                         <td><i class="fa fa-home fa-fw"></i></td>
-                                        <td>3 x 3 Meter</td>
-                                        <td><i class="fa fa-home fa-fw"></i></td>
-                                        <td>3 x 3 Meter</td>
+                                        <td>{{$d->luas_kamar}} Meter</td>
                                     </tr>
                                     <tr style="height: 48px">
                                         <td>&nbsp;<i class='fa fa-flash'></i></td>
-                                        <td>Termasuk Listrik</td>
-                                        <td>&nbsp;<i class='fa fa-flash'></i></td>
-                                        <td>Termasuk Listrik</td>
+                                        <td>{{$d->fasilitas}}</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                     </div>
-                    <br>
-                    <br>
-                    <br>
-                    <div class="row p-3">
-                        <h5 style="font-size: 24px;font-weight: 600;">Spesifikasi Tipe Kamar</h5>
-                    </div>
-                    <div class="row p-3">
-                        <div class="col-lg-12">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th width="15%"></th>
-                                        <th width="50%"></th>
-                                        <th></th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr style="height: 48px">
-                                        <td><i class="fa fa-home fa-fw"></i></td>
-                                        <td>3 x 3 Meter</td>
-                                        <td><i class="fa fa-home fa-fw"></i></td>
-                                        <td>3 x 3 Meter</td>
-                                    </tr>
-                                    <tr>
-                                        <td><i class='fa fa-flash'></i></td>
-                                        <td>Termasuk Listrik</td>
-                                        <td><i class='fa fa-flash'></i></td>
-                                        <td>Termasuk Listrik</td>
-                                    </tr>
-                                    <tr style="height: 48px">
-                                        <td><i class='fa fa-flash'></i></td>
-                                        <td>Termasuk Listrik</td>
-                                        <td><i class='fa fa-flash'></i></td>
-                                        <td>Termasuk Listrik</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <br>
-                    <br>
-                    <br>
-                    <div class="row p-3">
-                        <h5 style="font-size: 24px;font-weight: 600;">Spesifikasi Tipe Kamar</h5>
-                    </div>
-                    <div class="row p-3">
-                        <div class="col-lg-12">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th width="15%"></th>
-                                        <th width="50%"></th>
-                                        <th></th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr style="height: 48px">
-                                        <td><i class="fa fa-home fa-fw"></i></td>
-                                        <td>3 x 3 Meter</td>
-                                        <td><i class="fa fa-home fa-fw"></i></td>
-                                        <td>3 x 3 Meter</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <br>
-                    <hr>
-                    <br>
-                    <br>
-                    <div class="row p-3">
+
+                    <div class="mt-5 row p-3">
                         <h5 style="font-size: 24px;font-weight: 600;">Catatan Pemilik untuk kos ini</h5>
                     </div>
                     <br>
                     <div class="row p-3">
                         <div class="catatan" style="width: 64%">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet doloribus id recusandae
-                            possimus
-                            accusamus facilis iste fugit illum corrupti. Nesciunt, optio debitis porro impedit qui dolor
-                            ut.
-                            Expedita, debitis aperiam? Delectus possimus quas veniam officia eaque sequi quibusdam,
-                            natus ea
-                            nostrum! Quasi amet omnis numquam quam illo natus magni molestiae odit! Voluptates aperiam
-                            blanditiis
-                            consequuntur quae, ad iusto quod explicabo eligendi qui libero sequi cumque eveniet, velit
-                            sed
-                            facilis
-                            provident ut delectus suscipit ducimus officiis cupiditate autem nesciunt sapiente?
-                            Explicabo atque
-                            nobis aperiam mollitia vel error ipsa, nihil totam quia, libero velit optio eos dolor vitae
-                            iure,
-                            illum
-                            beatae odio.
+                            {{$d->keterangan}}
                         </div>
                     </div>
                     <br>
@@ -206,14 +121,19 @@
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-body">
-                                        <input style="border-radius: 12px" type="text" class="form-control mb-3"
-                                            placeholder="Kosan An Nas">
-                                        <input style="border-radius: 12px" type="text" class="form-control mb-3"
-                                            placeholder="8m2">
-                                        <input style="border-radius: 12px" type="text" class="form-control mb-3"
-                                            placeholder="Jln jaya xx rt xx rw xx xxxxxx">
-                                        <input style="border-radius: 12px" type="text" class="form-control mb-3"
-                                            placeholder="500000">
+                                        <form method="POST" action="#" enctype="multipart/form-data">
+
+                                            <input value="{{$d->nama_kost}}" style="border-radius: 12px" type="text"
+                                                class="form-control mb-3" placeholder="{{$d->nama_kost}}">
+                                            <input value="{{$d->luas_kamar}} Meter" style="border-radius: 12px"
+                                                type="text" class="form-control mb-3"
+                                                placeholder="{{$d->luas_kamar}} Meter">
+                                            <input value="{{$d->alamat_kost}}" style="border-radius: 12px" type="text"
+                                                class="form-control mb-3" placeholder="{{$d->alamat_kost}}">
+                                            <input value="Rp {{number_format($d->harga_kamar, 2, ',', '. ')}}"
+                                                style="border-radius: 12px" type="text" class="form-control mb-3"
+                                                placeholder="Rp {{number_format($d->harga_kamar, 2, ',', '. ')}}">
+                                        </form>
                                     </div>
                                     <button class="btn"
                                         style="margin-left: 26px;max-width: 448px;background: #163358; margin-bottom:33px; color:white">Simpan</button>
