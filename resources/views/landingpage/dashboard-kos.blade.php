@@ -36,7 +36,7 @@
                                 </span>
                             </div>
                             <div class="kelola-button pt-3 pb-3 d-flex justify-content-center">
-                                <a href="{{url('dk-pemilik', $pk->id)}}" class="btn btn-custom w-100">Kelola</a>
+                                <a href="{{url('dashboard-kos',$pk->id)}}" class="btn btn-custom w-100">Kelola</a>
                             </div>
                         </div>
                     </div>
