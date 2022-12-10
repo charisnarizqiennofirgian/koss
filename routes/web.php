@@ -71,6 +71,7 @@ Route::middleware(['auth', 'isadmin'])->group(function () {
     Route::get('users-pdf', [UsersController::class, 'usersPDF'] );
     Route::get('users-excel', [UsersController::class, 'usersExcel'] );
     Route::resource('/users', UsersController::class);
+    Route::get('/user-edit/{id}', [UsersController::class, 'edit']);
     Route::get('dashboard', [DashboardController::class, 'index']);
 });
 
