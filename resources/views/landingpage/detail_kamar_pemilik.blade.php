@@ -121,18 +121,27 @@
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-body">
-                                        <form method="POST" action="{{url('dashboard-kos/update')}}"
+                                        <form method="POST" action="{{ route('dashboard-kos.update',$d->id) }}"
                                             enctype="multipart/form-data">
                                             @csrf
                                             @method('PUT')
-                                            <input value="{{$d->nama_kost}}" style="border-radius: 12px" type="text"
-                                                class="form-control mb-3" placeholder="{{$d->nama_kost}}">
-                                            <input value="{{$d->luas_kamar}} Meter" style="border-radius: 12px"
-                                                type="text" class="form-control mb-3"
+                                            <input name="nama_kost" value="{{$d->nama_kost}}"
+                                                style="border-radius: 12px" type="text" class="form-control mb-3"
+                                                placeholder="{{$d->nama_kost}}">
+                                            <input name="luas_kamar" value="{{$d->luas_kamar}} Meter"
+                                                style="border-radius: 12px" type="text" class="form-control mb-3"
                                                 placeholder="{{$d->luas_kamar}} Meter">
-                                            <input value="{{$d->alamat_kost}}" style="border-radius: 12px" type="text"
-                                                class="form-control mb-3" placeholder="{{$d->alamat_kost}}">
-                                            <input value="Rp {{number_format($d->harga_kamar, 2, ',', '. ')}}"
+                                            <input name="alamat_kost" value="{{$d->alamat_kost}}"
+                                                style="border-radius: 12px" type="text" class="form-control mb-3"
+                                                placeholder="{{$d->alamat_kost}}">
+                                            <input name="keterangan" value="{{$d->keterangan}}"
+                                                style="border-radius: 12px" type="text" class="form-control mb-3"
+                                                placeholder="{{$d->keterangan}}">
+                                            <input name="kota_id" value="{{$d->kota_id}}" style="border-radius: 12px"
+                                                type="text" class="form-control mb-3" placeholder="{{$d->kota_id}}">
+                                            <input name="id_user" value="{{$d->id_user}}" style="border-radius: 12px"
+                                                type="text" class="form-control mb-3" placeholder="{{$d->id_user}}">
+                                            <input name="harga_kamar" value="{{($d->harga_kamar)}}"
                                                 style="border-radius: 12px" type="text" class="form-control mb-3"
                                                 placeholder="Rp {{number_format($d->harga_kamar, 2, ',', '. ')}}">
 

@@ -98,11 +98,19 @@ class PemilikController extends Controller
      */
     public function update(Request $request, $id)
     {
+        DB::table('kost')->where('id',$id)->update(
+            [
+                'nama_kost' => $request->nama_kost,
+                'luas_kamar' => $request->luas_kamar,
+                'harga_kamar' => $request->harga_kamar,
+                'alamat_kost' => $request->alamat_kost,
+                'keterangan' => $request->keterangan,
+                'kota_id' => $request->kota_id,
+                'id_user' => $request->id_user,
+            ]);
 
-        $kost = Kost::findOrFail($id);
-        $kost->update($request->all());
-        // return back();
-        return redirect('landingpage.dashboard-kos');
+        return redirect('/dashboard-kos'.'/'.$id)
+                        ->with('success','Data kost berhasil di Update!');
     }
 
     /**
