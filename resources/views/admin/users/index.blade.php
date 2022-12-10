@@ -81,102 +81,30 @@
                                                 <td>{{$us['created_at']}}</td>
                                                 <td>{{$us['updated_at']}}</td>
                                                 <td>
-                                                    <form method="POST">
+                                                    <form method="POST" action="{{route('users.destroy', $us->id)}}">
                                                         @csrf
+                                                        @method('DELETE')
                                                         <a href="{{route('users.show', $us->id)}}"
-                                                            class="btn btn-link btn-primary btn-lg">
+                                                            class="btn btn-link btn-primary btn-lg"
+                                                            data-toggle="tooltip" title="Detail">
                                                             <i class="fa fa-eye"></i>
                                                         </a>
+
+                                                        <a href="{{ url('user-edit',$us->id) }}" data-toggle="tooltip"
+                                                            title="Edit" class="btn btn-link btn-warning"
+                                                            data-original-title="Edit">
+                                                            <i class="fa fa-edit"></i>
+                                                        </a>
+
+                                                        <button role="button"
+                                                            onclick="return confirm('Anda yakin data akan dihapus?')"
+                                                            type="submit" data-toggle="tooltip" title="Remove"
+                                                            class="btn btn-link btn-danger"
+                                                            data-original-title="Remove">
+                                                            <i class="fa fa-times"></i>
+                                                        </button>
                                                     </form>
                                                     @endforeach
-
-                                                    <!-- Modal -->
-                                                    <div class="modal fade" id="addRowModal" tabindex="-1" role="dialog"
-                                                        aria-hidden="true">
-                                                        <div class="modal-dialog" role="document">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header no-bd">
-                                                                    <h5 class="modal-title">
-                                                                        <span class="fw-mediumbold">
-                                                                            User</span>
-                                                                        <span class="fw-light">
-                                                                            Detail
-                                                                        </span>
-                                                                    </h5>
-                                                                    <button type="button" class="close"
-                                                                        data-dismiss="modal" aria-label="Close">
-                                                                        <span aria-hidden="true">&times;</span>
-                                                                    </button>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    <!-- isi -->
-                                                                    <div class="row g-0">
-                                                                        <div class="col-md-4 gradient-custom text-center text-white"
-                                                                            style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
-                                                                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
-                                                                                alt="Avatar" class="img-fluid my-5"
-                                                                                style="width: 80px;" />
-                                                                            <h5>kampret</h5>
-                                                                            <p>Web Designer</p>
-                                                                            <i class="far fa-edit mb-5"></i>
-                                                                        </div>
-                                                                        <div class="col-md-8">
-                                                                            <div class="card-body p-4">
-                                                                                <h6>Information</h6>
-                                                                                <hr class="mt-0 mb-4">
-                                                                                <div class="row pt-1">
-                                                                                    <div class="col-6 mb-3">
-                                                                                        <h6>Email</h6>
-                                                                                        <p class="text-muted">
-                                                                                            info@example.com
-                                                                                        </p>
-                                                                                    </div>
-                                                                                    <div class="col-6 mb-3">
-                                                                                        <h6>Phone</h6>
-                                                                                        <p class="text-muted">
-                                                                                            123 456 789</p>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <h6>Projects</h6>
-                                                                                <hr class="mt-0 mb-4">
-                                                                                <div class="row pt-1">
-                                                                                    <div class="col-6 mb-3">
-                                                                                        <h6>Recent</h6>
-                                                                                        <p class="text-muted">
-                                                                                            Lorem ipsum</p>
-                                                                                    </div>
-                                                                                    <div class="col-6 mb-3">
-                                                                                        <h6>Most Viewed</h6>
-                                                                                        <p class="text-muted">
-                                                                                            Dolor sit amet
-                                                                                        </p>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div
-                                                                                    class="d-flex justify-content-start">
-                                                                                    <a href="#!"><i
-                                                                                            class="fab fa-facebook-f fa-lg me-3"></i></a>
-                                                                                    <a href="#!"><i
-                                                                                            class="fab fa-twitter fa-lg me-3"></i></a>
-                                                                                    <a href="#!"><i
-                                                                                            class="fab fa-instagram fa-lg"></i></a>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-
-
-
-                                                                    <!-- end -->
-                                                                </div>
-                                                                <div class="modal-footer no-bd">
-                                                                    <button type="button" id="addRowButton"
-                                                                        class="btn btn-primary">Back</button>
-
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
                                                 </td>
                                             </tr>
 

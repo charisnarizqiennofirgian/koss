@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
 <div class="sidebar sidebar-style-2">
     <div class="sidebar-wrapper scrollbar scrollbar-inner">
         <div class="sidebar-content">
@@ -8,6 +9,7 @@
 
                 <div class="info">
                     <a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
+                        @auth
                         <span>
                             {{Auth::user()->name}}
                             <span class="user-level">{{Auth::user()->role}}</span>
@@ -19,30 +21,42 @@
                     <div class="collapse in" id="collapseExample">
                         <ul class="nav">
                             <li>
-                                <a href="#profile">
-                                    <span class="link-collapse">My Profile</span>
-                                </a>
+                                <form method="POST">
+                                    @csrf
+                                    <a href="{{route('users.show', Auth::user()->id)}}">
+                                        <span class="link-collapse">My Profile</span>
+                                    </a>
+                                </form>
                             </li>
                             <li>
-                                <a href="#edit">
+                                <a href="{{ url('user-edit',Auth::user()->id) }}">
                                     <span class="link-collapse">Edit Profile</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#settings">
-                                    <span class="link-collapse">Settings</span>
+                                <a href="{{url('users')}}">
+                                    <span class="link-collapse">Management Users</span>
                                 </a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="document.getElementById('form-logout').submit()"><span
+                                        class="link-collapse">Logout</span></a>
+                                <form action="{{ route('logout') }}" method="post" id="form-logout">
+                                    @csrf
+                                </form>
                             </li>
                         </ul>
                     </div>
+
+                    @endauth
                 </div>
             </div>
-            <ul class="nav nav-primary">
+            <ul class="nav">
                 <li class="nav-item active">
-                    <a href="{{url('dashboard')}}" class="collapsed" aria-expanded="false">
-                        <i class="fas fa-home"></i>
+                    <a href="{{url('administrator')}}" data-toggle="collapse">
+                        <span id="boot-icon" class="bi bi-house-door"
+                            style="font-size: 19px; -webkit-text-stroke-width: 0px; opacity: 1; border: hidden; padding: 10px; border-radius: 1%;"></span>
                         <p>Dashboard</p>
-
                     </a>
                 </li>
                 <li class="nav-section">
@@ -73,11 +87,6 @@
                             <li>
                                 <a href="{{url('pembayaran')}}">
                                     <span class="sub-item">Pembayaran</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{url('users')}}">
-                                    <span class="sub-item">Users</span>
                                 </a>
                             </li>
                         </ul>

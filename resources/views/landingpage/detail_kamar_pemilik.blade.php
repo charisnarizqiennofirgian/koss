@@ -121,8 +121,10 @@
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-body">
-                                        <form method="POST" action="#" enctype="multipart/form-data">
-
+                                        <form method="POST" action="{{url('dashboard-kos/update')}}"
+                                            enctype="multipart/form-data">
+                                            @csrf
+                                            @method('PUT')
                                             <input value="{{$d->nama_kost}}" style="border-radius: 12px" type="text"
                                                 class="form-control mb-3" placeholder="{{$d->nama_kost}}">
                                             <input value="{{$d->luas_kamar}} Meter" style="border-radius: 12px"
@@ -133,10 +135,11 @@
                                             <input value="Rp {{number_format($d->harga_kamar, 2, ',', '. ')}}"
                                                 style="border-radius: 12px" type="text" class="form-control mb-3"
                                                 placeholder="Rp {{number_format($d->harga_kamar, 2, ',', '. ')}}">
-                                        </form>
+
                                     </div>
-                                    <button class="btn"
+                                    <button class="btn" type="submit"
                                         style="margin-left: 26px;max-width: 448px;background: #163358; margin-bottom:33px; color:white">Simpan</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>

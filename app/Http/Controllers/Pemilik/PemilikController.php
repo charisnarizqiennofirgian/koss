@@ -98,7 +98,11 @@ class PemilikController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+
+        $kost = Kost::findOrFail($id);
+        $kost->update($request->all());
+        // return back();
+        return redirect('landingpage.dashboard-kos');
     }
 
     /**
