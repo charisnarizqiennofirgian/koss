@@ -58,9 +58,17 @@ class InfoKostController extends Controller
      */
     public function show($id)
     {
-        $d_fasilitas = Fasilitas::all();
-        $kost_id = Kost::find($id);
-        return view('landingpage.detail_kamar',compact('kost_id', 'd_fasilitas'));
+        // $d_fasilitas = Fasilitas::all();
+        // $kost_id = Kost::find($id);
+        
+
+        $data = Kost::select('kost.id', 'kost.nama_kost', 'kost.luas_kamar', 'kost.harga_kamar', 'kost.alamat_kost', 'kost.keterangan', 'kost.id_fasilitas', 'kost.foto_kamar', 'kost.kota_id', 'kost.id_user', 'fasilitas.fasilitas')
+        	->join('fasilitas', 'fasilitas.id', '=', 'kost.id_fasilitas')
+        	->get();
+        // dd($data);
+        $kost_id = collect($data)->firstWhere('id', '==' , $id);
+        // dd($kost_id);
+        return view('landingpage.detail_kamar_customer',compact('kost_id'));
     }
 
     /**

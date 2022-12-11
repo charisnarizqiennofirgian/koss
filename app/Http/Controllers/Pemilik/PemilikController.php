@@ -86,8 +86,16 @@ class PemilikController extends Controller
      */
     public function edit($id)
     {
-        $d = Kost::find($id);
-        return view('landingpage.test',compact('d'));
+        $pemilik_kost = DB::table('users')
+        ->join('kost', 'kost.id_user', '=', 'users.id')
+        ->join('fasilitas', 'fasilitas.id', '=', 'kost.id_fasilitas')
+        ->select('*')
+        ->where('role', 'pemilik')
+        ->get();
+
+        $detail = collect($pemilik_kost);
+        $d = $detail->firstWhere('id', '==', $id);
+        return view('landingpage.detail_kamar_pemilik',compact('d'));
     }
 
     /**

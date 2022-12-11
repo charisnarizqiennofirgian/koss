@@ -50,6 +50,11 @@ Route::get('/dashboards', function () {
 
 // ROUTE PEMILIK KOS
 Route::resource('/dashboard-kos', PemilikController::class)->middleware(['auth', 'owner']); //well
+Route::get('dkp/{id}', [PemilikController::class, 'edit']
+)->middleware(['auth', 'owner']); //well
+
+Route::get('detail-customer/{id}', [InfoKostController::class, 'show']
+); //well
 
 // ROUTE ADMIN
 Route::middleware(['auth', 'isadmin'])->group(function () {
