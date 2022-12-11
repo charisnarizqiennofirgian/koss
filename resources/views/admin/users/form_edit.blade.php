@@ -84,7 +84,7 @@
                                         </div>
                                         <div class="form-group">
                                             <!-- <label>Password</label> -->
-                                            <input hidden name="password" value="password" type="text"
+                                            <input hidden name="password" value="{{ $user_edit->password }}" type="text"
                                                 class="form-control" placeholder="password">
                                         </div>
                                         <div class="form-group">

@@ -20,7 +20,7 @@
         <div class="col-10 p-5" id="main">
             <div class="main-panel">
                 <div class="row p-3">
-                    <h5 style="font-size: 24px;font-weight: 600;">{{$d->nama_kost}}</h5>
+                    <!-- <h5 style="font-size: 24px;font-weight: 600;">nama kost</h5> -->
                 </div>
 
                 <div class="content-wrapper" style="background: white!important">
@@ -88,11 +88,11 @@
                                 <tbody>
                                     <tr style="height: 48px">
                                         <td><i class="fa fa-home fa-fw"></i></td>
-                                        <td>{{$d->luas_kamar}} Meter</td>
+                                        <!-- <td>luas kamar Meter</td> -->
                                     </tr>
                                     <tr style="height: 48px">
                                         <td>&nbsp;<i class='fa fa-flash'></i></td>
-                                        <td>{{$d->fasilitas}}</td>
+                                        <!-- <td>fasilitas</td> -->
                                     </tr>
                                 </tbody>
                             </table>
@@ -105,15 +105,15 @@
                     <br>
                     <div class="row p-3">
                         <div class="catatan" style="width: 64%">
-                            {{$d->keterangan}}
+                            <!-- keterangan -->
                         </div>
                     </div>
                     <br>
                     <br>
                     <div class="row p-3">
-                        <button class="btn"
+                        <a href="" class="btn"
                             style="color: #BDBDBD;font-weight: 500; background: #163358;width: 100%;border-radius: 0px;"
-                            data-toggle="modal" data-target="#exampleModal">Ubah</button>
+                            data-toggle="modal" data-target="#exampleModal">Ubah</a>
 
                         <!-- Modal -->
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -121,29 +121,23 @@
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-body">
-                                        <form method="POST" action="{{ route('dashboard-kos.update', $d->id) }}"
-                                            enctype="multipart/form-data">
+                                        <form method="POST" action="" enctype="multipart/form-data">
                                             @csrf
                                             @method('PUT')
-                                            <input name="nama_kost" value="{{$d->nama_kost}}"
-                                                style="border-radius: 12px" type="text" class="form-control mb-3"
-                                                placeholder="{{$d->nama_kost}}">
-                                            <input name="luas_kamar" value="{{$d->luas_kamar}} Meter"
-                                                style="border-radius: 12px" type="text" class="form-control mb-3"
-                                                placeholder="{{$d->luas_kamar}} Meter">
-                                            <input name="alamat_kost" value="{{$d->alamat_kost}}"
-                                                style="border-radius: 12px" type="text" class="form-control mb-3"
-                                                placeholder="{{$d->alamat_kost}}">
-                                            <input name="keterangan" value="{{$d->keterangan}}"
-                                                style="border-radius: 12px" type="text" class="form-control mb-3"
-                                                placeholder="{{$d->keterangan}}">
-                                            <input name="kota_id" value="{{$d->kota_id}}" style="border-radius: 12px"
-                                                type="text" class="form-control mb-3" placeholder="{{$d->kota_id}}">
-                                            <input name="id_user" value="{{$d->id_user}}" style="border-radius: 12px"
-                                                type="text" class="form-control mb-3" placeholder="{{$d->id_user}}">
-                                            <input name="harga_kamar" value="{{($d->harga_kamar)}}"
-                                                style="border-radius: 12px" type="text" class="form-control mb-3"
-                                                placeholder="Rp {{number_format($d->harga_kamar, 2, ',', '. ')}}">
+                                            <input name="nama_kost" value="" style="border-radius: 12px" type="text"
+                                                class="form-control mb-3" placeholder="">
+                                            <input name="luas_kamar" value="" style="border-radius: 12px" type="text"
+                                                class="form-control mb-3" placeholder="">
+                                            <input name="alamat_kost" value="" style="border-radius: 12px" type="text"
+                                                class="form-control mb-3" placeholder="">
+                                            <input name="keterangan" value="" style="border-radius: 12px" type="text"
+                                                class="form-control mb-3" placeholder="">
+                                            <input name="kota_id" value="" style="border-radius: 12px" type="text"
+                                                class="form-control mb-3" placeholder="">
+                                            <input name="id_user" value="" style="border-radius: 12px" type="text"
+                                                class="form-control mb-3" placeholder="">
+                                            <input name="harga_kamar" value="" style="border-radius: 12px" type="text"
+                                                class="form-control mb-3" placeholder="">
 
                                     </div>
                                     <button class="btn" type="submit"

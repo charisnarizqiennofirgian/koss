@@ -14,4 +14,9 @@ class Fasilitas extends Model
      */
     protected $table = 'fasilitas';
     protected $fillable = ['fasilitas'];
+
+    public function kost()
+    {
+        return $this->hasMany(Kost::class);
+    }
 }
