@@ -32,7 +32,7 @@
                             <div class="card-header">
                                 <div class="d-flex align-items-center">
                                     <h4 class="card-title">Table Management Users</h4>
-                                    <a title="Tambah Fasilitas" href=""
+                                    <a title="Tambah Fasilitas" href="{{route('users.create')}}"
                                         class="btn btn-secondary btn-round ml-auto text-decoration-none text-light">
                                         <i class="fa fa-plus"></i>
                                         Add

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Kost;
 
 class Fasilitas extends Model
 {
@@ -14,9 +15,4 @@ class Fasilitas extends Model
      */
     protected $table = 'fasilitas';
     protected $fillable = ['fasilitas'];
-
-    public function kost()
-    {
-        return $this->hasMany(Kost::class);
-    }
 }
