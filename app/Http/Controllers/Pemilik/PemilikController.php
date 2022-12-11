@@ -86,7 +86,8 @@ class PemilikController extends Controller
      */
     public function edit($id)
     {
-        //
+        $d = Kost::find($id);
+        return view('landingpage.test',compact('d'));
     }
 
     /**
