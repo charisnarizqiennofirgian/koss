@@ -34,6 +34,8 @@ class PemilikController extends Controller
         ->where('role', 'pemilik')
         ->get();
         // dd($pemilik_kost);
+
+        // $pemilik_kost = Kost::all();
         return view('landingpage.dashboard-kos', compact('pemilik_kost'));
     }
 
@@ -95,7 +97,8 @@ class PemilikController extends Controller
 
         $detail = collect($pemilik_kost);
         $d = $detail->firstWhere('id', '==', $id);
-        return view('landingpage.detail_kamar_pemilik',compact('d'));
+        // $kost_pemilik = Kost::find($id);
+        return view('landingpage.form_edit_pemilik',compact('d'));
     }
 
     /**
@@ -107,15 +110,30 @@ class PemilikController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // proses input data kost
+        $request->validate([
+            'nama_kost' => 'required|max:45',
+            'luas_kamar' => 'required|max:45',
+            'harga_kamar' => 'required|max:45',
+            'keterangan' => 'required|max:45',
+            'kota_id' => 'numeric|required',
+            'alamat_kost' => 'nullable|string|min:10',
+            'id_fasilitas' => 'required|max:45'
+        ]);
+
+        /**
+         * Lakukan update data dari request form edit
+         */
         DB::table('kost')->where('id',$id)->update(
             [
                 'nama_kost' => $request->nama_kost,
                 'luas_kamar' => $request->luas_kamar,
                 'harga_kamar' => $request->harga_kamar,
-                'alamat_kost' => $request->alamat_kost,
                 'keterangan' => $request->keterangan,
+                'alamat_kost' => $request->alamat_kost,
                 'kota_id' => $request->kota_id,
-                'id_user' => $request->id_user,
+                'id_fasilitas' => $request->id_fasilitas,
+                'updated_at'=>now(),
             ]);
 
         return redirect('/dashboard-kos'.'/'.$id)
