@@ -111,42 +111,8 @@
                     <br>
                     <br>
                     <div class="row p-3">
-                        <button class="btn"
-                            style="color: #BDBDBD;font-weight: 500; background: #163358;width: 100%;border-radius: 0px;"
-                            data-toggle="modal" data-target="#exampleModal">Ubah</button>
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-body">
-                                        <form method="POST" action="{{route('dkp.update'.$d->id)}}"
-                                            enctype="multipart/form-data">
-                                            @csrf
-                                            @method('PUT')
-                                            <input name="nama_kost" value="" style="border-radius: 12px" type="text"
-                                                class="form-control mb-3" placeholder="">
-                                            <input name="luas_kamar" value="" style="border-radius: 12px" type="text"
-                                                class="form-control mb-3" placeholder="">
-                                            <input name="alamat_kost" value="" style="border-radius: 12px" type="text"
-                                                class="form-control mb-3" placeholder="">
-                                            <input name="keterangan" value="" style="border-radius: 12px" type="text"
-                                                class="form-control mb-3" placeholder="">
-                                            <input name="kota_id" value="" style="border-radius: 12px" type="text"
-                                                class="form-control mb-3" placeholder="">
-                                            <input name="id_user" value="" style="border-radius: 12px" type="text"
-                                                class="form-control mb-3" placeholder="">
-                                            <input name="harga_kamar" value="" style="border-radius: 12px" type="text"
-                                                class="form-control mb-3" placeholder="">
-
-                                    </div>
-                                    <button class="btn" type="submit"
-                                        style="margin-left: 26px;max-width: 448px;background: #163358; margin-bottom:33px; color:white">Simpan</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
+                        <a href="{{ url('pemilik-edit',$d->id) }}" class="btn"
+                            style="color: #BDBDBD;font-weight: 500; background: #163358;width: 100%;border-radius: 0px;">Ubah</a>
                     </div>
                 </div>
             </div>
