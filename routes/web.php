@@ -15,6 +15,9 @@ use App\Http\Middleware\Role;
 use App\Http\Controllers\Pemilik\PemilikController;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
+// IMPORT CONTROLLER WHATSAPP GATEWAY
+use App\Http\Controllers\FormController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -97,3 +100,7 @@ Route::get('/access-denied', function () {
 Route::resource('kamar', InfoKostController::class)->middleware('auth');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home'); 
 // Route::resource('/tes',PemilikController::class);
+
+// ROUTING WHATSAPP GATEWAY
+Route::get('form-send', [FormController::class, 'index']);
+Route::post('form-send', [FormController::class, 'store']);
