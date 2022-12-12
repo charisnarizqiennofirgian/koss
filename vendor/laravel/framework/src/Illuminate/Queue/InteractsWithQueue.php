@@ -9,7 +9,7 @@ trait InteractsWithQueue
     /**
      * The underlying queue job instance.
      *
-     * @var \Illuminate\Contracts\Queue\Job|null
+     * @var \Illuminate\Contracts\Queue\Job
      */
     public $job;
 
