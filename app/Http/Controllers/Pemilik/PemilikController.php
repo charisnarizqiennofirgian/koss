@@ -33,10 +33,8 @@ class PemilikController extends Controller
         ->select('*')
         ->where('role', 'pemilik')
         ->get();
-        // dd($pemilik_kost);
-
-        // $pemilik_kost = Kost::all();
-        return view('landingpage.dashboard-kos', compact('pemilik_kost'));
+        
+        return view('landingpage.kelola_pemilik.table_pemilik', compact('pemilik_kost'));
     }
 
     /**
@@ -97,7 +95,6 @@ class PemilikController extends Controller
 
         $detail = collect($pemilik_kost);
         $d = $detail->firstWhere('id', '==', $id);
-        // $kost_pemilik = Kost::find($id);
         return view('landingpage.form_edit_pemilik',compact('d'));
     }
 

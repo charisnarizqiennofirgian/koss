@@ -2,12 +2,7 @@
 @section('content')
 <div class="container-fluid">
     <div class="row">
-        <div class="col-2 px-1 shadow">
-            <div class="nav flex-column flex-nowrap vh-100 overflow-auto p-2">
-                <a href="dashboards" class="nav-link side "><i class="bi bi-grid"></i>Dashboard</a>
-                <a href="dashboard-kos" class="nav-link side active"><i class="bi bi-house-door"></i>Home</a>
-            </div>
-        </div>
+        @include('landingpage.sidebar')
 
         <div class="col-10 p-5" id="main">
             <!-- CSS Files -->
@@ -30,7 +25,8 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="card">
-                                <form method="POST" action="" enctype="multipart/form-data">
+                                <form method="POST" action="{{route('dashboard-kos.update', $d->id)}}"
+                                    enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
                                     <div class=" card-header">
