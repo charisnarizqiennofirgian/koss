@@ -2,13 +2,7 @@
 @section('content')
 <div class="container-fluid">
     <div class="row">
-        <div class="col-2 px-1 shadow">
-            <div class="nav flex-column flex-nowrap vh-100 overflow-auto p-2">
-                <a href="" class="nav-link side "><i class="bi bi-grid"></i>Dashboard</a>
-                <a href="" class="nav-link side active"><i class="bi bi-house-door"></i>Home</a>
-            </div>
-        </div>
-
+        @include('landingpage.sidebar')
         <div class="col-10 p-5" id="main">
             <div class="row">
                 @foreach($pemilik_kost as $pk)

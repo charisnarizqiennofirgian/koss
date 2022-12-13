@@ -50,14 +50,14 @@ Route::get('/dashboards', function () {
 })->middleware(['auth', 'owner']); //well
 
 // ROUTE PEMILIK KOS
-Route::resource('/dashboard-kos', PemilikController::class)->middleware(['auth', 'owner']); //well
+// Route::resource('/dashboard-kos', PemilikController::class)->middleware(['auth', 'owner']); //well
 // Route::get('dkp/{id}', [PemilikController::class, 'edit']
 // )->middleware(['auth', 'owner']); //well
 
 Route::get('detail-customer/{id}', [InfoKostController::class, 'show']
 ); //well
 
-Route::get('pemilik-edit/{id}', [PemilikController::class, 'edit'])->middleware(['auth', 'owner']);;
+// Route::get('pemilik-edit/{id}', [PemilikController::class, 'edit'])->middleware(['auth', 'owner']);;
 
 // ROUTE ADMIN
 Route::middleware(['auth', 'isadmin'])->group(function () {
@@ -102,6 +102,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // Route::resource('/tes',PemilikController::class);
 
 // table pemilik
-Route::get('/table-pemilik', function (){
-    return view('landingpage.kelola_pemilik.table_pemilik');
-});
+Route::resource('/data-pemilik', PemilikController::class)->middleware(['auth', 'owner']);

@@ -9,12 +9,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="container-fluid">
     <div class="row">
-        <div class="col-2 px-1 shadow">
-            <div class="nav flex-column flex-nowrap vh-100 overflow-auto p-2">
-                <a href="dashboard_pk.html" class="nav-link side active"><i class="bi bi-grid"></i>Dashboard</a>
-                <a href="dashboard-kos" class="nav-link side"><i class="bi bi-house-door"></i>Home</a>
-            </div>
-        </div>
+        @include('landingpage.sidebar')
         <!-- main content -->
 
         <div class="col-10 p-5" id="main">
