@@ -66,7 +66,7 @@
                                 <div class="d-flex flex-column mx-4 my-4 mb-4">
                                     <p class="d-flex align-items-center" style="color: #1EA723;"><i class="bi bi-dot"
                                             style="font-size:30px;"></i>online</p>
-                                    <a href="{{url('form-send')}}" style="border: 1px solid #11296B; color: #11296B;"
+                                    <a href="#" style="border: 1px solid #11296B; color: #11296B;"
                                         class="btn bg-body rounded" type="submit">
                                         Tanya pemilik kost&nbsp;&nbsp;<i class="bi bi-chat-left-text"></i>
                                     </a>
