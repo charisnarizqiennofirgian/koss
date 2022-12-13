@@ -15,8 +15,6 @@ use App\Http\Middleware\Role;
 use App\Http\Controllers\Pemilik\PemilikController;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
-// IMPORT CONTROLLER WHATSAPP GATEWAY
-use App\Http\Controllers\FormController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,7 +30,7 @@ use App\Http\Controllers\FormController;
 Auth::routes();
 
 // Routing Landing Page
-Route::get('/coba/{id}', [UsersController::class], 'show');
+// Route::get('/coba/{id}', [UsersController::class], 'show');
 
 Route::resource('/', InfoKostController::class ); //well
 Route::resource('/beranda', InfoKostController::class ); //well
@@ -103,6 +101,7 @@ Route::resource('kamar', InfoKostController::class)->middleware('auth');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home'); 
 // Route::resource('/tes',PemilikController::class);
 
-// ROUTING WHATSAPP GATEWAY
-Route::get('form-send', [FormController::class, 'index']);
-Route::post('form-send', [FormController::class, 'store']);
+// table pemilik
+Route::get('/table-pemilik', function (){
+    return view('landingpage.kelola_pemilik.table_pemilik');
+});

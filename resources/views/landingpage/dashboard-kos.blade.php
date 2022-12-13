@@ -4,8 +4,8 @@
     <div class="row">
         <div class="col-2 px-1 shadow">
             <div class="nav flex-column flex-nowrap vh-100 overflow-auto p-2">
-                <a href="dashboards" class="nav-link side "><i class="bi bi-grid"></i>Dashboard</a>
-                <a href="dashboard-kos" class="nav-link side active"><i class="bi bi-house-door"></i>Home</a>
+                <a href="" class="nav-link side "><i class="bi bi-grid"></i>Dashboard</a>
+                <a href="" class="nav-link side active"><i class="bi bi-house-door"></i>Home</a>
             </div>
         </div>
 

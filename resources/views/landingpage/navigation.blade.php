@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg fixed-top navbar-static-top navbar-light bg-light ">
-    <a class="navbar-brand mr-auto mr-lg-0 d-inline" href="#">
-        <img src="assets/image/logo-brand.png" alt="" srcset="">
+    <a class="navbar-brand mr-auto mr-lg-0 d-inline" href="{{url('/')}}">
+        <img src="{{url('assets/image/logo-brand.png')}}" alt="" srcset="">
     </a>
     <div class="container navbar-wrapper mr-auto">
         <button class="navbar-toggler p-0 border-0 ml-auto" type="button" data-toggle="offcanvas">
@@ -10,7 +10,7 @@
         <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav ml-2">
                 <li class="nav-item active">
-                    <a class="nav-link" href="beranda">Home</a>
+                    <a class="nav-link" href="{{url('/')}}">Home</a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="#rek">Rekomendasi Kos</a>

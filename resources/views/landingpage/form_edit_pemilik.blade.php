@@ -30,8 +30,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="card">
-                                <form method="POST" action="{{route('dashboard-kos.update', $d->id)}}"
-                                    enctype="multipart/form-data">
+                                <form method="POST" action="" enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
                                     <div class=" card-header">
