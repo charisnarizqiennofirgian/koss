@@ -215,7 +215,7 @@ class KostController extends Controller
             ]);
        
         return redirect()->route('kost.index')
-                        ->with('success','Jabatan Berhasil Disimpan');
+                        ->with('success','Kost Berhasil Disimpan');
     }
 
     /**

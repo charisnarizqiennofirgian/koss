@@ -14,10 +14,6 @@
 
         <div class="col-10 p-5" id="main">
             <div class="main-panel">
-                <div class="row p-3">
-                    <h5 style="font-size: 24px;font-weight: 600;">nama kost</h5>
-                </div>
-
                 <div class="content-wrapper" style="background: white!important">
                     <div class="row-12" style="width: 100%">
                         <div id="carouselExampleControls" class="carousel slide mb-4" data-ride="carousel">
@@ -47,22 +43,17 @@
                             </button>
                         </div>
                     </div>
-
                     <div class="row p-3">
-                        <div class="card mb-3" style="width: 100%; border: 3px dashed #E0E0E0;">
-                            <div class="card-body">
-                                <center style="margin-top:3%; margin-bottom:3%">
-                                    <div class="tambah" style="color:#BDBDBD; font-size:35px">
-                                        <i class='far fa-image'></i>
-                                    </div>
-                                    <div class="tambah" style="color:#BDBDBD">
-                                        <i class="fa fa-plus-square"></i>
-                                    </div>
-                                    <div class="tambah">
-                                        <input style="color:#BDBDBD" type="file" />
-                                    </div>
+                        <h2>{{$detail_kamar->nama_kost}}</h2>
+                    </div>
 
-                            </div>
+                    <div class="d-flex justify-content-start border-bottom my-4 mb-4">
+                        <button class="btn mr-4 shadow bg-body rounded text-dark  px-5 py-3 mb-4" type="submit">
+                            Pemilik
+                            Kost: {{$detail_kamar->name}}
+                        </button>
+                        <div class="p-2">
+                            <i class="bi bi-geo-alt-fill"></i>&nbsp;&nbsp;&nbsp;{{$detail_kamar->alamat_kost}}
                         </div>
                     </div>
 
@@ -83,11 +74,11 @@
                                 <tbody>
                                     <tr style="height: 48px">
                                         <td><i class="fa fa-home fa-fw"></i></td>
-                                        <td>luas kamar Meter</td>
+                                        <td>Luas kamar: {{$detail_kamar->luas_kamar}} Meter</td>
                                     </tr>
                                     <tr style="height: 48px">
                                         <td>&nbsp;<i class='fa fa-flash'></i></td>
-                                        <td>fasilitas</td>
+                                        <td>Fasilitas: {{$detail_kamar->fasilitas}}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -100,14 +91,15 @@
                     <br>
                     <div class="row p-3">
                         <div class="catatan" style="width: 64%">
-                            keterangan
+                            Keterangan:
+                            {{$detail_kamar->keterangan}}
                         </div>
                     </div>
                     <br>
                     <br>
                     <div class="row p-3">
-                        <a href="{{ url('pemilik-edit',$d->id) }}" class="btn"
-                            style="color: #BDBDBD;font-weight: 500; background: #163358;width: 100%;border-radius: 0px;">Ubah</a>
+                        <a href="{{url('/data-pemilik')}}" class="btn"
+                            style="color: #BDBDBD;font-weight: 500; background: #163358;width: 100%;border-radius: 0px;">Back</a>
                     </div>
                 </div>
             </div>

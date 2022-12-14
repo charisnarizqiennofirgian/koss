@@ -16,6 +16,7 @@ use DB;
 use App\Models\Kost;
 use App\Models\User;
 use App\Models\RekomendasiKost;
+use Illuminate\Support\Facades\Validator;
 
 
 class PemilikController extends Controller
@@ -33,6 +34,8 @@ class PemilikController extends Controller
         ->select('*')
         ->where('role', 'pemilik')
         ->get();
+
+        // dd($pemilik_kost);
         
         return view('landingpage.kelola_pemilik.table_pemilik', compact('pemilik_kost'));
     }
@@ -73,9 +76,9 @@ class PemilikController extends Controller
         ->where('role', 'pemilik')
         ->get();
 
-        $detail = collect($pemilik_kost);
-        $d = $detail->firstWhere('id', '==', $id);
-        return view('landingpage.detail_kamar_pemilik', compact('d'));
+        $d = collect($pemilik_kost);
+        $detail_kamar = $d->firstWhere('id', '==', $id);
+        return view('landingpage.kelola_pemilik.detail_kamar', compact('detail_kamar'));
     }
 
     /**
@@ -94,8 +97,9 @@ class PemilikController extends Controller
         ->get();
 
         $detail = collect($pemilik_kost);
-        $d = $detail->firstWhere('id', '==', $id);
-        return view('landingpage.form_edit_pemilik',compact('d'));
+        $detail_kamar = $detail->firstWhere('id', '==', $id);
+        // dd($detail_kamar);
+        return view('landingpage.kelola_pemilik.form_edit',compact('detail_kamar'));
     }
 
     /**
@@ -107,34 +111,54 @@ class PemilikController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // proses input data kost
-        $request->validate([
-            'nama_kost' => 'required|max:45',
-            'luas_kamar' => 'required|max:45',
-            'harga_kamar' => 'required|max:45',
-            'keterangan' => 'required|max:45',
-            'kota_id' => 'numeric|required',
-            'alamat_kost' => 'nullable|string|min:10',
-            'id_fasilitas' => 'required|max:45'
+        // $user = validated($request, [
+        //     'name' => 'required|max:45',
+        //     'email' => 'required|max:45',
+        //     'role' => 'required|max:45',
+        //     'pekerjaan' => 'required|max:45',
+        //     'telp' => 'required|max:45',
+        //     'password' => 'required|max:255',
+        // ]);
+
+        // $kost = validate($request, [
+        //     'nama_kost' => 'required|max:45',
+        //     'luas_kamar' => 'required|max:45',
+        //     'harga_kamar' => 'required|max:45',
+        //     'alamat_kost' => 'required|max:45',
+        //     'keterangan' => 'required|max:45',
+        //     'kota_id' => 'required|max:45',
+        // ]);
+
+        // $fasilitas = validate($request, [
+        //     'fasilitas' => 'required|max:45',
+        // ]);
+        
+        $user_id = User::findOrFail($id);
+        $user_id->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'role' => $request->role,
+            'pekerjaan' => $request->pekerjaan,
+            'telp' => $request->telp,
+            'password' => $request->password,
         ]);
 
-        /**
-         * Lakukan update data dari request form edit
-         */
-        DB::table('kost')->where('id',$id)->update(
-            [
-                'nama_kost' => $request->nama_kost,
-                'luas_kamar' => $request->luas_kamar,
-                'harga_kamar' => $request->harga_kamar,
-                'keterangan' => $request->keterangan,
-                'alamat_kost' => $request->alamat_kost,
-                'kota_id' => $request->kota_id,
-                'id_fasilitas' => $request->id_fasilitas,
-                'updated_at'=>now(),
-            ]);
+        
 
-        return redirect('/dashboard-kos'.'/'.$id)
-                        ->with('success','Data kost berhasil di Update!');
+        // $read_kost = Kost::update([
+        //     'nama_kost' => $request->nama_kost,
+        //     'luas_kamar' => $request->luas_kamar,
+        //     'harga_kamar' => $request->harga_kamar,
+        //     'alamat_kost' => $request->alamat_kost,
+        //     'keterangan' => $request->keterangan,
+        //     'kota_id' => $request->kota_id,
+        // ]);
+
+        // $read_fasilitas = Fasilitas::update([
+        //     'fasilitas' => $request->fasilitas,
+        // ]);
+
+        
     }
 
     /**
