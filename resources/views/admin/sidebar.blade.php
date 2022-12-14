@@ -4,9 +4,8 @@
         <div class="sidebar-content">
             <ul class="nav">
                 <li class="nav-item active" style="font-size:1.4rem;">
-                    <a href="{{url('administrator')}}" data-toggle="collapse">
-                        <div class="p-2">
-                            <span id="boot-icon" class="bi bi-grid"></span>
+                    <a href="{{url('administrator')}}">
+                        <div class="p-2 bi bi-grid">
                         </div>
                         <p>Dashboard</p>
                     </a>
@@ -14,8 +13,7 @@
                 <!-- awal -->
                 <li class="nav-item">
                     <a data-toggle="collapse" href="#base" style="font-size:1.2rem;">
-                        <div class="p-2">
-                            <span id="boot-icon" class="bi bi-layers"></span>
+                        <div class="p-2 bi bi-layers">
                         </div>
                         <p>Master Data</p>
                         <span class="caret"></span>
