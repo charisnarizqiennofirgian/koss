@@ -31,6 +31,8 @@ class User extends Authenticatable
         'role'
     ];
 
+    
+
     // protected $fillable = [
     //     'nama',
     //     'username',

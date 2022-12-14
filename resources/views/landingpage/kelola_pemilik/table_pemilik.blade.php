@@ -30,10 +30,11 @@
                                     data-original-title="Detail">
                                     <i class="bi bi-eye"></i>
                                 </a>
-                                <button type="button" data-toggle="tooltip" style="color: #fd5f00;" title="Edit"
-                                    class="btn btn-link btn-lg" data-original-title="Edit Task">
+                                <a href="{{ route('data-pemilik.edit',$pk->id) }}" type="button" data-toggle="tooltip"
+                                    style="color: #fd5f00;" title="Edit" class="btn btn-link btn-lg"
+                                    data-original-title="Edit Task">
                                     <i class="fa fa-edit"></i>
-                                </button>
+                                </a>
                             </div>
                         </td>
                     </tr>
