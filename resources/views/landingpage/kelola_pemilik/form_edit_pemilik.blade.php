@@ -3,10 +3,7 @@
 <div class="container-fluid">
     <div class="row">
         @include('landingpage.sidebar')
-
         <div class="col-10 p-5" id="main">
-            <!-- CSS Files -->
-
             <div class="content">
                 <div class="page-inner">
                     {{-- form validation --}}
