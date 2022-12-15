@@ -10,8 +10,10 @@ use App\Http\Controllers\Customer\InfoKostController;
 use App\Http\Controllers\Auth\UsersController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\RekomendasiKostController;
+use App\Http\Controllers\Admin\RekomendasikanController;
 use App\Http\Middleware\Role;
 
+use App\Http\Controllers\Customer\DetailTersediaController;
 use App\Http\Controllers\Pemilik\PemilikController;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
@@ -57,6 +59,9 @@ Route::get('/dashboards', function () {
 Route::get('detail-customer/{id}', [InfoKostController::class, 'show']
 ); //well
 
+Route::get('detail-tersedia/{id}', [DetailTersediaController::class, 'detail_tersedia']
+); //well
+
 // Route::get('pemilik-edit/{id}', [PemilikController::class, 'edit'])->middleware(['auth', 'owner']);;
 
 // ROUTE ADMIN
@@ -65,6 +70,7 @@ Route::middleware(['auth', 'isadmin'])->group(function () {
     Route::resource('/fasilitas', FasilitasController::class);
     Route::resource('/kost', KostController::class);
     Route::resource('/pembayaran', PembayaranController::class);
+    Route::resource('/rekomendasi', RekomendasikanController::class);
     Route::get('kost-edit/{id}', [KostController::class, 'edit']);
     Route::get('fasilitas-edit/{id}', [FasilitasController::class, 'edit']);
     Route::get('detail_product/{id}', [KostController::class, 'detail']);
@@ -103,5 +109,3 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 // table pemilik
 Route::resource('/data-pemilik', PemilikController::class)->middleware(['auth', 'owner']);
-
-

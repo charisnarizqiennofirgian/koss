@@ -81,7 +81,9 @@ $kota = App\Models\Kota::all();
                                             <label>User</label>
                                             <select name="id_user" class="form-control">
                                                 @foreach($t_user as $usr)
+                                                @if($usr->role === 'pemilik')
                                                 <option value="{{$usr->id}}">{{$usr->name}}</option>
+                                                @endif
                                                 @endforeach
                                             </select>
                                         </div>
