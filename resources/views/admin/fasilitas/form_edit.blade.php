@@ -62,8 +62,7 @@
                             </div>
                             <div class="card-action">
                                 <button type="submit" class="btn btn-success">Save</button>
-                                <a onclick="return confirm('Anda yakin ingin kembali ke table kost?')"
-                                    href="{{url('fasilitas')}}" class="btn btn-danger">Back</a>
+                                <a href="{{url('fasilitas')}}" class="btn btn-danger">Back</a>
                             </div>
                         </form>
                     </div>
