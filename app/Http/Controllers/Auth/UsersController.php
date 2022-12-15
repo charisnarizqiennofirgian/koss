@@ -11,6 +11,7 @@ use DB;
 // buat export excel
 use App\Exports\UserExport;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
@@ -45,7 +46,29 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|max:255',
+            'email' => 'required|max:255',
+            'password' => 'required|max:255',
+            'role' => 'required',
+            'telp' => 'required|int',
+            'pekerjaan' => 'required|max:255',
+            'foto_user' => 'nullable|max:45',
+            'alamat' => 'required',
+        ]);
+        DB::table('users')->insert(
+            [
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'role' => $request->role,
+                'telp' => $request->telp,
+                'pekerjaan' => $request->pekerjaan,
+                'foto_user' => $request->foto_user,
+                'alamat' => $request->alamat,
+                'created_at'=>now()
+            ]);
+        return redirect()->route('users.index')->with('succes' , 'User Berhasil Ditambahkan');
     }
 
     /**

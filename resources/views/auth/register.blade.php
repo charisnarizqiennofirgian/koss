@@ -7,6 +7,7 @@
 
         <form action="{{ route('register') }}" method="post" class="form-register">
             @csrf
+            <!-- Input Nama -->
             <input class="form-control w-50 @error('name') is-invalid @enderror" type="text" name="name"
                 value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Masukkan nama lengkap">
             @error('name')
@@ -14,7 +15,7 @@
                 <strong>{{ $message }}</strong>
             </span>
             @enderror
-
+            <!-- Input Email -->
             <input class="form-control w-50 @error('email') is-invalid @enderror" type="email" name="email"
                 value="{{ old('email') }}" required autocomplete="email" placeholder="Masukkan Email">
             @error('email')
@@ -22,7 +23,7 @@
                 <strong>{{ $message }}</strong>
             </span>
             @enderror
-
+            <!-- Input Telpon -->
             <input class="form-control w-50 @error('telp') is-invalid @enderror" type="telp" name="telp"
                 value="{{ old('telp') }}" required autocomplete="telp" placeholder="Masukkan Nomor Telepon">
             @error('email')
@@ -30,9 +31,9 @@
                 <strong>{{ $message }}</strong>
             </span>
             @enderror
-
+            <!-- Auto Input Role Customer -->
             <input name="role" type="text" id="role" value="customer" hidden>
-
+            <!-- Input Pekerjaan -->
             <input class="form-control w-50 @error('pekerjaan') is-invalid @enderror" type="text" name="pekerjaan"
                 value="{{ old('pekerjaan') }}" required autocomplete="pekerjaan" placeholder="Pekerjaan">
             @error('pekerjaan')
@@ -40,7 +41,7 @@
                 <strong>{{ $message }}</strong>
             </span>
             @enderror
-
+            <!-- Input Password -->
             <input class="form-control w-50 @error('password') is-invalid @enderror" type="password" name="password"
                 required autocomplete="new-password" placeholder="Password">
             @error('password')
@@ -48,16 +49,13 @@
                 <strong>{{ $message }}</strong>
             </span>
             @enderror
-
+            <!-- Input Confirm Password -->
             <input class="form-control w-50" type="password" name="password_confirmation" placeholder="Password Confrim"
                 required autocomplete="new-password">
-
             <button type="submit" class="btn btn-custom-daftar mb-3">Daftar Sekarang</button>
         </form>
         <a class="have" href="login">Sudah Punya Akun ?</a>
     </div>
-
-
 
     <!-- <div class="logo-brand d-flex justify-content-center">
     </div> -->
