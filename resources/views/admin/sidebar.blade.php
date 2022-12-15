@@ -35,6 +35,11 @@
                                     <span class="sub-item">Pembayaran</span>
                                 </a>
                             </li>
+                            <li>
+                                <a href="{{url('rekomendasi')}}">
+                                    <span class="sub-item">Rekomendasi Kost</span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </li>

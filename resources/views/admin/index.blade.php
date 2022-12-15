@@ -42,7 +42,7 @@
             <!-- Logo Header -->
             <div class="logo-header" data-background-color="white">
 
-                <a href="{{ url('/administrator') }}" class="logo">
+                <a href="{{ url('/') }}" class="logo">
                     <img src="{{url('assets/image/logo-brand.png')}}" alt="navbar brand" class="navbar-brand">
                 </a>
                 <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse"
