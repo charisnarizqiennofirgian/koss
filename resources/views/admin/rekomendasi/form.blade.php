@@ -51,13 +51,10 @@
                                             @csrf
                                             <label for="email2">Rekomendasikan Kost</label>
 
+                                          
                                             <select name="kost_id" class="form-control">
-                                                @foreach($rekomendasi as $rek)
-                                                @foreach($kost as $k)
-                                                @if($rek->kost_id === $k->id)
-                                                <option value="{{$rek->kost_id}}">{{$k->nama_kost}}</option>
-                                                @endif
-                                                @endforeach
+                                               @foreach($kost as $k)
+                                                <option value="{{$k->id}}">{{$k->nama_kost}}</option>
                                                 @endforeach
                                             </select>
                                             <small id="emailHelp2" class="form-text text-muted">Silahkan masukan data

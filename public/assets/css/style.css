@@ -513,8 +513,8 @@ margin-bottom: 3rem;
   background: linear-gradient(173deg, rgba(178,211,255,1) 0%, rgba(255,247,229,1) 100%);
   border-radius: 30px;
   overflow-y: auto;
-  height: 400px;
-  padding-top: 10px;
+  height: auto;
+  padding-top: 15px;
 }
 
 .rekomendasi::-webkit-scrollbar {

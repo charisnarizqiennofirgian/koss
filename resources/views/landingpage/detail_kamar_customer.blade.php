@@ -10,14 +10,14 @@
                         <div id="carouselExampleControls" class="carousel slide mb-4" data-ride="carousel">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="#" class="d-block w-100" alt="...">
+                                    <img src="{{url('admin/img')}}/{{$kost_id->foto_kamar}}" class="d-block w-100" alt="...">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="{{url('images/pemilik/detail_pemilik.png')}}" class="d-block w-100"
+                                    <img src="{{url('admin/img')}}/{{$kost_id->foto_kamar}}" class="d-block w-100"
                                         alt="...">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="{{url('images/pemilik/detail_pemilik.png')}}" class="d-block w-100"
+                                    <img src="{{url('admin/img')}}/{{$kost_id->foto_kamar}}" class="d-block w-100"
                                         alt="...">
                                 </div>
                             </div>

@@ -17,12 +17,13 @@ class RekomendasikanController extends Controller
      */
     public function index()
     {
+        $id_rek = RekomendasiKost::all();
         $title = ['No', 'Kost', 'Pemilik', 'Aksi'];
         $rekomendasi = RekomendasiKost::select('*')
                                         ->join('kost', 'kost.id', '=', 'rekomendasi_kost.kost_id')
                                         ->join('users', 'users.id', '=', 'kost.id_user')->get();
         // dd($rekomendasi);
-        return view('admin.rekomendasi.rekomendasi_index', compact('rekomendasi', 'title'));
+        return view('admin.rekomendasi.rekomendasi_index', compact('rekomendasi', 'title', 'id_rek'));
     }
 
     /**
@@ -32,7 +33,8 @@ class RekomendasikanController extends Controller
      */
     public function create()
     {
-        $rekomendasi = RekomendasiKost::all();
+        // $rekomendasi = RekomendasiKost::select('*')
+        $rekomendasi = User::all();
         $kost = Kost::all();
         // dd($kost);
         return view('admin.rekomendasi.form', compact('rekomendasi', 'kost'));
@@ -94,11 +96,20 @@ class RekomendasikanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    
+
     public function destroy($id)
-    {
-        RekomendasiKost::find($id);
-        RekomendasiKost::where('id', $id)->delete();
-        return redirect()->route('rekomendasi.index')
-        ->with('success', 'Data rekomendasi kost berhasil dihapus!');
-    }
+{
+    // RekomendasiKost::where('id', $id)->delete();
+    $rekomendasi = RekomendasiKost::select('*')
+                                    ->join('kost', 'kost.id', '=', 'rekomendasi_kost.kost_id')
+                                    ->join('users', 'users.id', '=', 'kost.id_user')
+                                    ->where('rekomendasi_kost.kost_id', '=', $id);
+
+    // Use the delete() method to delete the data from the tables
+    $rekomendasi->delete();
+
+    return redirect()->route('rekomendasi.index')
+    ->with('success', 'Data rekomendasi kost berhasil dihapus!');
+}
 }
