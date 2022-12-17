@@ -34,8 +34,8 @@
                     @foreach($rekomendasi as $rk)
                     <div class="col-md-6 col-lg-3">
                         <div class="card shadow-sm border-light mb-4">
-                            <a href="{{ url('detail-customer',$rk->id) }}" class="position-relative">
-                                <img src="assets/image/example_card/image.png" class="card-img-top" alt="image"> </a>
+                            <a href="{{ route('detailCustomer.show',$rk->id) }}" class="position-relative">
+                                <img src="{{url('admin/img')}}/{{$rk->foto_kamar}}" class="card-img-top" alt="image"> </a>
                             <div class="card-body">
                                 <div class="d-flex align-content-center align-items-center justify-content-between">
                                     <span class="font-weight-small">{{$rk->nama_kost}}</span>
