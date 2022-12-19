@@ -10,7 +10,7 @@
         <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav ml-2">
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{url('/')}}">Home</a>
+                    <a class="nav-link " href="{{url('/')}}">Home</a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="#rek">Rekomendasi Kos</a>

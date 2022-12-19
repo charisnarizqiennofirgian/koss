@@ -109,5 +109,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 // table pemilik
 Route::resource('/data-pemilik', PemilikController::class)->middleware(['auth', 'owner']);
-
 Route::resource('/detailCustomer', InfoKostController::class); //well
+// testing 
+Route::get('/tes', function () {
+    return view('tes');
+}); //well

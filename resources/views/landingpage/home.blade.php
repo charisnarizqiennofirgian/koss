@@ -54,6 +54,7 @@
                                         </i>{{$rk->alamat_kost}}
                                     </span>
                                 </div>
+                                <a href="{{ route('detailCustomer.show',$rk->id) }}"><button class="btn btn-primary bt">Lihat Kamar</button></a>
                             </div>
                         </div>
                     </div>
@@ -180,10 +181,8 @@
             <a href="#" class="btn btn-outline-dark shadow mt-1">Lihat Semua</a>
         </div>
     </div>
-
-    <!--  -->
 </div>
-<!--  -->
+
 
 <section class="pt-5 pb-5 testimoni">
   <div class="container">
