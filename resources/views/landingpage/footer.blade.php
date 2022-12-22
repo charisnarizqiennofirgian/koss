@@ -68,6 +68,7 @@
           </div>
       </div>
       <script src="{{ asset('assets/vendor/jquery/jquery-3.6.1.slim.min.js') }}"></script>
+      <script src="{{ asset('assets/js/myjs.js') }}"></script>
       <script src="{{ asset('assets/vendor/owl-carousel/js/owl.carousel.min.js') }}"></script>
       <script src="{{ asset('assets/vendor/popper/dist/umd/popper-base.min.js') }}"></script>
       <script src="{{ asset('assets/js/main.js') }}"></script>

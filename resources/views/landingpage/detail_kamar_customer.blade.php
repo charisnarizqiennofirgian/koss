@@ -10,7 +10,8 @@
                         <div id="carouselExampleControls" class="carousel slide mb-4" data-ride="carousel">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="{{url('admin/img')}}/{{$kost_id->foto_kamar}}" class="d-block w-100" alt="...">
+                                    <img src="{{url('admin/img')}}/{{$kost_id->foto_kamar}}" class="d-block w-100"
+                                        alt="...">
                                 </div>
                                 <div class="carousel-item">
                                     <img src="{{url('admin/img')}}/{{$kost_id->foto_kamar}}" class="d-block w-100"
@@ -64,17 +65,68 @@
                         </div>
                         <div class="col-4 d-flex align-items-center">
                             <div class="shadow d-flex flex-column mb-3 p-5">
-                                <form action="">
-                                <h4 class="fw-bold">Rp.
-                                    {{number_format($kost_id->harga_kamar, 2, ',', '. ')}}<span>/bln</span>
-                                </h4>
-                                <div class="mb-3">
-                                    <input type="date" class="form-control" id="exampleFormControlInput1">
-                                </div>
-                                <div class="mb-3">
-                                    <input type="date" class="form-control" id="exampleFormControlInput1">
-                                </div>
-                                <a href=""><button class="btn btn-primary bt">Pesan Kamar</button></a>
+                                <form action="wkwk">
+                                    <h4 class="fw-bold">Rp.
+                                        {{number_format($kost_id->harga_kamar, 2, ',', '. ')}}<span>/bln</span>
+                                        <input type="input" hidden id="harga" value="{{$kost_id->harga_kamar}}">
+                                    </h4>
+                                    <div class="mb-3">
+                                        <label for="">Tanggal Masuk</label>
+                                        <input type="date" class="form-control" id="masuk">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="">Tanggal Keluar</label>
+                                        <input type="date" class="form-control" id="keluar">
+                                    </div>
+                                    <div class="mb-3">
+                                        <input type="text" class="form-control" id="total_harga" value="" hidden>
+                                    </div>
+                                    <!-- modal untuk cek kembali -->
+                                    <button type="button" class="btn btn-primary bt" data-toggle="modal"
+                                        data-target="#exampleModal" id="modal">
+                                        Launch demo modal
+                                    </button>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal" tabindex="-1"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Pesanan Anda</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="row">
+                                                        <div class="col-sm-6">
+                                                            <p>Nama Kamar</p>
+                                                            <p>Luas Kamar</p>
+                                                            <p>Fasilitas</p>
+                                                            <p>Tanggal</p>
+                                                            <h2>Harga</h2>
+
+                                                        </div>
+                                                        <div class="col-sm-6" id="data">
+                                                            <p>: {{$kost_id->nama_kost}}</p>
+                                                            <p>: {{$kost_id->luas_kamar}}</p>
+                                                            <p>: {{$kost_id->fasilitas}}</p>
+                                                            <p id="val-date">: 20</p>
+                                                            <h2 id="total"></h2>
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                                <div class=" modal-footer">
+                                                    <button type="submit" class="btn btn-primary bt">Iya
+                                                        Cocok!</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </form>
                             </div>
                         </div>
@@ -91,7 +143,7 @@
                             <div class="d-flex justify-content-start mb-2 mt-3">
                                 <i class="bi bi-aspect-ratio"></i>&nbsp;&nbsp;Luas kamar: {{$kost_id->luas_kamar}} Meter
                             </div>
-                            <div class="d-flex justify-content-start">
+                            <div class=" d-flex justify-content-start">
                                 <i class="bi bi-bag-heart"></i>&nbsp;&nbsp;Fasilitas: {{$kost_id->fasilitas}}
                             </div>
 
@@ -110,12 +162,21 @@
                     <!-- end container-->
                 </div>
                 <!-- endcontainer -->
-
-
             </div>
         </div>
     </div>
 </div>
 </div>
 <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+<!-- <script type="text/javascript">
+$("#modal").click(function() {
+    var masuk = $("#masuk").val();
+    var marks = $("#keluar").val();
+    var str = ` <p>: {{$kost_id->nama_kost}}</p>
+                <p>: {{$kost_id->luas_kamar}} Meter</p>
+                <p>: {{$kost_id->fasilitas}} asdad </p>`;
+    $("#data").append = 'wkwkw';
+});
+</script> -->
 @endsection
