@@ -1,23 +1,28 @@
-@extends('landingpage.navlog')
+@extends('landingpage.app')
 @section('content')
-<div class="container d-flex justify-content-center align-items-center">
-<div class=" d-flex align-items-center">
-                            <div class="shadow d-flex flex-column mb-3 p-5">
-                                <form action="">
-                                <h4 class="fw-bold">Rp.
-                                   wkwkw<span>/bln</span>
-                                </h4>
-                                <div class="mb-3">
-                                    <input type="date" class="form-control" id="exampleFormControlInput1">
-                                </div>
-                                <div class="mb-3">
-                                    <input type="date" class="form-control" id="exampleFormControlInput1">
-                                </div>
-                                <a href=""><button class="btn btn-primary bt">Pesan Kamar</button></a>
-                                </form>
-                            </div>
-                        </div>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" id="triger">
+    Launch demo modal
+</button>
 
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="anjir">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
 </div>
-
 @endsection
