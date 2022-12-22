@@ -17,7 +17,11 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->enum('role', ['admin', 'pemilik', 'customer']);
             $table->string('pekerjaan');
+            $table->bigInteger('telp');
+            $table->string('foto_user', 45)->nullable();
+            $table->text('alamat')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
