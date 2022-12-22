@@ -37,24 +37,10 @@ Auth::routes();
 Route::resource('/', InfoKostController::class ); //well
 Route::resource('/beranda', InfoKostController::class ); //well
 
-Route::get('/daftar', function () {
-    return view('landingpage.daftar');
-}); //well
-
-// daftar sebagai pemilik
-Route::get('/register-pemilik', function () {
-    return view('auth.register-pemilik');
-}); //well
-
-
-Route::get('/dashboards', function () {
-    return view('landingpage.dashboard');
-})->middleware(['auth', 'owner']); //well
-
-// ROUTE PEMILIK KOS
-// Route::resource('/dashboard-kos', PemilikController::class)->middleware(['auth', 'owner']); //well
-// Route::get('dkp/{id}', [PemilikController::class, 'edit']
-// )->middleware(['auth', 'owner']); //well
+Route::view('/daftar', 'landingpage.daftar'); //well
+// route register pemilik
+Route::view('/register-pemilik', 'auth.register-pemilik'); //well
+Route::view('/dashboards', 'landingpage.dashboard')->middleware(['auth', 'owner']); //well
 
 Route::get('detail-customer/{id}', [InfoKostController::class, 'show']
 ); //well
@@ -88,10 +74,6 @@ Route::middleware(['auth', 'isadmin'])->group(function () {
     Route::get('dashboard', [DashboardController::class, 'index']);
 });
 
-// Route::get('pemilik', function () {
-//     return 'pemilik';
-// })->middleware(['auth', 'owner']);
-
 
 // Route Access Denied
 Route::get('/access-denied', function () {
@@ -110,7 +92,3 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // table pemilik
 Route::resource('/data-pemilik', PemilikController::class)->middleware(['auth', 'owner']);
 Route::resource('/detailCustomer', InfoKostController::class); //well
-// testing 
-Route::get('/tes', function () {
-    return view('tes');
-}); //well
