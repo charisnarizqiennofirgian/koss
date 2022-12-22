@@ -111,5 +111,9 @@ class KotaController extends Controller
 
     // ======================================
 
-
+    public function index(){
+        $kota = Kota::all();
+        // dd($kota);
+        return view('admin.kota.index', compact('kota'));
+    }
 }

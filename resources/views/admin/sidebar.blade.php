@@ -31,6 +31,11 @@
                                 </a>
                             </li>
                             <li>
+                                <a href="{{url('kota')}}">
+                                    <span class="sub-item">Kota</span>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="{{url('pembayaran')}}">
                                     <span class="sub-item">Pembayaran</span>
                                 </a>

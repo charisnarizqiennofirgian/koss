@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 // import controller
 use App\Http\Controllers\FasilitasController;
 use App\Http\Controllers\KostController;
+use App\Http\Controllers\KotaController;
 use App\Http\Controllers\PembayaranController;
 // import controller subfolder
 use App\Http\Controllers\Customer\InfoKostController;
@@ -72,6 +73,7 @@ Route::middleware(['auth', 'isadmin'])->group(function () {
     Route::resource('/users', UsersController::class);
     Route::get('/user-edit/{id}', [UsersController::class, 'edit']);
     Route::get('dashboard', [DashboardController::class, 'index']);
+    Route::get('kota', [KotaController::class, 'index']);
 });
 
 
