@@ -62,6 +62,26 @@
                                     </a>
                                 </div>
                             </div>
+                            <div class="d-flex flex-column col-8 mr-4 mt-4">
+                            <h5 class="mt-4" style="font-size: 24px;font-weight: 600;">
+                                Spesifikasi Tipe Kamar</h5>
+                            <div class="d-flex justify-content-start mb-2 mt-3">
+                                <i class="bi bi-aspect-ratio"></i>&nbsp;&nbsp;Luas kamar: {{$kost_id->luas_kamar}} Meter
+                            </div>
+                            <div class=" d-flex justify-content-start">
+                                <i class="bi bi-bag-heart"></i>&nbsp;&nbsp;Fasilitas: {{$kost_id->fasilitas}}
+                            </div>
+
+                            <div class="mt-5 row p-3">
+                                <h5 style="font-size: 24px;font-weight: 600;">Ketersediaan kost</h5>
+                            </div>
+                            <br>
+                            <div>
+                                <div class="col-8 mb-5">
+                                    {{$kost_id->keterangan}}
+                                </div>
+                            </div>
+                        </div>
                         </div>
                         <div class="col-4 d-flex align-items-center">
                             <div class="shadow d-flex flex-column mb-3 p-5 pesan">
@@ -193,32 +213,6 @@
                         </div>
                         <!-- end container 2 -->
 
-                    </div>
-                    <!-- end container-->
-
-                    <!-- container -->
-                    <div class=" d-flex justify-content-between">
-                        <div class="d-flex flex-column col-8 mr-4 border-bottom">
-                            <h5 style="font-size: 24px;font-weight: 600;">
-                                Spesifikasi Tipe Kamar</h5>
-                            <div class="d-flex justify-content-start mb-2 mt-3">
-                                <i class="bi bi-aspect-ratio"></i>&nbsp;&nbsp;Luas kamar: {{$kost_id->luas_kamar}} Meter
-                            </div>
-                            <div class=" d-flex justify-content-start">
-                                <i class="bi bi-bag-heart"></i>&nbsp;&nbsp;Fasilitas: {{$kost_id->fasilitas}}
-                            </div>
-
-                            <div class="mt-5 row p-3">
-                                <h5 style="font-size: 24px;font-weight: 600;">Ketersediaan kost</h5>
-                            </div>
-                            <br>
-                            <div>
-                                <div class="col-8 mb-5">
-                                    {{$kost_id->keterangan}}
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end container 2 -->
                     </div>
                     <!-- end container-->
                 </div>
