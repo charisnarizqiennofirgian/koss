@@ -117,15 +117,15 @@ class UsersController extends Controller
     public function update(Request $request, $id)
     {
 
-        $password_lama = $request->input('password_lama');
-        $password_baru = $request->input('password_baru');
+        // $password_lama = $request->input('password_lama');
+        // $password_baru = $request->input('password_baru');
 
-        // periksa password lama apakah sesuai dengan password yang diketikan
-        if(!Hash::check($password_lama, auth()->user()->password)){
-            // jika tidak sesuai kembalikan ke menu sebelumnya return pesan error
+        // // periksa password lama apakah sesuai dengan password yang diketikan
+        // if(!Hash::check($password_lama, auth()->user()->password)){
+        //     // jika tidak sesuai kembalikan ke menu sebelumnya return pesan error
 
-            return back()->withErrors(['password_lama' => 'Password lama yang anda masukan salah!']);
-        }
+        //     return back()->withErrors(['password_lama' => 'Password lama yang anda masukan salah!']);
+        // }
 
         // proses input data kost
         $request->validate([
