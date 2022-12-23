@@ -37,7 +37,7 @@
                     <!-- container -->
                     <div class="mt-5 d-flex justify-content-between">
                         <div class="d-flex flex-column col-8 mr-4">
-                            <h5 style="font-size: 24px;font-weight: 600;">
+                            <h5 class="eel" style="font-size: 24px;font-weight: 600;">
                                 {{$kost_id->nama_kost}}
                             </h5>
                             <div class="d-flex justify-content-start border-bottom my-4 mb-4">
@@ -64,7 +64,7 @@
                             </div>
                         </div>
                         <div class="col-4 d-flex align-items-center">
-                            <div class="shadow d-flex flex-column mb-3 p-5">
+                            <div class="shadow d-flex flex-column mb-3 p-5 pesan">
                                 <form action="wkwk">
                                     <h4 class="fw-bold">Rp.
                                         {{number_format($kost_id->harga_kamar, 2, ',', '. ')}}<span>/bln</span>
@@ -72,11 +72,72 @@
                                     </h4>
                                     <div class="mb-3">
                                         <label for="">Tanggal Masuk</label>
-                                        <input type="date" class="form-control" id="masuk">
+                                        <input type="date" class="form-control" id="masuk" required>
                                     </div>
                                     <div class="mb-3">
                                         <label for="">Tanggal Keluar</label>
-                                        <input type="date" class="form-control" id="keluar">
+                                        <input type="date" class="form-control" id="keluar" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="">Pilih Pembayaran</label>
+                                        <div class="accordion" id="accordionExample">
+                                            <div class="card">
+                                                <div class="card-header" id="headingOne">
+                                                    <h2 class="mb-0">
+                                                        <button class="btn btn-block text-left" type="button"
+                                                            data-toggle="collapse" data-target="#collapseOne"
+                                                            aria-expanded="true" aria-controls="collapseOne">
+                                                            Pembayaran BCA
+                                                        </button>
+                                                    </h2>
+                                                </div>
+
+                                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                                                    data-parent="#accordionExample">
+                                                    <div class="card-body">
+                                                        Some placeholder content for the first accordion panel. This
+                                                        panel is shown by default, thanks to the <code>.show</code>
+                                                        class.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card">
+                                                <div class="card-header" id="headingTwo">
+                                                    <h2 class="mb-0">
+                                                        <button class="btn btn-block text-left collapsed" type="button"
+                                                            data-toggle="collapse" data-target="#collapseTwo"
+                                                            aria-expanded="false" aria-controls="collapseTwo">
+                                                            QRIS
+                                                        </button>
+                                                    </h2>
+                                                </div>
+                                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                                                    data-parent="#accordionExample">
+                                                    <div class="card-body">
+                                                        Some placeholder content for the second accordion panel. This
+                                                        panel is hidden by default.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card">
+                                                <div class="card-header" id="headingThree">
+                                                    <h2 class="mb-0">
+                                                        <button class="btn btn-block text-left collapsed" type="button"
+                                                            data-toggle="collapse" data-target="#collapseThree"
+                                                            aria-expanded="false" aria-controls="collapseThree">
+                                                            MANDIRI
+                                                        </button>
+                                                    </h2>
+                                                </div>
+                                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                                                    data-parent="#accordionExample">
+                                                    <div class="card-body">
+                                                        And lastly, the placeholder content for the third and final
+                                                        accordion panel. This panel is hidden by default.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="mb-3">
                                         <input type="text" class="form-control" id="total_harga" value="" hidden>
@@ -84,7 +145,7 @@
                                     <!-- modal untuk cek kembali -->
                                     <button type="button" class="btn btn-primary bt" data-toggle="modal"
                                         data-target="#exampleModal" id="modal">
-                                        Launch demo modal
+                                        Pesan Kamar
                                     </button>
 
                                     <!-- Modal -->
@@ -136,7 +197,7 @@
                     <!-- end container-->
 
                     <!-- container -->
-                    <div class="mt-5 d-flex justify-content-between">
+                    <div class=" d-flex justify-content-between">
                         <div class="d-flex flex-column col-8 mr-4 border-bottom">
                             <h5 style="font-size: 24px;font-weight: 600;">
                                 Spesifikasi Tipe Kamar</h5>
