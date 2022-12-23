@@ -1,6 +1,7 @@
 @extends('admin.index')
 @section('content')
 
+
 <div class="wrapper">
     <div class="main-panel">
         <div class="content">
@@ -78,8 +79,6 @@
                                                 <td>{{$us['email']}}</td>
                                                 <td>{{$us['role']}}</td>
                                                 <td>{{$us['pekerjaan']}}</td>
-                                                <td>{{$us['created_at']}}</td>
-                                                <td>{{$us['updated_at']}}</td>
                                                 <td style="width: 30%;">
                                                     <form method="POST" action="{{route('users.destroy', $us->id)}}">
                                                         @csrf

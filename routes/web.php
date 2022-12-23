@@ -41,7 +41,7 @@ Route::resource('/beranda', InfoKostController::class ); //well
 Route::view('/daftar', 'landingpage.daftar'); //well
 // route register pemilik
 Route::view('/register-pemilik', 'auth.register-pemilik'); //well
-Route::view('/dashboards', 'landingpage.dashboard')->middleware(['auth', 'owner']); //well
+Route::view('dashboards', 'landingpage.dashboard')->middleware(['auth', 'owner']); //well
 
 Route::get('detail-customer/{id}', [InfoKostController::class, 'show']
 ); //well
@@ -73,7 +73,6 @@ Route::middleware(['auth', 'isadmin'])->group(function () {
     Route::resource('/users', UsersController::class);
     Route::get('/user-edit/{id}', [UsersController::class, 'edit']);
     Route::get('dashboard', [DashboardController::class, 'index']);
-    Route::get('kota', [KotaController::class, 'index']);
 });
 
 
@@ -93,4 +92,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 // table pemilik
 Route::resource('/data-pemilik', PemilikController::class)->middleware(['auth', 'owner']);
+Route::get('kost-pdf-pemilik', [PemilikController::class, 'cetakKost'])->middleware(['auth', 'owner']);
 Route::resource('/detailCustomer', InfoKostController::class); //well

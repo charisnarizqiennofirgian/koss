@@ -113,7 +113,12 @@ class KotaController extends Controller
 
     public function index(){
         $kota = Kota::all();
+        $title = ['No', 'Kota'];
         // dd($kota);
-        return view('admin.kota.index', compact('kota'));
+        return view('admin.kota.index', compact('kota', 'title'));
+    }
+
+    public function create(){
+        return view('admin.kota.form');
     }
 }

@@ -22,7 +22,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $title = ['No', 'Nama', 'Email', 'Role', 'Pekerjaan', 'Dibuat', 'Di Update', 'Aksi'];
+        $title = ['No', 'Nama', 'Email', 'Role', 'Pekerjaan', 'Aksi'];
         $users = User::all();
         // dd($users);
         return view('admin.users.index', compact('users', 'title'));
@@ -68,7 +68,7 @@ class UsersController extends Controller
                 'alamat' => $request->alamat,
                 'created_at'=>now()
             ]);
-        return redirect()->route('users.index')->with('succes' , 'User Berhasil Ditambahkan');
+        return redirect()->route('users.index')->with('success' , 'User Berhasil Ditambahkan');
     }
 
     /**
