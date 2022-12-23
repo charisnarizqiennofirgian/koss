@@ -83,15 +83,29 @@
                                                 class="form-control" placeholder="telpon">
                                         </div>
                                         <div class="form-group">
-                                            <!-- <label>Password</label> -->
-                                            <input hidden name="password" value="{{ $user_edit->password }}" type="text"
+                                            <label>Password Lama</label>
+                                            
+                                            <input name="password_lama" required type="password"
+                                                class="form-control" placeholder="password">
+                                           
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Password Baru</label>
+                                            <input name="password_baru" type="password"
                                                 class="form-control" placeholder="password">
                                         </div>
                                         <div class="form-group">
-                                            <!-- <label for="exampleFormControlSelect1">Role User</label> -->
-                                            <select hidden name="role" class="form-control"
+                                            <label>Konfirmasi Password</label>
+                                            <input name="password_confirmation" type="password"
+                                                class="form-control" placeholder="password">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleFormControlSelect1">Role User</label>
+                                            <select name="role" class="form-control"
                                                 id="exampleFormControlSelect1">
-                                                <option value="{{$user_edit->role}}">{{$user_edit->role}}</option>
+                                                <option>admin</option>
+                                                <option>customer</option>
+                                                <option>pemilik</option>
                                             </select>
                                         </div>
                                         <small id="emailHelp" class="form-text text-muted">Silahkan masukan data yang

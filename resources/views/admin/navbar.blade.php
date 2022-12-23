@@ -10,7 +10,7 @@
             <li class="nav-item dropdown hidden-caret">
                 <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
                     <div class="avatar-sm">
-                        <img src="{{url('admin/img/users', Auth::user()->foto_user)}}" alt="..."
+                        <img src="{{url('admin/img/users/', Auth::user()->foto_user)}}" alt="..."
                             class="avatar-img rounded-circle">
                     </div>
                 </a>
