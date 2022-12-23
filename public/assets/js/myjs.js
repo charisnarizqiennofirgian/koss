@@ -39,3 +39,8 @@ $(document).ready(function () {
     $("#val-date").html(`: <b>${masuk}</b> sampai <b>${keluar}</b>`);
   });
 });
+
+function openModal() {
+  // Menampilkan modal
+  document.getElementById('qris').style.display = 'block';
+}
