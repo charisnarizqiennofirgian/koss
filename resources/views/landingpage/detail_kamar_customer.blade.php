@@ -37,7 +37,7 @@
                     <!-- container -->
                     <div class="mt-5 d-flex justify-content-between">
                         <div class="d-flex flex-column col-8 mr-4">
-                            <h5 class="eel" style="font-size: 24px;font-weight: 600;">
+                            <h5 style="font-size: 24px;font-weight: 600;">
                                 {{$kost_id->nama_kost}}
                             </h5>
                             <div class="d-flex justify-content-start border-bottom my-4 mb-4">
@@ -92,12 +92,11 @@
                                                     </h2>
                                                 </div>
 
-                                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                                                <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
                                                     data-parent="#accordionExample">
-                                                    <div class="card-body">
-                                                        Some placeholder content for the first accordion panel. This
-                                                        panel is shown by default, thanks to the <code>.show</code>
-                                                        class.
+                                                    <div class="card-body mt-2">
+                                                        <h2>5311008758</h2>
+                                                        <p>A/n Wahyu Rohmanto</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -114,8 +113,8 @@
                                                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
                                                     data-parent="#accordionExample">
                                                     <div class="card-body">
-                                                        Some placeholder content for the second accordion panel. This
-                                                        panel is hidden by default.
+                                                        <img src=" {{url('assets/image/qris.jpeg')}}" class="img-fluid"
+                                                            alt="...">
                                                     </div>
                                                 </div>
                                             </div>
@@ -125,15 +124,15 @@
                                                         <button class="btn btn-block text-left collapsed" type="button"
                                                             data-toggle="collapse" data-target="#collapseThree"
                                                             aria-expanded="false" aria-controls="collapseThree">
-                                                            MANDIRI
+                                                            BRI
                                                         </button>
                                                     </h2>
                                                 </div>
                                                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
                                                     data-parent="#accordionExample">
                                                     <div class="card-body">
-                                                        And lastly, the placeholder content for the third and final
-                                                        accordion panel. This panel is hidden by default.
+                                                        <h2>096301045343534</h2>
+                                                        <p>A/n Wahyu Rohmanto</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -151,7 +150,7 @@
                                     <!-- Modal -->
                                     <div class="modal fade" id="exampleModal" tabindex="-1"
                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
+                                        <div class="modal-dialog modal-dialog-centered">
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h5 class="modal-title" id="exampleModalLabel">Pesanan Anda</h5>
@@ -188,6 +187,8 @@
                                             </div>
                                         </div>
                                     </div>
+
+
                                 </form>
                             </div>
                         </div>
