@@ -1,11 +1,16 @@
 @extends('landingpage.app')
 @section('content')
-<!-- <link rel="stylesheet" href="{{asset('../../admin/css/atlantis.min.css')}}">
-<link rel="stylesheet" href="{{asset('../../admin/css/bootstrap.min.css')}}"> -->
 <div class="container-fluid">
     <div class="row">
         @include('landingpage.sidebar')
         <div class="col-10 p-5" id="main">
+            <a title="Export to PDF" href="{{url('kost-pdf-pemilik')}}"
+                class="btn btn-danger btn-outline mb-3 text-light">
+                <span class="btn-label">
+                    <i class="fas fa-file-pdf"></i>
+                </span>
+                Cetak Laporan
+            </a>
             <table class="table table-hover">
                 <thead style=" background-color: #11296b;">
                     <tr class="text-light">

@@ -40,7 +40,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
-                        <form method="POST" action="{{route('users.store')}}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('users.store') }}" enctype="multipart/form-data">
                             @csrf
                             <div class=" card-header">
                                 <div class="card-title">Form Data Kost</div>
@@ -66,6 +66,13 @@
                                                 type="password" name="password" required autocomplete="new-password"
                                                 placeholder="Password">
                                         </div>
+                                        <!-- Input Confirm Password -->
+                                        <div class="form-group">
+                                            <label>Password</label>
+                                            <input class="form-control  @error('password') is-invalid @enderror"
+                                                type="password" name="password_confirmation" required
+                                                autocomplete="new-password" placeholder="Password">
+                                        </div>
                                         <!-- Input Role -->
                                         <div class="form-group">
                                             <label>Role</label>
@@ -83,7 +90,7 @@
                                         <!-- Input NOPE -->
                                         <div class="form-group">
                                             <label for="exampleFormControlSelect1">Nomor Telepon</label>
-                                            <input class="form-control" type="text" name="telp">
+                                            <input class="form-control" type="number" name="telp">
                                         </div>
                                         <!-- Input FOTO -->
                                         <div class="form-group">
@@ -112,6 +119,6 @@
             </div>
         </div>
     </div>
- @include('admin.footer')
+    @include('admin.footer')
 </div>
 @endsection
