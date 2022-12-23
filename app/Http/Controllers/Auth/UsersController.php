@@ -53,9 +53,20 @@ class UsersController extends Controller
             'role' => 'required',
             'telp' => 'required|int',
             'pekerjaan' => 'required|max:255',
-            'foto_user' => 'nullable|max:45',
+            'foto_user' => 'nullable|image|mimes:jpg,jpeg,png,gif,svg|max:2048',
             'alamat' => 'required',
         ]);
+
+        if(!empty($request->foto_user)){
+            $fileName = 'foto_user-'.$request->name.'.'.$request->foto_user->extension();
+            //$fileName = $request->foto->getClientOriginalName();
+            $request->foto_user->move(public_path('admin/img/users'),$fileName);
+        }
+        else{
+            $fileName = '';
+        }
+
+
         DB::table('users')->insert(
             [
                 'name' => $request->name,
@@ -64,7 +75,7 @@ class UsersController extends Controller
                 'role' => $request->role,
                 'telp' => $request->telp,
                 'pekerjaan' => $request->pekerjaan,
-                'foto_user' => $request->foto_user,
+                'foto_user' => $fileName,
                 'alamat' => $request->alamat,
                 'created_at'=>now()
             ]);
@@ -92,6 +103,7 @@ class UsersController extends Controller
     public function edit($id)
     {
         $user_edit = User::find($id);
+        // dd($user_edit);
         return view('admin.users.form_edit',compact('user_edit'));
     }
 
@@ -104,6 +116,17 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $password_lama = $request->input('password_lama');
+        $password_baru = $request->input('password_baru');
+
+        // periksa password lama apakah sesuai dengan password yang diketikan
+        if(!Hash::check($password_lama, auth()->user()->password)){
+            // jika tidak sesuai kembalikan ke menu sebelumnya return pesan error
+
+            return back()->withErrors(['password_lama' => 'Password lama yang anda masukan salah!']);
+        }
+
         // proses input data kost
         $request->validate([
             'name' => 'required|string|max:255',
@@ -113,29 +136,7 @@ class UsersController extends Controller
             'telp' => 'required|numeric',
         ]);
 
-        // //------------foto lama apabila admin ingin ganti foto kamar-----------
-        // $foto = DB::table('kost')->select('foto_kamar')->where('id',$id)->get();
-        // foreach($foto as $f){
-        //     $namaFileFotoLama = $f->foto_kamar;
-        // }
-
-        /**
-         * Jika admin ingin ganti foto kamar
-         * Jika ada foto lama ada, maka hapus foto lama terlebih dahulu danganti foto baru
-         */
-        // if(!empty($request->foto_kamar)){
-        //     if(!empty($kost_id->foto_kamar)) unlink('admin/img/'.$kost_id->foto_kamar);
-        //     $fileName = 'foto_kamar-'.$request->luas_kamar.'.'.$request->foto_kamar->extension();
-        //     //$fileName = $request->foto->getClientOriginalName();
-        //     $request->foto_kamar->move(public_path('admin/img'),$fileName);
-        // }
-        /**
-         * Jika admin tidak update foto kamar maka, pakai foto lama
-         */
-        // else{
-        //     $fileName = $namaFileFotoLama;
-        // }
-
+        
         /**
          * Lakukan update data dari request form edit
          */
@@ -146,7 +147,7 @@ class UsersController extends Controller
             'role' => $request->role,
             'pekerjaan' => $request->pekerjaan,
             'telp' => $request->telp,
-            'password' => $request->password,
+            'password_baru' => Hash::make($request->password_baru),
             'updated_at'=>now(),
             ]);
 
