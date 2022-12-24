@@ -6,7 +6,9 @@ $title = ['No', 'Nama Kost', "Luas Kamar", "Harga Kamar", "Alamat Kost", "Kota P
 $kota = App\Models\Kota::all();
 @endphp
 
-
+<!-- file sweet alert -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 <div class="wrapper">
     <div class="main-panel">
@@ -125,8 +127,8 @@ $kota = App\Models\Kota::all();
                                                             </a>
                                                             <button role="button"
                                                                 id="delete"
-                                                                type="submit" data-toggle="tooltip" title="Remove"
-                                                                class="btn btn-link btn-danger"
+                                                                type="submit" name="_method data-toggle="tooltip" title="Remove"
+                                                                class="btn btn-link btn-danger delete-confirm show_confirm"
                                                                 data-original-title="Remove">
                                                                 <i class="fa fa-trash"></i>
                                                             </button>
@@ -148,7 +150,30 @@ $kota = App\Models\Kota::all();
     </div>
 
     {{-- Custom template | don't include it in your project! --}}
+ <!-- Custom template | don't include it in your project! -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 
+<script type="text/javascript">
+
+ $('.show_confirm').click(function(event) {
+      var form =  $(this).closest("form");
+      var name = $(this).data("name");
+      event.preventDefault();
+      swal({
+          title: `Yakin akan menghapus data kost?`,
+          text: "Data akan dihapus permanent!",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+          form.submit();
+        }
+      });
+  });
+
+</script>
     {{-- End Custom template --}}
 </div>
 

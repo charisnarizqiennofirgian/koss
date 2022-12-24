@@ -4,6 +4,9 @@
 $title = ['No', 'Fasilitas', 'Action'];
 @endphp
 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
 <div class="wrapper">
     <div class="main-panel">
         <div class="content">
@@ -91,9 +94,9 @@ $title = ['No', 'Fasilitas', 'Action'];
                                                                 <i class="fa fa-edit"></i>
                                                             </a>
                                                             <button
-                                                                onclick="return confirm('Yakin data ingin dihapus permanent?')"
-                                                                role="button" type="submit" data-toggle="tooltip"
-                                                                title="" class="btn btn-link btn-danger delete-confirm"
+                                                                
+                                                                role="button" name="_method" type="submit" data-toggle="tooltip"
+                                                                title="" class="btn btn-link btn-danger delete-confirm show_confirm"
                                                                 data-original-title="Remove">
                                                                 <i class="fa fa-trash"></i>
                                                             </button>
@@ -115,7 +118,29 @@ $title = ['No', 'Fasilitas', 'Action'];
     </div>
 
     <!-- Custom template | don't include it in your project! -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 
+    <script type="text/javascript">
+ 
+     $('.show_confirm').click(function(event) {
+          var form =  $(this).closest("form");
+          var name = $(this).data("name");
+          event.preventDefault();
+          swal({
+              title: `Yakin data fasilitas akan dihapus?`,
+              text: "Jika kamu menghapus data ini maka, data di table lain akan ikut terhapus permanent!",
+              icon: "warning",
+              buttons: true,
+              dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+              form.submit();
+            }
+          });
+      });
+  
+</script>
     <!-- End Custom template -->
 </div>
 @endsection

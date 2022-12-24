@@ -211,7 +211,8 @@ class FasilitasController extends Controller
     {
         $fasilitas = Fasilitas::find($id);
         Fasilitas::where('id', $id)->delete();
-        return redirect()->route('fasilitas.index')
+
+        return back()
         ->with('success', 'Data fasilitas berhasil dihapus!');
     }
 

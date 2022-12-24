@@ -1,6 +1,7 @@
 @extends('admin.index')
 @section('content')
-
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 <div class="wrapper">
     <div class="main-panel">
@@ -96,9 +97,9 @@
                                                         </a>
 
                                                         <button role="button"
-                                                            onclick="return confirm('Anda yakin data akan dihapus?')"
+                                                            name="_method"
                                                             type="submit" data-toggle="tooltip" title="Remove"
-                                                            class="btn btn-link btn-danger"
+                                                            class="btn btn-link btn-danger delete-confirm show_confirm"
                                                             data-original-title="Remove">
                                                             <i class="fa fa-times"></i>
                                                         </button>
@@ -118,5 +119,29 @@
         </div>
         @include('admin.footer')
     </div>
+    <!-- Custom template | don't include it in your project! -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+
+    <script type="text/javascript">
+ 
+     $('.show_confirm').click(function(event) {
+          var form =  $(this).closest("form");
+          var name = $(this).data("name");
+          event.preventDefault();
+          swal({
+              title: `Yakin akan menghapus data user?`,
+              text: "Data akan dihapus secara permanent!",
+              icon: "warning",
+              buttons: true,
+              dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+              form.submit();
+            }
+          });
+      });
+  
+</script>
 </div>
 @endsection

@@ -153,7 +153,11 @@ class PembayaranController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $fasilitas = Pembayaran::find($id);
+        Pembayaran::where('id', $id)->delete();
+
+        return back()
+        ->with('success', 'Data pembayaran berhasil dihapus!');
     }
 
     public function pembayaranPDF(){
