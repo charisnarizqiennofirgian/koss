@@ -22,9 +22,9 @@ return new class extends Migration
             $table->string('keterangan', 45);
             $table->string('foto_kamar', 45);
             $table->unsignedBigInteger('id_fasilitas');
-            $table->foreign('id_fasilitas')->references('id')->on('fasilitas');
+            $table->foreign('id_fasilitas')->references('id')->on('fasilitas')->onDelete('cascade');
             $table->unsignedBigInteger('kota_id');
-            $table->foreign('kota_id')->references('id')->on('kota');
+            $table->foreign('kota_id')->references('id')->on('kota')->onDelete('cascade');
             $table->unsignedBigInteger('id_user');
             $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();

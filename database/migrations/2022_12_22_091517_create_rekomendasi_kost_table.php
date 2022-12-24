@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('rekomendasi_kost', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('kost_id');
-            $table->foreign('kost_id')->references('id')->on('kost');
+            $table->foreign('kost_id')->references('id')->on('kost')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -3,6 +3,8 @@
 @php
 $title = ['No', 'Kode Bayar','Kost', 'Customer', 'Tanggal Masuk', 'Tanggal Keluar', 'Total Bayar', 'Action'];
 @endphp
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 <div class="wrapper">
     <div class="main-panel">
@@ -133,6 +135,10 @@ $title = ['No', 'Kode Bayar','Kost', 'Customer', 'Tanggal Masuk', 'Tanggal Kelua
                                                 <td>{{$fs['tanggal_keluar']}}</td>
                                                 <td>Rp. {{number_format($fs['total_bayar'], 2, ',', '. ')}}</td>
                                                 <td>
+                                                <form method="POST"
+                                                        action="{{route('pembayaran.destroy', $fs->id)}}">
+                                                        @csrf
+                                                        @method('DELETE')
                                                     <div class="form-button-action">
                                                         <a href="{{ route('pembayaran.show',$fs->id) }}"
                                                             data-toggle="tooltip" title=""
@@ -140,12 +146,13 @@ $title = ['No', 'Kode Bayar','Kost', 'Customer', 'Tanggal Masuk', 'Tanggal Kelua
                                                             data-original-title="View Detail">
                                                             <i class="fa fa-eye"></i>
                                                         </a>
-                                                        <button type="button" data-toggle="tooltip" title=""
-                                                            class="btn btn-link btn-danger"
+                                                        <button name="_method" type="button" data-toggle="tooltip" title=""
+                                                            class="btn btn-link btn-danger delete-confirm show_confirm"
                                                             data-original-title="Remove">
                                                             <i class="fa fa-trash"></i>
                                                         </button>
                                                     </div>
+                                                </form>
                                                 </td>
 
                                             </tr>
@@ -167,6 +174,30 @@ $title = ['No', 'Kode Bayar','Kost', 'Customer', 'Tanggal Masuk', 'Tanggal Kelua
 
     <!-- Custom template | don't include it in your project! -->
 
+    <!-- Custom template | don't include it in your project! -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+
+    <script type="text/javascript">
+ 
+     $('.show_confirm').click(function(event) {
+          var form =  $(this).closest("form");
+          var name = $(this).data("name");
+          event.preventDefault();
+          swal({
+              title: `Yakin akan menghapus data pembayaran?`,
+              text: "Data akan dihapus secara permanent!",
+              icon: "warning",
+              buttons: true,
+              dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+              form.submit();
+            }
+          });
+      });
+  
+</script>
     <!-- End Custom template -->
 </div>
 @endsection
