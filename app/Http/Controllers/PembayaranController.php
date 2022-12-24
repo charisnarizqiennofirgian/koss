@@ -67,10 +67,12 @@ class PembayaranController extends Controller
      
     public function index()
     {
-        $pembayaran = Pembayaran::select('*')
-        ->join('users', 'users.id', '=', 'pembayaran.id_user')
+        // $pembayaran = Pembayaran::select('*')
+        // ->join('users', 'users.id', '=', 'pembayaran.id_user')
         // ->join('kost', 'kost.id', '=', 'pembayaran.id_kamar')
-        ->get();
+        // ->get();
+
+        $pembayaran = Pembayaran::all();
         // dd($pembayaran);
         return view('admin.pembayaran.pembayaran', compact('pembayaran'));
     }
@@ -142,7 +144,12 @@ class PembayaranController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // dd($id);
+        $test = DB::table('pembayaran')
+        ->where('id', $id)
+        ->update(['status_pembayaran'=>$request->status_pembayaran]);
+        // dd($test);
+        return back();
     }
 
     /**
