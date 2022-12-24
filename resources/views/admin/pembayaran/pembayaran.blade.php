@@ -1,7 +1,7 @@
 @extends('admin.index')
 @section('content')
 @php
-$title = ['No', 'Kode Bayar','Kost', 'Customer', 'Tanggal Masuk', 'Tanggal Keluar', 'Total Bayar', 'Action'];
+$title = ['No', 'Kode Bayar','Kost', 'Customer', 'Tanggal Masuk', 'Tanggal Keluar', 'Total Bayar', 'Status Pembayaran', 'Action'];
 @endphp
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -130,13 +130,33 @@ $title = ['No', 'Kode Bayar','Kost', 'Customer', 'Tanggal Masuk', 'Tanggal Kelua
                                                 <td>{{$no++}}
                                                 <td>{{$fs['kode_bayar']}}</td>
                                                 <td>{{$fs['id_kamar']}}</td>
-                                                <td>{{$fs['name']}}</td>
+                                                <td>{{$fs['id_user']}}</td>
                                                 <td>{{$fs['tanggal_masuk']}}</td>
                                                 <td>{{$fs['tanggal_keluar']}}</td>
                                                 <td>Rp. {{number_format($fs['total_bayar'], 2, ',', '. ')}}</td>
-                                                <td>
-                                                <form method="POST"
-                                                        action="{{route('pembayaran.destroy', $fs->id)}}">
+                                                @if($fs->status_pembayaran === "diproses")
+                                                <td><p style="border-radius: 500px;" class="p-1  fw-bold text-center btn-warning text-light">{{$fs->status_pembayaran}}</p></td>
+                                                @elseif($fs->status_pembayaran === "success")
+                                                <td><p style="border-radius: 500px;" class="p-1  fw-bold text-center btn-success text-light">{{$fs->status_pembayaran}}</p></td>
+                                                @else
+                                                <td><p style="border-radius: 500px;" class="p-1  fw-bold text-center btn-danger text-light">{{$fs->status_pembayaran}}</p></td>
+                                                @endif
+                                                
+                                               
+                                                <td style="display: flex; flex-directon: row; justify-content: center; align-item: center;">
+                                                    {{-- konfirmasi status pembayaran --}}
+                                                    <form method="POST" action="{{route('pembayaran.update', $fs->id)}}" enctype="multipart/form-data">
+                                                    @method('PUT')
+                                                    @csrf
+                                                    <input name="status_pembayaran" hidden value="success" type="text" />
+                                                    <button type="submit" data-toggle="tooltip" title=""
+                                                            class="btn btn-link btn-primary btn-lg"
+                                                            data-original-title="Ubah status pembayaran"><i class="fas fa-check"></i></button>
+                                                    </form>
+                                                    {{-- end status --}}
+
+                                                    {{-- action detail & delete --}}
+                                                <form method="POST" action="{{route('pembayaran.destroy', $fs->id)}}">
                                                         @csrf
                                                         @method('DELETE')
                                                     <div class="form-button-action">
