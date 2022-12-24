@@ -85,19 +85,29 @@
                         </div>
                         <div class="col-4 d-flex align-items-center">
                             <div class="shadow d-flex flex-column mb-3 p-5 pesan">
-                                <form action="wkwk">
-                                    <h4 class="fw-bold">Rp.
+                                <form method="POST" action="{{route('pembayaran.store')}}" enctype="multipart/form-data">
+                                @csrf   
+                                <h4 class="fw-bold">Rp.
                                         {{number_format($kost_id->harga_kamar, 2, ',', '. ')}}<span>/bln</span>
                                         <input type="input" hidden id="harga" value="{{$kost_id->harga_kamar}}">
                                     </h4>
+                                    {{-- Pembayaran --}}
+                                    {{-- tangal masuk --}}
                                     <div class="mb-3">
                                         <label for="">Tanggal Masuk</label>
-                                        <input type="date" class="form-control" id="masuk" required>
+                                        <input name="tanggal_masuk" type="date" class="form-control" id="masuk" required>
                                     </div>
+                                    {{-- tanggal keluar --}}
                                     <div class="mb-3">
                                         <label for="">Tanggal Keluar</label>
-                                        <input type="date" class="form-control" id="keluar" required>
+                                        <input name="tanggal_keluar" type="date" class="form-control" id="keluar" required>
+                                        {{-- kode bayar --}}
+                                        <input name="kode_bayar" hidden type="text" class="form-control" id="kode" required>
+                                        <input name="id_kamar" value="{{$kost_id->id}}" hidden type="number" class="form-control" id="kode" required>
+                                        <input name="id_user" value="{{Auth::user()->id}}" hidden type="number" class="form-control" id="kode" required>
+                                    
                                     </div>
+                                    {{-- akhir Pembayaran --}}
                                     <div class="mb-3">
                                         <label for="">Pilih Pembayaran</label>
                                         <div class="accordion" id="accordionExample">
@@ -159,7 +169,8 @@
                                         </div>
                                     </div>
                                     <div class="mb-3">
-                                        <input type="text" class="form-control" id="total_harga" value="" hidden>
+                                        {{-- total harga --}}
+                                        <input name="total_bayar" type="text" class="form-control" id="total_harga" value="" hidden>
                                     </div>
                                     <!-- modal untuk cek kembali -->
                                     <button type="button" class="btn btn-primary bt" data-toggle="modal"

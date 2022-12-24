@@ -94,3 +94,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('/data-pemilik', PemilikController::class)->middleware(['auth', 'owner']);
 Route::get('kost-pdf-pemilik', [PemilikController::class, 'cetakKost'])->middleware(['auth', 'owner']);
 Route::resource('/detailCustomer', InfoKostController::class); //well
+
+Route::resource('/pembayaran', PembayaranController::class)->middleware('auth');

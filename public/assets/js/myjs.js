@@ -1,6 +1,9 @@
 $(document).ready(function () {
   // detail data
   $("#modal").click(function () {
+    var code = Math.floor(100 + Math.random() * 1000);
+    // masukan kode bayar
+    $("#kode").val(code);
     var masuk = $("#masuk").val();
     var keluar = $("#keluar").val();
     var harga = $("#harga").val();
@@ -26,15 +29,15 @@ $(document).ready(function () {
     // Menghitung jika kelipatan bulan
     if (days <= 30) {
       total = 1;
-      $("#total").html(": " + formatRupiah(total * harga));
+      $("#total").html(": " + formatRupiah(total * harga + code));
     } else {
       var count = 1;
       for (var i = 30; i < days; i += 30) {
         count++;
       }
       total = count;
-      $("#total").html(": " + formatRupiah(total * harga));
-      $("#total_harga").val(total * harga);
+      $("#total").html(": " + formatRupiah(total * harga + code));
+      $("#total_harga").val(total * harga + code);
     }
     $("#val-date").html(`: <b>${masuk}</b> sampai <b>${keluar}</b>`);
   });
@@ -42,5 +45,5 @@ $(document).ready(function () {
 
 function openModal() {
   // Menampilkan modal
-  document.getElementById('qris').style.display = 'block';
+  document.getElementById("qris").style.display = "block";
 }
