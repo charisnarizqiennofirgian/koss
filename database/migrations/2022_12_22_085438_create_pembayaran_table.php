@@ -15,15 +15,13 @@ return new class extends Migration
     {
         Schema::create('pembayaran', function (Blueprint $table) {
             $table->id();
-            $table->string('kode_bayar', 45);
+            $table->string('kode_bayar', 45)->nullable();
             $table->date('tanggal_masuk');
             $table->date('tanggal_keluar');
             $table->integer('total_bayar');
             $table->integer('id_kamar');
             $table->unsignedBigInteger('id_user');
             $table->foreign('id_user')->references('id')->on('users');
-            $table->unsignedBigInteger('kost_id');
-            $table->foreign('kost_id')->references('id')->on('kost');
             $table->timestamps();
         });
     }

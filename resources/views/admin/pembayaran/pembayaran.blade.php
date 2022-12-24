@@ -127,7 +127,7 @@ $title = ['No', 'Kode Bayar','Kost', 'Customer', 'Tanggal Masuk', 'Tanggal Kelua
                                             <tr>
                                                 <td>{{$no++}}
                                                 <td>{{$fs['kode_bayar']}}</td>
-                                                <td>{{$fs['nama_kost']}}</td>
+                                                <td>{{$fs['id_kamar']}}</td>
                                                 <td>{{$fs['name']}}</td>
                                                 <td>{{$fs['tanggal_masuk']}}</td>
                                                 <td>{{$fs['tanggal_keluar']}}</td>

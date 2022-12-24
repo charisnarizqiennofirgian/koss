@@ -69,7 +69,7 @@ class PembayaranController extends Controller
     {
         $pembayaran = Pembayaran::select('*')
         ->join('users', 'users.id', '=', 'pembayaran.id_user')
-        ->join('kost', 'kost.id', '=', 'pembayaran.id_kamar')
+        // ->join('kost', 'kost.id', '=', 'pembayaran.id_kamar')
         ->get();
         // dd($pembayaran);
         return view('admin.pembayaran.pembayaran', compact('pembayaran'));
