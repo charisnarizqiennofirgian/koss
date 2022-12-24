@@ -83,20 +83,20 @@
                                                 class="form-control" placeholder="telpon">
                                         </div>
                                         <div class="form-group">
-                                            <label>Password Lama</label>
+                                            <!-- <label>Password Lama</label> -->
                                             
-                                            <input name="password_lama" required type="password"
+                                            <input hidden value="{{Auth::user()->password}}" required type="password"
                                                 class="form-control" placeholder="password">
                                            
                                         </div>
                                         <div class="form-group">
                                             <label>Password Baru</label>
-                                            <input name="password_baru" type="password"
+                                            <input name="password" type="password"
                                                 class="form-control" placeholder="password">
                                         </div>
                                         <div class="form-group">
                                             <label>Konfirmasi Password</label>
-                                            <input name="password_confirmation" type="password"
+                                            <input name="password_konfirmasi" type="password"
                                                 class="form-control" placeholder="password">
                                         </div>
                                         <div class="form-group">

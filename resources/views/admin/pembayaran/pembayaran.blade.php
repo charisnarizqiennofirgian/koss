@@ -1,7 +1,7 @@
 @extends('admin.index')
 @section('content')
 @php
-$title = ['No', 'Kode Bayar','Id Kamar', 'Id User', 'Tanggal Masuk', 'Tanggal Keluar', 'Total Bayar'];
+$title = ['No', 'Kode Bayar','Kost', 'Customer', 'Tanggal Masuk', 'Tanggal Keluar', 'Total Bayar', 'Action'];
 @endphp
 
 <div class="wrapper">
@@ -127,8 +127,8 @@ $title = ['No', 'Kode Bayar','Id Kamar', 'Id User', 'Tanggal Masuk', 'Tanggal Ke
                                             <tr>
                                                 <td>{{$no++}}
                                                 <td>{{$fs['kode_bayar']}}</td>
-                                                <td>{{$fs['id_kamar']}}</td>
-                                                <td>{{$fs['id_user']}}</td>
+                                                <td>{{$fs['nama_kost']}}</td>
+                                                <td>{{$fs['name']}}</td>
                                                 <td>{{$fs['tanggal_masuk']}}</td>
                                                 <td>{{$fs['tanggal_keluar']}}</td>
                                                 <td>Rp. {{number_format($fs['total_bayar'], 2, ',', '. ')}}</td>
@@ -143,7 +143,7 @@ $title = ['No', 'Kode Bayar','Id Kamar', 'Id User', 'Tanggal Masuk', 'Tanggal Ke
                                                         <button type="button" data-toggle="tooltip" title=""
                                                             class="btn btn-link btn-danger"
                                                             data-original-title="Remove">
-                                                            <i class="fa fa-times"></i>
+                                                            <i class="fa fa-trash"></i>
                                                         </button>
                                                     </div>
                                                 </td>
