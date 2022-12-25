@@ -45,15 +45,15 @@
                                         <span class="btn-label">
                                             <i class="fas fa-file-pdf"></i>
                                         </span>
-                                        Export File
+                                        Export
                                     </a>
 
                                     <a title="Export to Excel" href="{{url('users-excel')}}"
                                         class="btn btn-success btn-round ml-2 text-light">
                                         <span class="btn-label">
-                                            <i class="fas fa-file-excel"></i>
+                                            <i class="fa fa-print"></i>
                                         </span>
-                                        Export File
+                                        Print
                                     </a>
                                 </div>
                             </div>
@@ -101,7 +101,7 @@
                                                             type="submit" data-toggle="tooltip" title="Remove"
                                                             class="btn btn-link btn-danger delete-confirm show_confirm"
                                                             data-original-title="Remove">
-                                                            <i class="fa fa-times"></i>
+                                                            <i class="fa fa-trash"></i>
                                                         </button>
                                                     </form>
                                                     @endforeach
