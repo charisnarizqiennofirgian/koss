@@ -1,6 +1,7 @@
 $(document).ready(function () {
   // detail data
-  $("#modal").click(function () {
+  $("#modal").click(function (event) {
+    event.preventDefault();
     var code = Math.floor(100 + Math.random() * 1000);
     // masukan kode bayar
     $("#kode").val(code);
