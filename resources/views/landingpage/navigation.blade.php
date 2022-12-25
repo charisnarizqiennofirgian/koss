@@ -28,8 +28,8 @@
             <div class="ml-auto button-navbar d-flex">
                 <!-- Added -->
                 @guest
-                <a class="btn btn-custom" href="login" type="button">Login</a>
-                <a class="btn daftar" href="daftar" type="button">Daftar</a>
+                <a class="btn btn-custom" href="{{url('login')}}" type="button">Login</a>
+                <a class="btn daftar" href="{{url('daftar')}}" type="button">Daftar</a>
                 @endguest
                 @auth
                 <div class="dropdown">
