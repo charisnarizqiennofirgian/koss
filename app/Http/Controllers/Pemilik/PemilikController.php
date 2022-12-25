@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Pemilik;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use PDF;
+use App\Exports\PemilikExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 /**
  * import query builder
@@ -159,5 +161,9 @@ class PemilikController extends Controller
         ->get();
         $pdf = PDF::loadView('landingpage.kelola_pemilik.cetakPDF', ['pemilik_kost'=> $pemilik_kost]);
         return $pdf->download('data_kost_pemilik.pdf');
+    }
+
+    public function print(Request $request){
+        return Excel::download(new PemilikExport, 'pemilik_kost.xlsx');
     }
 }
