@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\RekomendasiKost;
 use App\Models\Kost;
 use App\Models\User;
+use DB;
 
 class RekomendasikanController extends Controller
 {
@@ -101,15 +102,20 @@ class RekomendasikanController extends Controller
     public function destroy($id)
 {
     // RekomendasiKost::where('id', $id)->delete();
-    $rekomendasi = RekomendasiKost::select('*')
-                                    ->join('kost', 'kost.id', '=', 'rekomendasi_kost.kost_id')
-                                    ->join('users', 'users.id', '=', 'kost.id_user')
-                                    ->where('rekomendasi_kost.kost_id', '=', $id);
+    // $rekomendasi = RekomendasiKost::select('*')
+    //                                 ->join('kost', 'kost.id', '=', 'rekomendasi_kost.kost_id')
+    //                                 ->join('users', 'users.id', '=', 'kost.id_user')
+    //                                 ->where('rekomendasi_kost.kost_id', '=', $id);
 
     // Use the delete() method to delete the data from the tables
-    $rekomendasi->delete();
+    $rekomendasi = RekomendasiKost::truncate();
+//     $rekomendasi = RekomendasiKost::find($id)
+//    ->delete();
 
-    return redirect()->route('rekomendasi.index')
+
+    // dd($rekomendasi);
+
+    return back()
     ->with('success', 'Data rekomendasi kost berhasil dihapus!');
 }
 }

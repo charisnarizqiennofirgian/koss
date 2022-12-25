@@ -43,14 +43,42 @@
         <div class="main-panel">
             <div class="content">
                 <div class="page-inner">
-                    <h4 class="page-title">Dashboard Transactions</h4>
+                    <h4 class="page-title">Dashboard Transaksi</h4>
                     <div class="page-category">Ini merupakan halaman dashboard transaksi Kosts
                     </div>
+                    
+							<div class="card full-height">
+								<div class="card-body">
+									<div class="card-title">Total income & spend statistics</div>
+									<div class="row py-3">
+										<div class="col-md-4 d-flex flex-column justify-content-around">
+											<div>
+												<h6 class="fw-bold text-uppercase text-success op-8">Total Income</h6>
+												<h3 class="fw-bold">Rp. {{number_format($pembayaran, 2, ',', '. ')}}</h3>
+											</div>
+											<div>
+												<h6 class="fw-bold text-uppercase text-danger op-8">Total Spend</h6>
+												<h3 class="fw-bold">Rp. 0</h3>
+											</div>
+										</div>
+										<div class="col-md-8">
+											<div id="chart-container">
+												<canvas id="totalIncomeChart"></canvas>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						
                     <div class="row">
+        
+
+
+
                         <div class="col-md-6">
                             <div class="card">
                                 <div class="card-header">
-                                    <div class="card-title">Data user penyewa kost</div>
+                                    <div class="card-title">Data pendapatan</div>
                                 </div>
                                 <div class="card-body">
                                     <div class="chart-container">
@@ -62,7 +90,7 @@
                         <div class="col-md-6">
                             <div class="card">
                                 <div class="card-header">
-                                    <div class="card-title">Data pendapatan kosts</div>
+                                    <div class="card-title">Data minat customer berdasarkan harga</div>
                                 </div>
                                 <div class="card-body">
                                     <div class="chart-container">
@@ -71,78 +99,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-header">
-                                    <div class="card-title">Jumlah data penyewa kost menurut gender</div>
-                                </div>
-                                <div class="card-body">
-                                    <div class="chart-container">
-                                        <canvas id="pieChart" style="width: 50%; height: 50%"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-header">
-                                    <div class="card-title">Doughnut Chart</div>
-                                </div>
-                                <div class="card-body">
-                                    <div class="chart-container">
-                                        <canvas id="doughnutChart" style="width: 50%; height: 50%"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <div class="card-title">Chart with HTML Legends</div>
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-sub">
-                                        Sometimes you need a very complex legend. In these cases, it makes sense to
-                                        generate an HTML legend. Charts provide a generateLegend() method on their
-                                        prototype that returns an HTML string for the legend.
-                                    </div>
-                                    <div class="chart-container">
-                                        <canvas id="htmlLegendsChart"></canvas>
-                                    </div>
-                                    <div id="myChartLegend"></div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
-            <footer class="footer">
-                <div class="container-fluid">
-                    <nav class="pull-left">
-                        <ul class="nav">
-                            <li class="nav-item">
-                                <a class="nav-link" href="https://www.themekita.com">
-                                    ThemeKita
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    Help
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    Licenses
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                    <div class="copyright ml-auto">
-                        2018, made with <i class="fa fa-heart heart text-danger"></i> by <a
-                            href="https://www.themekita.com">ThemeKita</a>
-                    </div>
-                </div>
-            </footer>
+            @include('admin.footer')
         </div>
     </div>
 
@@ -157,16 +117,18 @@
 
     <script>
     var lineChart = document.getElementById('lineChart').getContext('2d'),
-        barChart = document.getElementById('barChart').getContext('2d'),
-        pieChart = document.getElementById('pieChart').getContext('2d'),
-        doughnutChart = document.getElementById('doughnutChart').getContext('2d');
+        barChart = document.getElementById('barChart').getContext('2d');
+        
 
     var myLineChart = new Chart(lineChart, {
         type: 'line',
         data: {
-            labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+            labels: [@foreach($data_kost as $dk)
+                    '{{$dk->created_at}}',
+                    @endforeach
+                ],
             datasets: [{
-                label: "Active Users",
+                label: "Revenue",
                 borderColor: "#1d7af3",
                 pointBorderColor: "#FFF",
                 pointBackgroundColor: "#1d7af3",
@@ -177,7 +139,8 @@
                 backgroundColor: 'transparent',
                 fill: true,
                 borderWidth: 2,
-                data: [542, 480, 430, 550, 530, 453, 380, 434, 568, 610, 700, 900]
+                data: [{{$pembayaran}}
+                ]
             }]
         },
         options: {
@@ -242,77 +205,6 @@
             },
         }
     });
-
-    var myPieChart = new Chart(pieChart, {
-        type: 'pie',
-        data: {
-            datasets: [{
-                data: [50, 35, 15],
-                backgroundColor: ["#1d7af3", "#f3545d", "#fdaf4b"],
-                borderWidth: 0
-            }],
-            labels: ['New Visitors', 'Subscribers', 'Active Users']
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            legend: {
-                position: 'bottom',
-                labels: {
-                    fontColor: 'rgb(154, 154, 154)',
-                    fontSize: 11,
-                    usePointStyle: true,
-                    padding: 20
-                }
-            },
-            pieceLabel: {
-                render: 'percentage',
-                fontColor: 'white',
-                fontSize: 14,
-            },
-            tooltips: false,
-            layout: {
-                padding: {
-                    left: 20,
-                    right: 20,
-                    top: 20,
-                    bottom: 20
-                }
-            }
-        }
-    })
-
-    var myDoughnutChart = new Chart(doughnutChart, {
-        type: 'doughnut',
-        data: {
-            datasets: [{
-                data: [10, 20, 30],
-                backgroundColor: ['#f3545d', '#fdaf4b', '#1d7af3']
-            }],
-
-            labels: [
-                'Red',
-                'Yellow',
-                'Blue'
-            ]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            legend: {
-                position: 'bottom'
-            },
-            layout: {
-                padding: {
-                    left: 20,
-                    right: 20,
-                    top: 20,
-                    bottom: 20
-                }
-            }
-        }
-    });
-
 
     // Chart with HTML Legends
 
@@ -444,8 +336,6 @@
         }
     });
 
-    var myLegendContainer = document.getElementById("myChartLegend");
-
     // generate HTML legend
     myLegendContainer.innerHTML = myHtmlLegendsChart.generateLegend();
 
@@ -454,7 +344,54 @@
     for (var i = 0; i < legendItems.length; i += 1) {
         legendItems[i].addEventListener("click", legendClickCallback, false);
     }
+
+
+
+    var totalIncomeChart = document.getElementById('totalIncomeChart').getContext('2d');
+
+		var mytotalIncomeChart = new Chart(totalIncomeChart, {
+			type: 'bar',
+			data: {
+				labels: [@foreach($data_users as $dk)
+                '{{$dk->name}}',
+                @endforeach
+            ],
+				datasets : [{
+					label: "Total Income",
+					backgroundColor: '#ff9e27',
+					borderColor: 'rgb(23, 125, 255)',
+					data: [6, 4, 9, 5, 4, 6, 4, 3, 8, 10],
+				}],
+			},
+			options: {
+				responsive: true,
+				maintainAspectRatio: false,
+				legend: {
+					display: false,
+				},
+				scales: {
+					yAxes: [{
+						ticks: {
+							display: false //this will remove only the label
+						},
+						gridLines : {
+							drawBorder: false,
+							display : false
+						}
+					}],
+					xAxes : [ {
+						gridLines : {
+							drawBorder: false,
+							display : false
+						}
+					}]
+				},
+			}
+		});
     </script>
+
+
+
 
 
 
