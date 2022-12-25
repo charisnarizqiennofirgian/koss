@@ -274,6 +274,14 @@ a.btn.btn-outline-dark.shadow.mt-1:hover {
   color: #ffff;
 }
 
+a.btn-print{
+  background-color: #11296b;
+}
+
+a.btn-export{
+  background-color: #fd5f00;
+}
+
 .col-md-6.col-lg-3 {
   padding-left: 0px;
 }

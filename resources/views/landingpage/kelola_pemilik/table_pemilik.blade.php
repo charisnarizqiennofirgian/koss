@@ -5,11 +5,18 @@
         @include('landingpage.sidebar')
         <div class="col-10 p-5" id="main">
             <a title="Export to PDF" href="{{url('kost-pdf-pemilik')}}"
-                class="btn btn-danger btn-outline mb-3 text-light">
+                class="btn btn-export btn-outline mb-3 text-light">
                 <span class="btn-label">
                     <i class="fas fa-file-pdf"></i>
                 </span>
-                Cetak Laporan
+                Export
+            </a>
+            <a title="Export to PDF" href="{{url('kost-excel-pemilik')}}"
+                class="btn ml-2 btn-print btn-outline mb-3 text-light">
+                <span class="btn-label">
+                <i class="fa fa-print"></i>
+                </span>
+                Print
             </a>
             <table class="table table-hover">
                 <thead style=" background-color: #11296b;">
