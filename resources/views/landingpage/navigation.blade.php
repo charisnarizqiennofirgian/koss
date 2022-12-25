@@ -43,10 +43,10 @@
                         $role = Auth::user()->role
                         @endphp
                         @if( $role === "pemilik")
-                        <a class="dropdown-item" href="dashboards"><i class="fas fa-user-edit"></i> Dashboard
+                        <a class="dropdown-item" href="{{url('dashboards')}}"><i class="fas fa-user-edit"></i> Dashboard
                             Pemilik</a>
                         @elseif($role === "admin")
-                        <a class="dropdown-item" href="administrator"><i class="fas fa-user-edit"></i> Dashboard
+                        <a class="dropdown-item" href="{{url('administrator')}}"><i class="fas fa-user-edit"></i> Dashboard
                             Admin</a>
                         @endif
                         <a class="dropdown-item" href="#" onclick="document.getElementById('form-logout').submit()"><i
