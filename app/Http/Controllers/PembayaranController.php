@@ -67,11 +67,6 @@ class PembayaranController extends Controller
      
     public function index()
     {
-        // $pembayaran = Pembayaran::select('*')
-        // ->join('users', 'users.id', '=', 'pembayaran.id_user')
-        // ->join('kost', 'kost.id', '=', 'pembayaran.id_kamar')
-        // ->get();
-
         $pembayaran = Pembayaran::all();
         // dd($pembayaran);
         return view('admin.pembayaran.pembayaran', compact('pembayaran'));
@@ -96,18 +91,27 @@ class PembayaranController extends Controller
      */
     public function store(Request $request)
     {
-        //lakukan insert data dari request form
-        DB::table('pembayaran')->insert(
-            [
-                'kode_bayar' => $request->kode_bayar,
-                'tanggal_masuk' => $request->tanggal_masuk,
-                'tanggal_keluar' => $request->tanggal_keluar,
-                'total_bayar' => $request->total_bayar,
-                'id_kamar' => $request->id_kamar,
-                'id_user' => $request->id_user,
-                'created_at'=>now()
-            ]);
-       
+        // dd($request->all());
+
+        $request->validate([
+            'kode_bayar' => 'required|max:45',
+            'tanggal_masuk' => 'required|max:45',
+            'tanggal_keluar' => 'required|max:45',
+            'total_bayar' => 'required|max:45',
+            'id_user' => 'required|max:45',
+            'id_kamar' => 'required|max:45',
+        ]);
+
+            DB::table('pembayaran')->insert(
+                [
+                    'kode_bayar' => $request->kode_bayar,
+                    'tanggal_masuk' => $request->tanggal_masuk,
+                    'tanggal_keluar' => $request->tanggal_keluar,
+                    'total_bayar' => $request->total_bayar,
+                    'id_kamar' => $request->id_kamar,
+                    'id_user' => $request->id_user,
+                    'created_at'=>now()
+                ]);
         return back()->with('success','Pembayaran sedang di proses silahkan bayar sesuai total pembayaran!');
     }
 
