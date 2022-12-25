@@ -182,7 +182,7 @@ class KostController extends Controller
             'luas_kamar' => 'required|max:45',
             'harga_kamar' => 'required|max:45',
             'keterangan' => 'required|max:45',
-            'alamat_kost' => 'nullable|string|min:10',
+            'alamat_kost' => 'required|string|min:10',
             'foto_kamar' => 'nullable|image|mimes:jpg,jpeg,png,gif,svg|max:2048',
             'id_fasilitas' => 'required|max:45',
             'id_user' => 'required|integer',
