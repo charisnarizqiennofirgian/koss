@@ -76,7 +76,7 @@
                 @foreach($kost as $k)
                 <div class="col-md-6 col-lg-3">
                     <div class="card shadow-sm border-light mb-4">
-                        <a href="" class="position-relative">
+                        <a href="{{ route('detailCustomer.show',$k->id) }}" class="position-relative">
                             <img src="{{url('admin/img/'.$k->foto_kamar)}}" class="card-img-top" alt="image"> </a>
                         <div class="card-body">
                             <div class="d-flex align-content-center align-items-center justify-content-between">

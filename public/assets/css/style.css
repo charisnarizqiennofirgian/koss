@@ -558,7 +558,7 @@ text-decoration: none;
 }
 
 .belum {
-  border-color: #fd5f00  ;
+  border-color: #fd5f00 ;
   background-color: #ffff;
   color: black;
   border-radius: 28px;
@@ -591,13 +591,13 @@ text-decoration: none;
 
 .name {
   background-color: #fd5f00;
-  border-color: #fd5f00 ;
   border-radius: 26px;
+  color: white;
 }
 
 .name:hover {
-  background-color: white;
-  color: black;
+  background-color: #11296b;
+  color: white;
 }
 
 .bt {

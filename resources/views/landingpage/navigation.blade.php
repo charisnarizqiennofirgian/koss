@@ -33,7 +33,7 @@
                 @endguest
                 @auth
                 <div class="dropdown">
-                    <button class="btn btn-secondary name dropdown-toggle" type="button" data-toggle="dropdown"
+                    <button class="btn name dropdown-toggle" type="button" data-toggle="dropdown"
                         aria-expanded="false">
                         {{ Auth::user()->name }}
                     </button>
