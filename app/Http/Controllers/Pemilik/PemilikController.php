@@ -98,9 +98,6 @@ class PemilikController extends Controller
         $fasilitas = Fasilitas::all();
         $detail_kamar = Kost::find($id);
         $kota = Kota::find($id);
-        // dd($fasilitas);
-        // dd($detail_kamar);
-        // dd($kota);
         return view('landingpage.kelola_pemilik.form_edit',compact('detail_kamar', 'fasilitas', 'kota'));
     }
 
