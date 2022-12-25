@@ -41,11 +41,19 @@ $kota = App\Models\Kota::all();
                                     <div class="col-5 col-md-4">
                                         <div class="nav flex-column nav-pills nav-secondary" id="v-pills-tab"
                                             role="tablist" aria-orientation="vertical">
+                                            @empty($fs->foto_kamar)
+
+                                            <img class="card-img-top mb-5 mb-md-0"
+                                                src="{{ url('https://stimra.ac.id/wp-content/themes/consultix/images/no-image-found-360x260.png') }}"
+                                                alt="Profile_kamar">
+                                            @else
                                             <!-- awal image -->
                                             <img class="card-img-top mb-5 mb-md-0"
                                                 src="{{ url('admin/img')}}/{{$kost_id->foto_kamar}}"
                                                 alt="Profile_kamar">
                                             <!-- akhir image -->
+                                            @endempty
+
                                             <br />
                                             <a href="{{url('kost')}}" class="btn btn-link"><i
                                                     class="flaticon-back"></i>&nbsp;&nbsp;Back</a>
