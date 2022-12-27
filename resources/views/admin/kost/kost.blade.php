@@ -102,7 +102,7 @@ $kota = App\Models\Kota::all();
                                                     @empty($fs->foto_kamar)
                                                     <img src="{{ url('https://stimra.ac.id/wp-content/themes/consultix/images/no-image-found-360x260.png') }}"
                                                         width="35%" alt="Profile">
-                                                    @else
+                                                      @else
                                                     <img src="{{ url('admin/img')}}/{{$fs->foto_kamar}}" width="100%"
                                                         alt="Profile">
                                                     @endempty

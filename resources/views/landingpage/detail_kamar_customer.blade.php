@@ -106,6 +106,9 @@
                                         <input name="id_kamar" value="{{$kost_id->id}}" hidden type="number" class="form-control" id="kode" required>
                                         <input name="id_user" value="{{$kost_id->id}}" hidden type="number" class="form-control" id="kode" required>
                                         <input name="status_pembayaran" value="diproses" hidden type="text" class="form-control" id="kode" required>
+                                        
+                                        {{-- hidden input untuk pesanan --}}
+                                        <input name="pesanan" value="progress" hidden type="text" class="form-control" id="kode" required>
                                     
                                     </div>
                                     {{-- akhir Pembayaran --}}

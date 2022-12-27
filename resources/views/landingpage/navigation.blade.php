@@ -24,6 +24,11 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="#tentang">About</a>
                 </li>
+
+
+                {{-- notification --}}
+
+                {{--awal notification --}}
             </ul>
             <div class="ml-auto button-navbar d-flex">
                 <!-- Added -->
@@ -33,8 +38,7 @@
                 @endguest
                 @auth
                 <div class="dropdown">
-                    <button class="btn name dropdown-toggle" type="button" data-toggle="dropdown"
-                        aria-expanded="false">
+                    <button class="btn name dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
                         {{ Auth::user()->name }}
                     </button>
                     <div class="dropdown-menu">
@@ -46,7 +50,8 @@
                         <a class="dropdown-item" href="{{url('dashboards')}}"><i class="fas fa-user-edit"></i> Dashboard
                             Pemilik</a>
                         @elseif($role === "admin")
-                        <a class="dropdown-item" href="{{url('administrator')}}"><i class="fas fa-user-edit"></i> Dashboard
+                        <a class="dropdown-item" href="{{url('administrator')}}"><i class="fas fa-user-edit"></i>
+                            Dashboard
                             Admin</a>
                         @endif
                         <a class="dropdown-item" href="#" onclick="document.getElementById('form-logout').submit()"><i

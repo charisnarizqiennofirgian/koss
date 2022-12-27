@@ -34,8 +34,16 @@
                     @foreach($rekomendasi as $rk)
                     <div class="col-md-6 col-lg-3">
                         <div class="card shadow-sm border-light mb-4">
+                            
+                            @empty($rk->foto_kamar)
                             <a href="{{ route('detailCustomer.show',$rk->id) }}" class="position-relative">
-                                <img src="{{url('admin/img')}}/{{$rk->foto_kamar}}" class="card-img-top" alt="image"> </a>
+                            <img src="{{url('admin/img/no_foto_kamar.jpg')}}" class="card-img-top" alt="image"> 
+                            </a>
+                            @else
+                            <a href="{{ route('detailCustomer.show',$rk->id) }}" class="position-relative">
+                            <img src="{{url('admin/img')}}/{{$rk->foto_kamar}}" class="card-img-top" alt="image">
+                            </a>
+                            @endempty      
                             <div class="card-body">
                                 <div class="d-flex align-content-center align-items-center justify-content-between">
                                     <span class="font-weight-small">{{$rk->nama_kost}}</span>
@@ -76,8 +84,17 @@
                 @foreach($kost as $k)
                 <div class="col-md-6 col-lg-3">
                     <div class="card shadow-sm border-light mb-4">
-                        <a href="{{ route('detailCustomer.show',$k->id) }}" class="position-relative">
-                            <img src="{{url('admin/img/'.$k->foto_kamar)}}" class="card-img-top" alt="image"> </a>
+                    @empty($k->foto_kamar)
+                    <a href="{{ route('detailCustomer.show',$k->id) }}" class="position-relative">
+                    <img style="height: 195px; width: 200px;" src="{{url('admin/img/no_foto_kamar.jpg')}}" class="card-img-top" alt="image"> </a> 
+                    @else
+                    <a href="{{ route('detailCustomer.show',$k->id) }}" class="position-relative">
+                    <img src="{{url('admin/img/'.$k->foto_kamar)}}" class="card-img-top" alt="image"> </a>
+                    @endempty
+
+
+
+                        
                         <div class="card-body">
                             <div class="d-flex align-content-center align-items-center justify-content-between">
                                 <span class="font-weight-small">{{$k->nama_kost}}</span>

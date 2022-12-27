@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use PDF;
 use App\Exports\PemilikExport;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Models\Pembayaran;
 
 /**
  * import query builder
@@ -162,5 +163,12 @@ class PemilikController extends Controller
 
     public function print(Request $request){
         return Excel::download(new PemilikExport, 'pemilik_kost.xlsx');
+    }
+
+    public function pesanan(){
+        $title = ['No', 'Kode Bayar', 'Customer', 'Tanggal Masuk', 'Tanggal Keluar', 'Total Bayar', 'Status Pembayaran', 'Pesanan', 'Action'];
+        $pembayaran = Pembayaran::all();
+
+        return view('landingpage.kelola_pemilik.pesanan', compact('pembayaran', 'title'));
     }
 }

@@ -139,7 +139,9 @@
                 backgroundColor: 'transparent',
                 fill: true,
                 borderWidth: 2,
-                data: [{{$pembayaran}}
+                data: [@foreach($data_kost as $dk)
+                    '{{$dk->total_bayar}}',
+                    @endforeach
                 ]
             }]
         },
