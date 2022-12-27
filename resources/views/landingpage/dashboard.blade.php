@@ -84,7 +84,8 @@
                                 <h4>Penyewa</h4>
                             </div>
                             <div class="card-body">
-                                <!-- START DISINI -->
+                                {{-- START DISINI --}}
+                                @foreach($pembayaran as $pb)
                                 <div class="row">
                                     <div class="col-md-5">
                                         <div class=" d-md-flex align-items-center">
@@ -95,8 +96,8 @@
                                                             alt="User Img">
                                                     </div>
                                                     <div class="user-info__basic">
-                                                        <h5 class="mb-0">Kiran Air</h5>
-                                                        <p class="text-muted mb-0">Kamar 8</p>
+                                                        <h5 class="mb-0">{{$pb->name}}</h5>
+                                                        <p class="text-muted mb-0">{{$pb->nama_kost}}</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -104,84 +105,26 @@
 
                                     </div>
                                     <div class="col-md-5 d-flex justify-content-end align-items-center">
-                                        <h6 class="stats-pembayaran">Belum Dibayar</h6>
-
+                                        @if($pb->status_pembayaran === "dibatalkan")
+                                        <p style="border-radius: 500px; width: 100px;"
+                                            class="px-2 fw-bold text-center btn-danger text-light">
+                                            {{$pb->status_pembayaran}}
+                                        </p>
+                                        @elseif($pb->status_pembayaran === "diproses")
+                                        <p style="border-radius: 500px; width: 100px;"
+                                            class="px-2 fw-bold text-center btn-warning text-light">
+                                            {{$pb->status_pembayaran}}
+                                        </p>
+                                        @else
+                                        <p style="border-radius: 500px; width: 100px;"
+                                            class="px-2 fw-bold text-center btn-success text-light">
+                                            {{$pb->status_pembayaran}}
+                                        </p>
+                                        @endif
                                     </div>
                                 </div>
-                                <!-- END DISINI -->
-
-                                <div class="row">
-                                    <div class="col-md-5">
-                                        <div class=" d-md-flex align-items-center">
-                                            <div class="d-flex justify-content-between mb-4">
-                                                <div class="user-info">
-                                                    <div class="user-info__img">
-                                                        <img src="https://kiranworkspace.com/demo/projects/code-snippets/card/appointment-card/img/user1.jpg"
-                                                            alt="User Img">
-                                                    </div>
-                                                    <div class="user-info__basic">
-                                                        <h5 class="mb-0">Kiran Air</h5>
-                                                        <p class="text-muted mb-0">Kamar 8</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="col-md-5 d-flex justify-content-end align-items-center">
-                                        <h6 class="stats-pembayaran">Belum Dibayar</h6>
-
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-md-5">
-                                        <div class=" d-md-flex align-items-center">
-                                            <div class="d-flex justify-content-between mb-4">
-                                                <div class="user-info">
-                                                    <div class="user-info__img">
-                                                        <img src="https://kiranworkspace.com/demo/projects/code-snippets/card/appointment-card/img/user1.jpg"
-                                                            alt="User Img">
-                                                    </div>
-                                                    <div class="user-info__basic">
-                                                        <h5 class="mb-0">Kiran Air</h5>
-                                                        <p class="text-muted mb-0">Kamar 8</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="col-md-5 d-flex justify-content-end align-items-center">
-                                        <h6 class="stats-pembayaran">Belum Dibayar</h6>
-
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-md-5">
-                                        <div class=" d-md-flex align-items-center">
-                                            <div class="d-flex justify-content-between mb-4">
-                                                <div class="user-info">
-                                                    <div class="user-info__img">
-                                                        <img src="https://kiranworkspace.com/demo/projects/code-snippets/card/appointment-card/img/user1.jpg"
-                                                            alt="User Img">
-                                                    </div>
-                                                    <div class="user-info__basic">
-                                                        <h5 class="mb-0">Kiran Air</h5>
-                                                        <p class="text-muted mb-0">Kamar 8</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="col-md-5 d-flex justify-content-end align-items-center">
-                                        <h6 class="stats-pembayaran">Belum Dibayar</h6>
-
-                                    </div>
-                                </div>
-
+                                @endforeach
+                                {{-- END DISINI --}}
 
                                 <div class="row">
                                     <div class="col-md-12">

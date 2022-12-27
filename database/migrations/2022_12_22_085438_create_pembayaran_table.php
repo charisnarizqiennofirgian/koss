@@ -20,6 +20,7 @@ return new class extends Migration
             $table->date('tanggal_keluar');
             $table->integer('total_bayar');
             $table->integer('id_kamar');
+            $table->enum('pesanan', ['progress', 'diterima', 'ditolak'])->nullable();
             $table->enum('status_pembayaran', ['dibatalkan', 'diproses', 'success']);
             $table->unsignedBigInteger('id_user');
             $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');

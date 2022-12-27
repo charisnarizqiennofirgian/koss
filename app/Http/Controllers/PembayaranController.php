@@ -151,7 +151,12 @@ class PembayaranController extends Controller
         // dd($id);
         $test = DB::table('pembayaran')
         ->where('id', $id)
-        ->update(['status_pembayaran'=>$request->status_pembayaran]);
+        ->update(
+            [
+                'status_pembayaran'=>$request->status_pembayaran,
+                'pesanan'=>$request->pesanan
+            ]
+        );
         // dd($test);
         return back();
     }
@@ -183,4 +188,23 @@ class PembayaranController extends Controller
     public function pembayaranExcel(Request $request){
         return Excel::download(new ExportPembayaran, 'pembayaran.xlsx');
     }
+
+    public function penyewa(){
+        $pembayaran = Pembayaran::join('users', 'users.id', '=', 'pembayaran.id_user')
+                ->join('kost', 'kost.id', '=', 'pembayaran.id_kamar')
+                ->limit(3)
+                ->get(['pembayaran.status_pembayaran', 'pembayaran.pesanan', 'users.name', 'kost.nama_kost']);
+
+
+        // $pembayaran = Pembayaran::select('*')->
+        // dd($pembayaran);
+        return view('landingpage.dashboard', compact('pembayaran'));
+    }
+
+    // public function tagihanPenyewa(){
+    //     $tagihan = Pembayaran::all();
+    //     // dd($pembayaran);
+    //     return view('landingpage.dashboard', compact('tagihan'));
+
+    // }
 }

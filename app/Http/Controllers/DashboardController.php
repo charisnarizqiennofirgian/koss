@@ -20,6 +20,7 @@ class DashboardController extends Controller
         
 
         $data_kost = DB::table('pembayaran')->get();
+       
         $data_users = User::select('name', 'role', 'pekerjaan', 'total_bayar', 'id_kamar', 'tanggal_masuk')->join('pembayaran', 'users.id', '=', 'pembayaran.id_user')->get();
         return view('admin.home', compact('data_kost', 'data_users', 'pembayaran'));
     }

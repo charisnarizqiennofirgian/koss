@@ -11,7 +11,7 @@
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <link rel="shortcut icon" href="{{url('images/favicon.png')}}" type="">
+    <link rel="icon" href="{{url('asset/image/logo-brand.png')}}" type="image/x-icon" />
     <title>kostku.</title>
     <!-- bootstrap core css -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
