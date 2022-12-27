@@ -1,7 +1,8 @@
 @extends('admin.index')
 @section('content')
 @php
-$title = ['No', 'Kode Bayar','Kost', 'Customer', 'Tanggal Masuk', 'Tanggal Keluar', 'Total Bayar', 'Status Pembayaran', 'Action'];
+$title = ['No', 'Kode Bayar','Kost', 'Customer', 'Tanggal Masuk', 'Tanggal Keluar', 'Total Bayar', 'Status Pembayaran',
+'Action'];
 @endphp
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -135,44 +136,89 @@ $title = ['No', 'Kode Bayar','Kost', 'Customer', 'Tanggal Masuk', 'Tanggal Kelua
                                                 <td>{{$fs['tanggal_keluar']}}</td>
                                                 <td>Rp. {{number_format($fs['total_bayar'], 2, ',', '. ')}}</td>
                                                 @if($fs->status_pembayaran === "diproses")
-                                                <td><p style="border-radius: 500px;" class="p-1  fw-bold text-center btn-warning text-light">{{$fs->status_pembayaran}}</p></td>
+                                                <td>
+                                                    <p style="border-radius: 500px;"
+                                                        class="px-1  fw-bold text-center btn-warning text-light">
+                                                        {{$fs->status_pembayaran}}</p>
+                                                </td>
                                                 @elseif($fs->status_pembayaran === "success")
-                                                <td><p style="border-radius: 500px;" class="p-1  fw-bold text-center btn-success text-light">{{$fs->status_pembayaran}}</p></td>
+                                                <td>
+                                                    <p style="border-radius: 500px;"
+                                                        class="px-1  fw-bold text-center btn-success text-light">
+                                                        {{$fs->status_pembayaran}}</p>
+                                                </td>
                                                 @else
-                                                <td><p style="border-radius: 500px;" class="p-1  fw-bold text-center btn-danger text-light">{{$fs->status_pembayaran}}</p></td>
+                                                <td>
+                                                    <p style="border-radius: 500px;"
+                                                        class="px-1  fw-bold text-center btn-danger text-light">
+                                                        {{$fs->status_pembayaran}}</p>
+                                                </td>
                                                 @endif
-                                                
-                                               
-                                                <td style="display: flex; flex-directon: row; justify-content: center; align-item: center;">
+
+
+                                                <td
+                                                    style="display: flex; flex-directon: row; justify-content: center; align-item: center;">
                                                     {{-- konfirmasi status pembayaran --}}
-                                                    <form method="POST" action="{{route('pembayaran.update', $fs->id)}}" enctype="multipart/form-data">
-                                                    @method('PUT')
-                                                    @csrf
-                                                    <input name="status_pembayaran" hidden value="success" type="text" />
-                                                    <button type="submit" data-toggle="tooltip" title=""
+                                                    {{-- terima --}}
+                                                    <form method="POST" action="{{route('pembayaran.update', $fs->id)}}"
+                                                        enctype="multipart/form-data">
+                                                        @method('PUT')
+                                                        @csrf
+                                                        <input name="status_pembayaran" hidden value="success"
+                                                            type="text" />
+                                                        <input name="pesanan" hidden value="diterima" type="text" />
+                                                        <button type="submit" data-toggle="tooltip" title=""
                                                             class="btn btn-link btn-primary btn-lg"
-                                                            data-original-title="Ubah status pembayaran"><i class="fas fa-check"></i></button>
+                                                            data-original-title="terima pesanan"><i
+                                                                class="bi bi-check2-all"></i></button>
+                                                    </form>
+                                                    {{-- tolak --}}
+                                                    <form method="POST" action="{{route('pembayaran.update', $fs->id)}}"
+                                                        enctype="multipart/form-data">
+                                                        @method('PUT')
+                                                        @csrf
+                                                        <input name="status_pembayaran" hidden value="dibatalkan"
+                                                            type="text" />
+                                                        <input name="pesanan" hidden value="ditolak" type="text" />
+                                                        <button type="submit" data-toggle="tooltip" title=""
+                                                            class="btn btn-link btn-danger btn-lg"
+                                                            data-original-title="tolak pesanan"><i
+                                                                class="bi bi-backspace-reverse"></i></button>
+                                                    </form>
+                                                    <form method="POST" action="{{route('pembayaran.update', $fs->id)}}"
+                                                        enctype="multipart/form-data">
+                                                        @method('PUT')
+                                                        @csrf
+                                                        <input name="status_pembayaran" hidden value="diproses"
+                                                            type="text" />
+                                                        <input name="pesanan" hidden value="progress" type="text" />
+                                                        <button type="submit" data-toggle="tooltip" title=""
+                                                            class="btn btn-link btn-warning btn-lg"
+                                                            data-original-title="proses pesanan"><i
+                                                                class="bi bi-arrow-clockwise"></i></button>
                                                     </form>
                                                     {{-- end status --}}
 
                                                     {{-- action detail & delete --}}
-                                                <form method="POST" action="{{route('pembayaran.destroy', $fs->id)}}">
+                                                    <form method="POST"
+                                                        action="{{route('pembayaran.destroy', $fs->id)}}">
                                                         @csrf
                                                         @method('DELETE')
-                                                    <div class="form-button-action">
-                                                        <a href="{{ route('pembayaran.show',$fs->id) }}"
-                                                            data-toggle="tooltip" title=""
-                                                            class="btn btn-link btn-primary btn-lg"
-                                                            data-original-title="View Detail">
-                                                            <i class="fa fa-eye"></i>
-                                                        </a>
-                                                        <button name="_method" type="button" data-toggle="tooltip" title=""
-                                                            class="btn btn-link btn-danger delete-confirm show_confirm"
-                                                            data-original-title="Remove">
-                                                            <i class="fa fa-trash"></i>
-                                                        </button>
-                                                    </div>
-                                                </form>
+                                                        <div class="form-button-action">
+                                                            <a href="{{ route('pembayaran.show',$fs->id) }}"
+                                                                data-toggle="tooltip" title=""
+                                                                class="btn btn-link btn-primary btn-lg"
+                                                                data-original-title="View Detail">
+                                                                <i class="fa fa-eye"></i>
+                                                            </a>
+                                                            <button name="_method" type="button" data-toggle="tooltip"
+                                                                title=""
+                                                                class="btn btn-link btn-danger delete-confirm show_confirm"
+                                                                data-original-title="Remove">
+                                                                <i class="fa fa-trash"></i>
+                                                            </button>
+                                                        </div>
+                                                    </form>
                                                 </td>
 
                                             </tr>
@@ -198,26 +244,24 @@ $title = ['No', 'Kode Bayar','Kost', 'Customer', 'Tanggal Masuk', 'Tanggal Kelua
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 
     <script type="text/javascript">
- 
-     $('.show_confirm').click(function(event) {
-          var form =  $(this).closest("form");
-          var name = $(this).data("name");
-          event.preventDefault();
-          swal({
-              title: `Yakin akan menghapus data pembayaran?`,
-              text: "Data akan dihapus secara permanent!",
-              icon: "warning",
-              buttons: true,
-              dangerMode: true,
-          })
-          .then((willDelete) => {
-            if (willDelete) {
-              form.submit();
-            }
-          });
-      });
-  
-</script>
+    $('.show_confirm').click(function(event) {
+        var form = $(this).closest("form");
+        var name = $(this).data("name");
+        event.preventDefault();
+        swal({
+                title: `Yakin akan menghapus data pembayaran?`,
+                text: "Data akan dihapus secara permanent!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
+                    form.submit();
+                }
+            });
+    });
+    </script>
     <!-- End Custom template -->
 </div>
 @endsection

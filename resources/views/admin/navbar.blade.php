@@ -10,7 +10,7 @@
             <li class="nav-item dropdown hidden-caret">
                 <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
                     <div class="avatar-sm">
-                        @empty($fs->foto_kamar)
+                        @empty($fs->foto_user)
                         <img src="{{ url('admin/img/users/no_user_foto.png') }}" alt="foto_profile"
                             class="avatar-img rounded-circle">
                         @else
@@ -24,19 +24,13 @@
                         <li>
                             <div class="user-box">
                                 <div class="avatar-lg">
-                                    @empty($fs->foto_kamar)
+                                    @empty($fs->foto_user)
                                     <img src="{{ url('admin/img/users/no_user_foto.png') }}" alt="image profile"
                                         class="avatar-img rounded">
                                     @else
                                     <img src="{{url('admin/img/users/', Auth::user()->foto_user)}}" alt="image profile"
                                         class="avatar-img rounded">
                                     @endempty
-
-
-
-
-
-
                                 </div>
                                 <div class="u-text">
                                     <h4>{{Auth::user()->name}}</h4>

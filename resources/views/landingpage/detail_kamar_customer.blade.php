@@ -10,16 +10,28 @@
                         <div id="carouselExampleControls" class="carousel slide mb-4" data-ride="carousel">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="{{url('admin/img')}}/{{$kost_id->foto_kamar}}" class="d-block w-100"
+                                    @empty($kost_id->foto_kamar)
+                                    <img src="{{url('admin/img/no_foto_kamar.jpg')}}" class="d-block w-100" alt="...">
+                                    @else
+                                    <img src="{{url('admin/img/'.$kost_id->foto_kamar)}}" class="d-block w-100"
                                         alt="...">
+                                    @endif
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="{{url('admin/img')}}/{{$kost_id->foto_kamar}}" class="d-block w-100"
+                                    @empty($kost_id->foto_kamar)
+                                    <img src="{{url('admin/img/no_foto_kamar.jpg')}}" class="d-block w-100" alt="...">
+                                    @else
+                                    <img src="{{url('admin/img/'.$kost_id->foto_kamar)}}" class="d-block w-100"
                                         alt="...">
+                                    @endif
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="{{url('admin/img')}}/{{$kost_id->foto_kamar}}" class="d-block w-100"
+                                    @empty($kost_id->foto_kamar)
+                                    <img src="{{url('admin/img/no_foto_kamar.jpg')}}" class="d-block w-100" alt="...">
+                                    @else
+                                    <img src="{{url('admin/img/'.$kost_id->foto_kamar)}}" class="d-block w-100"
                                         alt="...">
+                                    @endif
                                 </div>
                             </div>
                             <button class="carousel-control-prev" type="button" data-target="#carouselExampleControls"
@@ -38,24 +50,24 @@
                     <div class="mt-5 d-flex justify-content-between">
                         <div class="d-flex flex-column col-8 mr-4">
                             <h5 style="font-size: 24px;font-weight: 600;">
-                                {{$kost_id->nama_kost}}
+                                {{$kost_id->nama_kost ?? 'None'}}
                             </h5>
                             <div class="d-flex justify-content-start border-bottom my-4 mb-4">
                                 <div class="p-2">
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i
-                                        class="bi bi-geo-alt-fill"></i>&nbsp;&nbsp;&nbsp;{{$kost_id->alamat_kost}}
+                                        class="bi bi-geo-alt-fill"></i>&nbsp;&nbsp;&nbsp;{{$kost_id->alamat_kost ?? 'None'}}
                                 </div>
                             </div>
 
                             <div class="d-flex align-items-center">
-                                <h4 class="fw-bold">Kost dikelola oleh {{$kost_id->name}}</h4>
+                                <h4 class="fw-bold">Kost dikelola oleh {{$kost_id->name ?? 'None'}}</h4>
                             </div>
 
                             <div class="d-flex justify-content-start align-items-center border-bottom">
                                 <img style="width: 50px; height: 50px;" src="{{url('admin/img/users/wahyu.jpg')}}"
                                     class="rounded-circle " alt="...">
                                 <div class="d-flex flex-column mx-4 my-4 mb-4">
-                                    <a href="https://wa.me/{{$kost_id->telp}}"
+                                    <a href="https://wa.me/{{$kost_id->telp ?? 'None'}}"
                                         style="border: 1px solid #11296B; color: #11296B;" class="btn bg-body rounded"
                                         type="submit">
                                         Tanya pemilik kost&nbsp;&nbsp;<i class="bi bi-chat-left-text"></i>
@@ -63,53 +75,62 @@
                                 </div>
                             </div>
                             <div class="d-flex flex-column col-8 mr-4 mt-4">
-                            <h5 class="mt-4" style="font-size: 24px;font-weight: 600;">
-                                Spesifikasi Tipe Kamar</h5>
-                            <div class="d-flex justify-content-start mb-2 mt-3">
-                                <i class="bi bi-aspect-ratio"></i>&nbsp;&nbsp;Luas kamar: {{$kost_id->luas_kamar}} Meter
-                            </div>
-                            <div class=" d-flex justify-content-start">
-                                <i class="bi bi-bag-heart"></i>&nbsp;&nbsp;Fasilitas: {{$kost_id->fasilitas}}
-                            </div>
+                                <h5 class="mt-4" style="font-size: 24px;font-weight: 600;">
+                                    Spesifikasi Tipe Kamar</h5>
+                                <div class="d-flex justify-content-start mb-2 mt-3">
+                                    <i class="bi bi-aspect-ratio"></i>&nbsp;&nbsp;Luas kamar: {{$kost_id->luas_kamar ?? 'None'}}
+                                    Meter
+                                </div>
+                                <div class=" d-flex justify-content-start">
+                                    <i class="bi bi-bag-heart"></i>&nbsp;&nbsp;Fasilitas: {{$kost_id->fasilitas ?? 'None'}}
+                                </div>
 
-                            <div class="mt-5 row p-3">
-                                <h5 style="font-size: 24px;font-weight: 600;">Ketersediaan kost</h5>
-                            </div>
-                            <br>
-                            <div>
-                                <div class="col-8 mb-5">
-                                    {{$kost_id->keterangan}}
+                                <div class="mt-5 row p-3">
+                                    <h5 style="font-size: 24px;font-weight: 600;">Ketersediaan kost</h5>
+                                </div>
+                                <br>
+                                <div>
+                                    <div class="col-8 mb-5">
+                                        {{$kost_id->keterangan ?? 'None'}}
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        </div>
                         <div class="col-4 d-flex align-items-center">
                             <div class="shadow d-flex flex-column mb-3 p-5 pesan">
-                                <form method="POST" action="{{route('pembayaran.store')}}" enctype="multipart/form-data">
-                                @csrf   
-                                <h4 class="fw-bold">Rp.
+                                <form method="POST" action="{{route('pembayaran.store')}}"
+                                    enctype="multipart/form-data">
+                                    @csrf
+                                    <h4 class="fw-bold">Rp.
                                         {{number_format($kost_id->harga_kamar, 2, ',', '. ')}}<span>/bln</span>
-                                        <input type="input" hidden id="harga" value="{{$kost_id->harga_kamar}}">
+                                        <input type="input" hidden id="harga" value="{{$kost_id->harga_kamar ?? 'None'}}">
                                     </h4>
                                     {{-- Pembayaran --}}
                                     {{-- tangal masuk --}}
                                     <div class="mb-3">
                                         <label for="">Tanggal Masuk</label>
-                                        <input name="tanggal_masuk" type="date" class="form-control" id="masuk" required>
+                                        <input name="tanggal_masuk" type="date" class="form-control" id="masuk"
+                                            required>
                                     </div>
                                     {{-- tanggal keluar --}}
                                     <div class="mb-3">
                                         <label for="">Tanggal Keluar</label>
-                                        <input name="tanggal_keluar" type="date" class="form-control" id="keluar" required>
+                                        <input name="tanggal_keluar" type="date" class="form-control" id="keluar"
+                                            required>
                                         {{-- kode bayar --}}
-                                        <input name="kode_bayar" hidden type="text" class="form-control" id="kode" required>
-                                        <input name="id_kamar" value="{{$kost_id->id}}" hidden type="number" class="form-control" id="kode" required>
-                                        <input name="id_user" value="{{$kost_id->id}}" hidden type="number" class="form-control" id="kode" required>
-                                        <input name="status_pembayaran" value="diproses" hidden type="text" class="form-control" id="kode" required>
-                                        
+                                        <input name="kode_bayar" hidden type="text" class="form-control" id="kode"
+                                            required>
+                                        <input name="id_kamar" value="{{$kost_id->id}}" hidden type="number"
+                                            class="form-control" id="kode" required>
+                                        <input name="id_user" value="{{$kost_id->id}}" hidden type="number"
+                                            class="form-control" id="kode" required>
+                                        <input name="status_pembayaran" value="diproses" hidden type="text"
+                                            class="form-control" id="kode" required>
+
                                         {{-- hidden input untuk pesanan --}}
-                                        <input name="pesanan" value="progress" hidden type="text" class="form-control" id="kode" required>
-                                    
+                                        <input name="pesanan" value="progress" hidden type="text" class="form-control"
+                                            id="kode" required>
+
                                     </div>
                                     {{-- akhir Pembayaran --}}
                                     <div class="mb-3">
@@ -174,7 +195,8 @@
                                     </div>
                                     <div class="mb-3">
                                         {{-- total harga --}}
-                                        <input name="total_bayar" type="text" class="form-control" id="total_harga" value="" hidden>
+                                        <input name="total_bayar" type="text" class="form-control" id="total_harga"
+                                            value="" hidden>
                                     </div>
                                     <!-- modal untuk cek kembali -->
                                     <button type="button" class="btn btn-primary bt" data-toggle="modal"
