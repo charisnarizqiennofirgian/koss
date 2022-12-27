@@ -201,10 +201,11 @@ class PembayaranController extends Controller
         return view('landingpage.dashboard', compact('pembayaran'));
     }
 
-    // public function tagihanPenyewa(){
-    //     $tagihan = Pembayaran::all();
-    //     // dd($pembayaran);
-    //     return view('landingpage.dashboard', compact('tagihan'));
-
-    // }
+    public function invoiceCustomer(){
+        $heading = ['Kode Bayar', 'Mulai Kost', 'Kost Selesai', 'Total Bayar', 'Status Pembayaran', 'Status Pesanan'];
+        $invoice = Pembayaran::all();
+        // dd($invoice);
+        $pdf = PDF::loadView('landingpage.invoiceCustomerPDF', compact('invoice', 'heading'));
+        return $pdf->download('invoice.pdf');
+    }
 }

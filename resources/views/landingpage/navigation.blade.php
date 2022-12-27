@@ -27,7 +27,66 @@
 
 
                 {{-- notification --}}
+                @auth
+                @php
+                $booking = App\Models\Pembayaran::select('pesanan')
+                ->limit(1)
+                ->get();
+                @endphp
+                <li class="nav-item dropdown hidden-caret">
+                    <a class="nav-link dropdown-toggle" href="#" id="notifDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-bell"></i>
+                        @foreach($booking as $bg)
+                        @if(Auth::user()->role === "customer")
+                        <span class="notification"><i class="bi bi-check-circle"></i></span>
+                        @elseif(Auth::user()->role === "pemilik")
+                        <span class="notification">{{$bg->count()}}</span>
+                        @endif
+                        @endforeach
+                    </a>
+                    <ul class="dropdown-menu notif-box animated fadeIn" aria-labelledby="notifDropdown">
+                        <li>
+                            <div class="notif-scroll scrollbar-outer">
+                                <div class="notif-center p-3">
 
+                                    <div class="notif-icon notif-primary"> <i class="bi bi-check-circle"></i></div>
+                                    <div class="notif-content">
+                                        @foreach($booking as $bk)
+                                        @if(Auth::user()->role === "customer")
+                                        @if($bk->pesanan === "diterima")
+                                        <span class="block">
+                                            Hallo, selamat kost mu telah {{$bk->pesanan}}!
+
+                                            <br> <a href="{{route('invoice')}}">Cek history pembayaran!</a>
+                                        </span>
+                                        @elseif($bk->pesanan === "ditolak")
+                                        <span class="block">
+                                            Hallo, mohon maaf kost mu telah {{$bk->pesanan}}!
+
+                                            silahkan cek kembali
+                                            pesananmu!
+                                        </span>
+                                        @else
+                                        <span class="block">
+                                            Hallo, pesanan kost mu sedang {{$bk->pesanan}}!
+                                            Mohon tunggu beberapa saat!
+                                        </span>
+                                        @endif
+
+                                        @elseif(Auth::user()->role === "pemilik")
+                                        <span class="block">
+                                            Hallo, ada {{$bk->count()}} pesanan kost masuk nih!
+                                            <br><a href="{{url('pesanan')}}"> cek disini! </a>
+                                        </span>
+                                        @endif
+                                        @endforeach
+                                    </div>
+
+                                </div>
+                    </ul>
+                </li>
+                @endauth
                 {{--awal notification --}}
             </ul>
             <div class="ml-auto button-navbar d-flex">
