@@ -96,6 +96,6 @@ Route::get('pesanan', [PemilikController::class, 'pesanan'])->middleware(['auth'
 Route::get('kost-pdf-pemilik', [PemilikController::class, 'cetakKost'])->middleware(['auth', 'owner']);
 Route::get('kost-excel-pemilik', [PemilikController::class, 'print'])->middleware(['auth', 'owner']);
 Route::resource('/detailCustomer', InfoKostController::class); //well
-
 Route::resource('/pembayaran', PembayaranController::class)->middleware('auth');
 Route::get('/invoice', [PembayaranController::class, 'invoiceCustomer'])->name('invoice')->middleware('auth');
+Route::view('history' ,'landingpage.history');

@@ -110,6 +110,7 @@ class PembayaranController extends Controller
                     'total_bayar' => $request->total_bayar,
                     'id_kamar' => $request->id_kamar,
                     'id_user' => $request->id_user,
+                    'status_pembayaran' => $request->status_pembayaran,
                     'created_at'=>now()
                 ]);
         return back()->with('success','Pembayaran sedang di proses silahkan bayar sesuai total pembayaran!');
@@ -153,8 +154,7 @@ class PembayaranController extends Controller
         ->where('id', $id)
         ->update(
             [
-                'status_pembayaran'=>$request->status_pembayaran,
-                'pesanan'=>$request->pesanan
+                'pesanan'=>$request->pesanan,
             ]
         );
         // dd($test);

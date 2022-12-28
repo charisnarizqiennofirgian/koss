@@ -43,12 +43,12 @@
                         </td>
                         @elseif($pm->status_pembayaran === "success")
                         <td>
-                            <p style="border-radius: 500px;" class="  fw-bold text-center btn-success text-light">
+                            <p style="border-radius: 500px;" class=" fw-bold text-center btn-success text-light">
                                 {{$pm->status_pembayaran}}</p>
                         </td>
                         @else
                         <td>
-                            <p style="border-radius: 500px;" class="  fw-bold text-center btn-danger text-light">
+                            <p style="border-radius: 500px;" class="fw-bold text-center btn-danger text-light">
                                 {{$pm->status_pembayaran}}</p>
                         </td>
                         @endif
@@ -77,7 +77,6 @@
                                 @method('PUT')
                                 @csrf
                                 <input name="pesanan" hidden value="diterima" type="text" />
-                                <input name="status_pembayaran" hidden value="success" type="text" />
                                 <button type="submit" data-toggle="tooltip" title="terima" class="btn btn-link btn-lg"
                                     data-original-title="terima"><i class="bi bi-check2-all"></i></button>
                             </form>

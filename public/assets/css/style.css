@@ -625,4 +625,9 @@ bt:active {
   background-color: #555;
 }
 
+@media (min-width: 768px) {
+  .detail-flex {
+    display: flex;
+  }
+}
 
