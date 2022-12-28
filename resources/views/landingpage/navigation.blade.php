@@ -24,8 +24,6 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="#tentang">About</a>
                 </li>
-
-
                 {{-- notification --}}
                 @auth
                 @php
@@ -34,8 +32,8 @@
                 ->get();
                 @endphp
                 <li class="nav-item dropdown hidden-caret">
-                    <a class="nav-link dropdown-toggle" href="#" id="notifDropdown" role="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle nav-item dropdown hidden-caret" href="#" id="notifDropdown"
+                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-bell"></i>
                         @foreach($booking as $bg)
                         @if(Auth::user()->role === "customer")
@@ -102,6 +100,7 @@
                     </button>
                     <div class="dropdown-menu">
                         <a class="dropdown-item"><i class="fas fa-street-view"></i> {{ Auth::user()->role }}</a>
+                        <a class="dropdown-item"><i class="bi bi-hourglass-bottom"></i> History Pembelian</a>
                         @php
                         $role = Auth::user()->role
                         @endphp

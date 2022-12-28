@@ -96,9 +96,8 @@
                                                             <i class="fa fa-edit"></i>
                                                         </a>
 
-                                                        <button role="button"
-                                                            name="_method"
-                                                            type="submit" data-toggle="tooltip" title="Remove"
+                                                        <button role="button" name="_method" type="submit"
+                                                            data-toggle="tooltip" title="Remove"
                                                             class="btn btn-link btn-danger delete-confirm show_confirm"
                                                             data-original-title="Remove">
                                                             <i class="fa fa-trash"></i>
@@ -123,25 +122,23 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 
     <script type="text/javascript">
- 
-     $('.show_confirm').click(function(event) {
-          var form =  $(this).closest("form");
-          var name = $(this).data("name");
-          event.preventDefault();
-          swal({
-              title: `Yakin akan menghapus data user?`,
-              text: "Data akan dihapus secara permanent!",
-              icon: "warning",
-              buttons: true,
-              dangerMode: true,
-          })
-          .then((willDelete) => {
-            if (willDelete) {
-              form.submit();
-            }
-          });
-      });
-  
-</script>
+    $('.show_confirm').click(function(event) {
+        var form = $(this).closest("form");
+        var name = $(this).data("name");
+        event.preventDefault();
+        swal({
+                title: `Yakin akan menghapus data user?`,
+                text: "Data akan dihapus secara permanent!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
+                    form.submit();
+                }
+            });
+    });
+    </script>
 </div>
 @endsection

@@ -52,7 +52,7 @@ class KotaController extends Controller
 
     public function kotaStore(Request $request){
         $input = [
-            'nama_kota' => $request->nama_kota
+            'nama_kota' => $request->nama
         ];
 
         $kota = Kota::create($input);

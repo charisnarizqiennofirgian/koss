@@ -47,7 +47,7 @@
                         </div>
                     </div>
                     <!-- container -->
-                    <div class="mt-5 d-flex justify-content-between">
+                    <div class="mt-5 detail-flex">
                         <div class="d-flex flex-column col-8 mr-4">
                             <h5 style="font-size: 24px;font-weight: 600;">
                                 {{$kost_id->nama_kost ?? 'None'}}
@@ -78,11 +78,13 @@
                                 <h5 class="mt-4" style="font-size: 24px;font-weight: 600;">
                                     Spesifikasi Tipe Kamar</h5>
                                 <div class="d-flex justify-content-start mb-2 mt-3">
-                                    <i class="bi bi-aspect-ratio"></i>&nbsp;&nbsp;Luas kamar: {{$kost_id->luas_kamar ?? 'None'}}
+                                    <i class="bi bi-aspect-ratio"></i>&nbsp;&nbsp;Luas kamar:
+                                    {{$kost_id->luas_kamar ?? 'None'}}
                                     Meter
                                 </div>
                                 <div class=" d-flex justify-content-start">
-                                    <i class="bi bi-bag-heart"></i>&nbsp;&nbsp;Fasilitas: {{$kost_id->fasilitas ?? 'None'}}
+                                    <i class="bi bi-bag-heart"></i>&nbsp;&nbsp;Fasilitas:
+                                    {{$kost_id->fasilitas ?? 'None'}}
                                 </div>
 
                                 <div class="mt-5 row p-3">
@@ -103,7 +105,8 @@
                                     @csrf
                                     <h4 class="fw-bold">Rp.
                                         {{number_format($kost_id->harga_kamar, 2, ',', '. ')}}<span>/bln</span>
-                                        <input type="input" hidden id="harga" value="{{$kost_id->harga_kamar ?? 'None'}}">
+                                        <input type="input" hidden id="harga"
+                                            value="{{$kost_id->harga_kamar ?? 'None'}}">
                                     </h4>
                                     {{-- Pembayaran --}}
                                     {{-- tangal masuk --}}
@@ -124,12 +127,13 @@
                                             class="form-control" id="kode" required>
                                         <input name="id_user" value="{{$kost_id->id}}" hidden type="number"
                                             class="form-control" id="kode" required>
+                                        {{-- status pembayaran --}}
                                         <input name="status_pembayaran" value="diproses" hidden type="text"
                                             class="form-control" id="kode" required>
 
                                         {{-- hidden input untuk pesanan --}}
                                         <input name="pesanan" value="progress" hidden type="text" class="form-control"
-                                            id="kode" required>
+                                            required>
 
                                     </div>
                                     {{-- akhir Pembayaran --}}
