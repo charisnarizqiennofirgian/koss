@@ -11,9 +11,4 @@ class Pembayaran extends Model
     // proteceted fillabel buat table pembayaran
     protected $table = 'pembayaran';
     protected $fillable = ['kode_bayar', 'pesanan', 'id_kamar', 'id_user', 'tanggal_masuk', 'tanggal_keluar', 'total_bayar', 'status_pembayaran'];
-
-    public function user()
-    {
-        return $this->hasMany(User::class);
-    }
 }

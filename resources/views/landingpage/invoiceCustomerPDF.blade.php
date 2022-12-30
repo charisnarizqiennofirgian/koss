@@ -24,6 +24,7 @@
                     <tbody>
                         @foreach($invoice as $inv)
                         <tr style="color: black; padding: 5px 10px;">
+                            <td style="color: black; padding: 5px 10px;">{{$inv->name}}</td>
                             <td style="color: black; padding: 5px 10px;">{{$inv->kode_bayar}}</td>
                             <td style="color: black; padding: 5px 10px;">{{$inv->tanggal_masuk}}</td>
                             <td style="color: black; padding: 5px 10px;">{{$inv->tanggal_keluar}}</td>
