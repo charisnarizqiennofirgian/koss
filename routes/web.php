@@ -98,4 +98,6 @@ Route::get('kost-excel-pemilik', [PemilikController::class, 'print'])->middlewar
 Route::resource('/detailCustomer', InfoKostController::class); //well
 Route::resource('/pembayaran', PembayaranController::class)->middleware('auth');
 Route::get('/invoice', [PembayaranController::class, 'invoiceCustomer'])->name('invoice')->middleware('auth');
-Route::view('history' ,'landingpage.history');
+Route::get('history' ,[PembayaranController::class, 'transaksiCustomer'])->name('history')->middleware('auth');
+
+// Route::view('history', 'landingpage.history')->name('history');

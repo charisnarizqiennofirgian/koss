@@ -202,10 +202,23 @@ class PembayaranController extends Controller
     }
 
     public function invoiceCustomer(){
-        $heading = ['Kode Bayar', 'Mulai Kost', 'Kost Selesai', 'Total Bayar', 'Status Pembayaran', 'Status Pesanan'];
-        $invoice = Pembayaran::all();
+        $heading = ['Pemilik', 'Kode Bayar', 'Mulai Kost', 'Kost Selesai', 'Total Bayar', 'Status Pembayaran', 'Status Pesanan'];
+        // $invoice = Pembayaran::all();
+        $invoice = Pembayaran::join('users', 'users.id', '=', 'pembayaran.id_user')
+              ->join('kost', 'kost.id', '=', 'users.id')
+              ->get(['*', 'pembayaran.id_user', 'users.name', 'kost.nama_kost', 'kost.luas_kamar', 'kost.harga_kamar']);
         // dd($invoice);
         $pdf = PDF::loadView('landingpage.invoiceCustomerPDF', compact('invoice', 'heading'));
         return $pdf->download('invoice.pdf');
+    }
+
+    public function transaksiCustomer(){
+        // $history = Pembayaran::all();
+
+        $history = Pembayaran::join('users', 'users.id', '=', 'pembayaran.id_user')
+              ->join('kost', 'kost.id', '=', 'users.id')
+              ->get(['*', 'pembayaran.id_user', 'users.name', 'kost.nama_kost', 'kost.luas_kamar', 'kost.harga_kamar']);
+// dd($history);
+        return view('landingpage.history', compact('history'));
     }
 }
